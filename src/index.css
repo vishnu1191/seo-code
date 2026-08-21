@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: #050507;
+  }
+  
+  body {
+    background-color: #050507;
+    color: #F7F5FA;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050507;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1F1435;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B3DFF;
+  }
+
+  ::selection {
+    background-color: #8B3DFF;
+    color: #FFFFFF;
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.06); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes orbitSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmerEffect {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 7s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbitSpin 30s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbitSpin 40s linear infinite reverse;
+}
+
+/* Cosmic grid & radial pattern */
+.bg-grid-pattern {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(139, 61, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 61, 255, 0.04) 1px, transparent 1px);
+}
+
+.glass-panel {
+  background: rgba(10, 8, 16, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-glow {
+  background: linear-gradient(135deg, rgba(20, 14, 35, 0.8) 0%, rgba(10, 8, 16, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 61, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(75, 20, 127, 0.2);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(177, 92, 255, 0.45);
+  box-shadow: 0 12px 40px -10px rgba(139, 61, 255, 0.3);
+}
+
