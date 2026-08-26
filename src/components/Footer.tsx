@@ -155,12 +155,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Phone className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
-                  <a href="tel:+917014799233" className="hover:text-white transition-colors font-medium">
-                    +91 70147 99233
-                  </a>
-                </div>
-                <div className="flex items-center gap-2.5">
                   <Mail className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
                   <a href="mailto:vishnusivota@gmail.com" className="hover:text-white transition-colors font-medium break-all">
                     vishnusivota@gmail.com
