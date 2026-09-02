@@ -31,10 +31,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
             {/* Giant Headline with Violet Gradient Phrase */}
             <h1 
               id="hero-headline"
-              className="font-['Space_Grotesk'] text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter text-[#F7F5FA] leading-[0.95] mb-6"
+              className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
             >
-              TURN <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF]">ATTENTION</span><br />
-              INTO GROWTH.
+              SEO That Ranks.{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF]">
+                Ads That Convert.
+              </span>{' '}
+              Growth That Matters.
             </h1>
 
             {/* Supporting Copy */}
@@ -42,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               id="hero-supporting-copy"
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
-              We fuse high-end creative, predictive strategy, and performance technology to scale ambitious global brands.
+              From organic search to high-performance advertising, we help businesses increase visibility, generate qualified leads, and achieve measurable growth.
             </p>
 
             {/* Action Buttons */}
