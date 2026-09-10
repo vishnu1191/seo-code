@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Sparkles, TrendingUp, Filter, Eye } from 'lucide-react';
+import { ArrowUpRight, Sparkles, TrendingUp, Filter, Eye, ChevronDown, ChevronUp } from 'lucide-react';
 import { CASE_STUDIES } from '../data/agencyData';
 import { CaseStudy } from '../types';
 
@@ -9,6 +9,7 @@ interface CaseStudiesSectionProps {
 
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelectCaseStudy }) => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const filters = [
     { id: 'all', label: 'All Projects' },
@@ -23,6 +24,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
     if (activeFilter === 'all') return true;
     return study.category === activeFilter;
   });
+
+  const displayedStudies = showAll ? filteredStudies : filteredStudies.slice(0, 4);
+
+  const handleFilterChange = (filterId: string) => {
+    setActiveFilter(filterId);
+    setShowAll(false);
+  };
 
   return (
     <section id="work" className="relative py-20 lg:py-32 overflow-hidden">
@@ -56,7 +64,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
               return (
                 <button
                   key={filter.id}
-                  onClick={() => setActiveFilter(filter.id)}
+                  onClick={() => handleFilterChange(filter.id)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
                     activeFilter === filter.id
                       ? 'bg-[#8B3DFF] text-white shadow-[0_0_15px_rgba(139,61,255,0.4)] border border-[#B15CFF]/60'
@@ -79,7 +87,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
 
         {/* Case Study Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {filteredStudies.map((study) => (
+          {displayedStudies.map((study) => (
             <div
               key={study.id}
               id={`case-study-card-${study.id}`}
@@ -158,6 +166,24 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
             </div>
           ))}
         </div>
+
+        {/* View More / Show Less Toggle Button */}
+        {filteredStudies.length > 4 && (
+          <div className="mt-12 flex justify-center">
+            <button
+              id="case-studies-view-more-btn"
+              onClick={() => setShowAll(!showAll)}
+              className="px-7 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 hover:border-[#8B3DFF]/70 text-[#D7BFFF] hover:text-white text-xs uppercase tracking-widest font-bold flex items-center gap-2.5 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.25)] cursor-pointer"
+            >
+              <span>{showAll ? 'Show Less' : `View More Projects (+${filteredStudies.length - 4} More)`}</span>
+              {showAll ? (
+                <ChevronUp className="w-4 h-4 text-[#B15CFF]" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-[#B15CFF]" />
+              )}
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

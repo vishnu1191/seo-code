@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Sparkles, ShieldCheck, MapPin, Plus, CheckCircle2, MessageCircle, Quote } from 'lucide-react';
+import { Star, Sparkles, ShieldCheck, MapPin, Plus, CheckCircle2, MessageCircle, Quote, ChevronDown, ChevronUp } from 'lucide-react';
 import { TESTIMONIALS } from '../data/agencyData';
 import { Testimonial } from '../types';
 import { SubmitFeedbackModal } from './SubmitFeedbackModal';
@@ -8,6 +8,7 @@ export const TestimonialsSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [testimonialsList, setTestimonialsList] = useState<Testimonial[]>(TESTIMONIALS);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const categories = [
     { id: 'all', label: 'All Clients', count: testimonialsList.length },
@@ -23,6 +24,13 @@ export const TestimonialsSection: React.FC = () => {
     if (activeCategory === 'jaipur') return item.location?.toLowerCase().includes('jaipur');
     return item.category === activeCategory;
   });
+
+  const displayedTestimonials = showAll ? filteredTestimonials : filteredTestimonials.slice(0, 4);
+
+  const handleCategoryChange = (catId: string) => {
+    setActiveCategory(catId);
+    setShowAll(false);
+  };
 
   const handleAddFeedback = (newReview: Testimonial) => {
     setTestimonialsList([newReview, ...testimonialsList]);
@@ -106,7 +114,7 @@ export const TestimonialsSection: React.FC = () => {
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
+                  onClick={() => handleCategoryChange(cat.id)}
                   className={`px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                     isActive
                       ? 'bg-[#8B3DFF] text-white shadow-[0_0_15px_rgba(139,61,255,0.35)]'
@@ -149,7 +157,7 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Compact & High-Density Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-          {filteredTestimonials.map((testimonial) => (
+          {displayedTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
               id={`testimonial-card-${testimonial.id}`}
@@ -221,6 +229,24 @@ export const TestimonialsSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* View More / Show Less Reviews Toggle Button */}
+        {filteredTestimonials.length > 4 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              id="testimonials-view-more-btn"
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-2.5 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 hover:border-[#8B3DFF]/70 text-[#D7BFFF] hover:text-white text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_15px_rgba(139,61,255,0.2)] cursor-pointer"
+            >
+              <span>{showAll ? 'Show Less Reviews' : `View More Reviews (+${filteredTestimonials.length - 4} More)`}</span>
+              {showAll ? (
+                <ChevronUp className="w-3.5 h-3.5 text-[#B15CFF]" />
+              ) : (
+                <ChevronDown className="w-3.5 h-3.5 text-[#B15CFF]" />
+              )}
+            </button>
+          </div>
+        )}
 
       </div>
 

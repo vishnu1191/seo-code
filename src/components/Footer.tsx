@@ -3,10 +3,11 @@ import { ArrowRight, CheckCircle2, Globe, Mail, Phone, MapPin, Twitter, Linkedin
 import { BrandLogo } from './BrandLogo';
 
 interface FooterProps {
+  onNavigate?: (page: string) => void;
   onOpenInquiry: (initialService?: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -21,6 +22,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
       setNewsletterStatus('success');
       setNewsletterEmail('');
     }, 600);
+  };
+
+  const handleLinkClick = (pageId: string) => {
+    if (onNavigate) {
+      onNavigate(pageId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const scrollToTop = () => {
@@ -42,7 +50,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
             <div>
               {/* Logo */}
               <div className="mb-4">
-                <BrandLogo size="lg" variant="horizontal" />
+                <button
+                  onClick={() => handleLinkClick('home')}
+                  className="cursor-pointer text-left"
+                >
+                  <BrandLogo size="lg" variant="horizontal" />
+                </button>
               </div>
 
               <p className="text-xs sm:text-sm text-[#A7A3B1] leading-relaxed mb-6">
@@ -94,33 +107,34 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
           {/* Navigation Columns (Col span 8) */}
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
             
-            {/* Column 1: Company */}
+            {/* Column 1: Company Navigation */}
             <div>
               <h4 className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest text-[#D7BFFF] mb-4">
-                Architecture
+                Architecture Pages
               </h4>
               <ul className="space-y-2.5 text-xs text-[#A7A3B1]">
-                <li><a href="#about" className="hover:text-white transition-colors">About the Agency</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Core Capabilities</a></li>
-                <li><a href="#work" className="hover:text-white transition-colors">Selected Case Studies</a></li>
-                <li><a href="#performance" className="hover:text-white transition-colors">Proven Telemetry</a></li>
-                <li><a href="#process" className="hover:text-white transition-colors">Sprint Methodology</a></li>
-                <li><a href="#calculator" className="hover:text-white transition-colors">Interactive ROI Engine</a></li>
+                <li><button onClick={() => handleLinkClick('home')} className="hover:text-white transition-colors cursor-pointer text-left">Home Overview</button></li>
+                <li><button onClick={() => handleLinkClick('about')} className="hover:text-white transition-colors cursor-pointer text-left">About the Agency</button></li>
+                <li><button onClick={() => handleLinkClick('services')} className="hover:text-white transition-colors cursor-pointer text-left">Services &amp; Capabilities</button></li>
+                <li><button onClick={() => handleLinkClick('performance')} className="hover:text-white transition-colors cursor-pointer text-left">Performance &amp; Telemetry</button></li>
+                <li><button onClick={() => handleLinkClick('work')} className="hover:text-white transition-colors cursor-pointer text-left">Selected Case Studies</button></li>
+                <li><button onClick={() => handleLinkClick('process')} className="hover:text-white transition-colors cursor-pointer text-left">4-Phase Methodology</button></li>
+                <li><button onClick={() => handleLinkClick('calculator')} className="hover:text-white transition-colors cursor-pointer text-left">Interactive ROI Engine</button></li>
               </ul>
             </div>
 
-            {/* Column 2: Services */}
+            {/* Column 2: Specific Service Inquiries */}
             <div>
               <h4 className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest text-[#D7BFFF] mb-4">
-                Practices
+                Core Practices
               </h4>
               <ul className="space-y-2.5 text-xs text-[#A7A3B1]">
-                <li><button onClick={() => onOpenInquiry('Brand Strategy & Positioning')} className="hover:text-white transition-colors text-left">Brand Strategy</button></li>
-                <li><button onClick={() => onOpenInquiry('Social & Cultural Momentum')} className="hover:text-white transition-colors text-left">Social Performance</button></li>
-                <li><button onClick={() => onOpenInquiry('Paid Media & Performance')} className="hover:text-white transition-colors text-left">Paid Media (Meta/Google)</button></li>
-                <li><button onClick={() => onOpenInquiry('Content & Creative Production')} className="hover:text-white transition-colors text-left">3D & Motion Production</button></li>
-                <li><button onClick={() => onOpenInquiry('SEO & Search Intelligence')} className="hover:text-white transition-colors text-left">Generative SEO & GEO</button></li>
-                <li><button onClick={() => onOpenInquiry('Digital Experiences & Web Platforms')} className="hover:text-white transition-colors text-left">Headless Web Platforms</button></li>
+                <li><button onClick={() => onOpenInquiry('Enterprise Organic SEO & Entity Architecture')} className="hover:text-white transition-colors cursor-pointer text-left">Organic Search &amp; GEO</button></li>
+                <li><button onClick={() => onOpenInquiry('High-Performance Google & Meta Ads Management')} className="hover:text-white transition-colors cursor-pointer text-left">Google &amp; Meta Ads</button></li>
+                <li><button onClick={() => onOpenInquiry('Hyper-Local SEO & Google Maps 3-Pack Supremacy')} className="hover:text-white transition-colors cursor-pointer text-left">Google Maps 3-Pack</button></li>
+                <li><button onClick={() => onOpenInquiry('Generative Engine Optimization (GEO) & AI Search')} className="hover:text-white transition-colors cursor-pointer text-left">ChatGPT &amp; Perplexity AI</button></li>
+                <li><button onClick={() => onOpenInquiry('E-Commerce Organic Scaling & Shopify/Woo Growth')} className="hover:text-white transition-colors cursor-pointer text-left">E-Commerce &amp; DTC</button></li>
+                <li><button onClick={() => onOpenInquiry('Conversion Rate Optimization (CRO) & Digital Flagships')} className="hover:text-white transition-colors cursor-pointer text-left">CRO &amp; Web Flagships</button></li>
               </ul>
             </div>
 
@@ -142,53 +156,29 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
                     href="https://wa.me/917014799233?text=Hi%20SEO%20Jaipur%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project%20growth%20strategy."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#25D366] hover:text-emerald-300 transition-colors font-medium flex items-center gap-1.5"
+                    className="hover:text-emerald-400 font-semibold text-white transition-colors"
                   >
-                    <span>WhatsApp VIP Concierge</span>
-                    <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-[#25D366]/20 text-emerald-300 font-mono">24/7 Live</span>
-                  </a>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <Phone className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
-                  <a href="tel:+916367420500" className="hover:text-white transition-colors font-medium">
-                    +91 63674 20500
+                    +91 70147 99233 (WhatsApp)
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Mail className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
-                  <a href="mailto:vishnusivota@gmail.com" className="hover:text-white transition-colors font-medium break-all">
-                    vishnusivota@gmail.com
+                  <a href="mailto:vishnukumawat0033@gmail.com" className="hover:text-white transition-colors truncate">
+                    vishnukumawat0033@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
+                  <a href="tel:+916367420500" className="hover:text-white transition-colors">
+                    +91 63674 20500
                   </a>
                 </div>
               </div>
 
-              {/* Social & Messaging Channels */}
-              <div className="flex items-center gap-3 mt-6">
-                {[
-                  {
-                    icon: <MessageCircle className="w-3.5 h-3.5 text-[#25D366] fill-[#25D366]/30" />,
-                    label: 'WhatsApp Chat',
-                    href: 'https://wa.me/917014799233?text=Hi%20SEO%20Jaipur%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project%20growth%20strategy.',
-                    borderClass: 'border-[#25D366]/40 bg-[#25D366]/10 text-[#25D366] hover:border-[#25D366]'
-                  },
-                  { icon: <Twitter className="w-3.5 h-3.5" />, label: 'X / Twitter', href: '#', borderClass: 'border-[#8B3DFF]/25' },
-                  { icon: <Linkedin className="w-3.5 h-3.5" />, label: 'LinkedIn', href: '#', borderClass: 'border-[#8B3DFF]/25' },
-                  { icon: <Instagram className="w-3.5 h-3.5" />, label: 'Instagram', href: '#', borderClass: 'border-[#8B3DFF]/25' },
-                  { icon: <Github className="w-3.5 h-3.5" />, label: 'GitHub', href: '#', borderClass: 'border-[#8B3DFF]/25' },
-                ].map((social, idx) => (
-                  <a
-                    key={idx}
-                    href={social.href}
-                    target={social.href.startsWith('http') ? '_blank' : undefined}
-                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    aria-label={social.label}
-                    className={`w-8 h-8 rounded-lg bg-[#0A0810] flex items-center justify-center text-[#A7A3B1] hover:text-white transition-all ${
-                      social.borderClass || 'border-[#8B3DFF]/25 hover:border-[#8B3DFF]'
-                    }`}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
+              {/* Status Indicator */}
+              <div className="mt-4 pt-4 border-t border-white/5 flex items-center gap-2 text-[11px] text-[#85818E]">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Q1 Client Intake: Active (3 Slots)</span>
               </div>
             </div>
 
@@ -196,22 +186,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
 
         </div>
 
-        {/* Bottom Bar: Copyright & Legal */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#85818E]">
+        {/* Bottom Bar: Copyright & Back to Top */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#85818E]">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} SEO Jaipur Growth Labs. All Rights Reserved.</span>
+            <span>© {new Date().getFullYear()} SEO IN JAIPUR. All rights reserved.</span>
+            <span className="hidden sm:inline">•</span>
+            <span className="hidden sm:inline">Crafted for Search Supremacy</span>
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Architecture</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of SLA</a>
-            <a href="#" className="hover:text-white transition-colors">Security Protocol</a>
+            <button
+              onClick={() => handleLinkClick('about')}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Privacy &amp; Terms
+            </button>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-[#140E23] border border-[#8B3DFF]/30 text-[#D7BFFF] hover:text-white transition-colors ml-2 cursor-pointer"
-              aria-label="Scroll back to top"
+              className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer"
             >
-              <ArrowUp className="w-3.5 h-3.5" />
+              <span>Back to top</span>
+              <ArrowUp className="w-3 h-3 text-[#8B3DFF]" />
             </button>
           </div>
         </div>

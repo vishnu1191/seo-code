@@ -3,32 +3,18 @@ import { ArrowRight, Menu, X, Sparkles, Compass, MessageCircle } from 'lucide-re
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
+  currentPage: string;
+  onNavigate: (page: string) => void;
   onOpenInquiry: (initialService?: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenInquiry }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      const sections = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator', 'faq'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -36,22 +22,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#home', id: 'home' },
-    { label: 'About', href: '#about', id: 'about' },
-    { label: 'Services', href: '#services', id: 'services' },
-    { label: 'Performance', href: '#performance', id: 'performance' },
-    { label: 'Work', href: '#work', id: 'work' },
-    { label: 'Process', href: '#process', id: 'process' },
-    { label: 'ROI Engine', href: '#calculator', id: 'calculator' },
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Services', id: 'services' },
+    { label: 'Performance', id: 'performance' },
+    { label: 'Work', id: 'work' },
+    { label: 'Process', id: 'process' },
+    { label: 'ROI Engine', id: 'calculator' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent, pageId: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    onNavigate(pageId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -60,38 +44,45 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
         id="main-header"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-black/40 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)]'
-            : 'bg-transparent py-5 border-b border-white/5 backdrop-blur-md bg-black/20'
+            ? 'bg-[#050508]/90 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)]'
+            : 'bg-[#050508]/60 py-4 sm:py-5 border-b border-white/5 backdrop-blur-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="flex items-center justify-between">
             {/* Brand Logo / Wordmark */}
-            <a
+            <button
               id="brand-logo"
-              href="#home"
-              onClick={(e) => handleNavClick(e, '#home')}
-              className="group flex items-center focus:outline-none rounded-lg"
+              onClick={(e) => handleNavClick(e, 'home')}
+              className="group flex items-center focus:outline-none rounded-lg text-left cursor-pointer"
             >
               <BrandLogo size="md" variant="horizontal" />
-            </a>
+            </button>
 
             {/* Desktop Navigation Links */}
-            <nav id="desktop-navigation" aria-label="Main Navigation" className="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-[0.2em] font-medium text-[#A7A3B1]">
+            <nav
+              id="desktop-navigation"
+              aria-label="Main Navigation"
+              className="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] uppercase tracking-[0.2em] font-medium"
+            >
               {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
+                const isActive = currentPage === link.id;
                 return (
-                  <a
+                  <button
                     key={link.id}
                     id={`nav-link-${link.id}`}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`transition-colors duration-200 ${
-                      isActive ? 'text-white font-bold' : 'hover:text-white'
+                    onClick={(e) => handleNavClick(e, link.id)}
+                    className={`relative py-1 transition-all duration-200 cursor-pointer ${
+                      isActive
+                        ? 'text-white font-bold'
+                        : 'text-[#A7A3B1] hover:text-white'
                     }`}
                   >
-                    {link.label}
-                  </a>
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF] rounded-full shadow-[0_0_8px_#8B3DFF]" />
+                    )}
+                  </button>
                 );
               })}
             </nav>
@@ -126,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
                 aria-expanded={mobileMenuOpen}
-                className="p-2 rounded-lg bg-[#0A0810] border border-[#8B3DFF]/25 text-[#F7F5FA] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#8B3DFF]"
+                className="p-2 rounded-lg bg-[#0A0810] border border-[#8B3DFF]/25 text-[#F7F5FA] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#8B3DFF] cursor-pointer"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -139,29 +130,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
       {mobileMenuOpen && (
         <div
           id="mobile-drawer-overlay"
-          className="fixed inset-0 z-40 bg-black/80 backdrop-blur-2xl lg:hidden flex flex-col pt-24 pb-8 px-6 transition-all duration-300 animate-in fade-in"
+          className="fixed inset-0 z-40 bg-black/90 backdrop-blur-2xl lg:hidden flex flex-col pt-24 pb-8 px-6 transition-all duration-300 animate-in fade-in"
         >
           <div className="flex flex-col gap-2 max-w-md mx-auto w-full">
             <div className="text-[11px] font-semibold tracking-widest text-[#8B3DFF] uppercase mb-2 px-3">
-              Navigation Index
+              Page Selection
             </div>
             {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
+              const isActive = currentPage === link.id;
               return (
-                <a
+                <button
                   key={link.id}
                   id={`mobile-nav-${link.id}`}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                  onClick={(e) => handleNavClick(e, link.id)}
+                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all text-left cursor-pointer ${
                     isActive
-                      ? 'bg-[#8B3DFF]/20 text-white border border-[#8B3DFF]/40'
+                      ? 'bg-[#8B3DFF]/25 text-white border border-[#8B3DFF]/50 shadow-[0_0_15px_rgba(139,61,255,0.2)]'
                       : 'text-[#A7A3B1] hover:text-white hover:bg-white/5'
                   }`}
                 >
-                  <span>{link.label}</span>
-                  <ArrowRight className="w-4 h-4 opacity-60" />
-                </a>
+                  <span className="font-semibold">{link.label}</span>
+                  <ArrowRight className={`w-4 h-4 ${isActive ? 'text-[#8B3DFF]' : 'opacity-40'}`} />
+                </button>
               );
             })}
 
@@ -172,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3 rounded-xl text-sm font-semibold tracking-wide text-white bg-[#25D366] hover:bg-[#20bd5a] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,211,102,0.3)] text-black"
+                className="w-full py-3 rounded-xl text-sm font-semibold tracking-wide text-black bg-[#25D366] hover:bg-[#20bd5a] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,211,102,0.3)]"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span className="font-bold">Chat on WhatsApp</span>

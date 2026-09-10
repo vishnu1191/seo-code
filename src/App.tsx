@@ -3,21 +3,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { StatsStrip } from './components/StatsStrip';
-import { AboutSection } from './components/AboutSection';
-import { ServicesSection } from './components/ServicesSection';
-import { PerformanceSection } from './components/PerformanceSection';
-import { CaseStudiesSection } from './components/CaseStudiesSection';
-import { ProcessSection } from './components/ProcessSection';
-import { GrowthCalculator } from './components/GrowthCalculator';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { FAQSection } from './components/FAQSection';
-import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { PerformancePage } from './pages/PerformancePage';
+import { WorkPage } from './pages/WorkPage';
+import { ProcessPage } from './pages/ProcessPage';
+import { RoiEnginePage } from './pages/RoiEnginePage';
 import { ProjectInquiryModal } from './components/ProjectInquiryModal';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ShowreelModal } from './components/ShowreelModal';
@@ -25,92 +21,114 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CaseStudy } from './types';
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<string>('home');
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [inquiryInitialService, setInquiryInitialService] = useState<string>('');
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [showreelOpen, setShowreelOpen] = useState(false);
+
+  // Sync state with URL Hash for seamless back/forward navigation and direct links
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#/', '').replace('#', '').trim();
+      const validPages = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator'];
+      if (validPages.includes(hash)) {
+        setCurrentPage(hash);
+      } else if (!hash) {
+        setCurrentPage('home');
+      }
+    };
+
+    // Initial check
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navigateTo = (page: string) => {
+    setCurrentPage(page);
+    window.location.hash = `#/${page === 'home' ? '' : page}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleOpenInquiry = (initialService: string = '') => {
     setInquiryInitialService(initialService);
     setInquiryModalOpen(true);
   };
 
-  const handleExploreApproach = () => {
-    const processEl = document.getElementById('process');
-    if (processEl) {
-      processEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleOpenCaseStudies = () => {
-    const workEl = document.getElementById('work');
-    if (workEl) {
-      workEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="relative min-h-screen bg-[#050508] text-[#F7F5FA] selection:bg-[#8B3DFF]/30 selection:text-[#F7F5FA]">
+    <div className="relative min-h-screen bg-[#050508] text-[#F7F5FA] selection:bg-[#8B3DFF]/30 selection:text-[#F7F5FA] flex flex-col justify-between">
       {/* Layered Background Canvas & Ambient Atmospheric Lighting */}
       <BackgroundEffects />
 
       {/* Sticky Top Navigation */}
-      <Navbar onOpenInquiry={() => handleOpenInquiry()} />
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={navigateTo}
+        onOpenInquiry={() => handleOpenInquiry()}
+      />
 
-      {/* Main Page Sections */}
-      <main className="relative z-10">
-        {/* 1. Hero Section */}
-        <Hero
-          onOpenInquiry={() => handleOpenInquiry('Enterprise Growth Retainer')}
-          onOpenShowreel={() => setShowreelOpen(true)}
-        />
+      {/* Main Multi-Page Routed View Container */}
+      <main className="relative z-10 flex-1">
+        {currentPage === 'home' && (
+          <HomePage
+            onOpenInquiry={handleOpenInquiry}
+            onOpenShowreel={() => setShowreelOpen(true)}
+            onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
+            onNavigate={navigateTo}
+          />
+        )}
 
-        {/* 2. Floating Statistics Strip */}
-        <StatsStrip />
+        {currentPage === 'about' && (
+          <AboutPage
+            onOpenInquiry={handleOpenInquiry}
+            onNavigate={navigateTo}
+          />
+        )}
 
-        {/* 3. About Section */}
-        <AboutSection
-          onOpenInquiry={() => handleOpenInquiry('Strategic Partnership')}
-          onExploreApproach={handleExploreApproach}
-        />
+        {currentPage === 'services' && (
+          <ServicesPage
+            onOpenInquiry={handleOpenInquiry}
+            onNavigate={navigateTo}
+          />
+        )}
 
-        {/* 4. Core Services & Practices */}
-        <ServicesSection
-          onSelectService={(serviceTitle) => handleOpenInquiry(serviceTitle)}
-        />
+        {currentPage === 'performance' && (
+          <PerformancePage
+            onOpenInquiry={handleOpenInquiry}
+            onNavigate={navigateTo}
+          />
+        )}
 
-        {/* 5. Performance & Telemetry Visualizations */}
-        <PerformanceSection
-          onOpenCaseStudies={handleOpenCaseStudies}
-        />
+        {currentPage === 'work' && (
+          <WorkPage
+            onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
+            onOpenInquiry={handleOpenInquiry}
+            onNavigate={navigateTo}
+          />
+        )}
 
-        {/* 6. Featured Case Studies */}
-        <CaseStudiesSection
-          onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
-        />
+        {currentPage === 'process' && (
+          <ProcessPage
+            onOpenInquiry={handleOpenInquiry}
+            onNavigate={navigateTo}
+          />
+        )}
 
-        {/* 7. Strategic 4-Phase Process */}
-        <ProcessSection />
-
-        {/* 8. Interactive Growth & ROI Engine */}
-        <GrowthCalculator
-          onOpenInquiry={(planDetails) => handleOpenInquiry(planDetails)}
-        />
-
-        {/* 9. Executive Testimonials & Social Proof */}
-        <TestimonialsSection />
-
-        {/* 10. Frequently Addressed Questions */}
-        <FAQSection />
-
-        {/* 11. Final High-Impact Climax CTA Banner */}
-        <CTASection
-          onOpenInquiry={(intent) => handleOpenInquiry(intent)}
-        />
+        {currentPage === 'calculator' && (
+          <RoiEnginePage
+            onOpenInquiry={handleOpenInquiry}
+            onNavigate={navigateTo}
+          />
+        )}
       </main>
 
       {/* Multi-Column Professional Footer */}
-      <Footer onOpenInquiry={(service) => handleOpenInquiry(service)} />
+      <Footer
+        onNavigate={navigateTo}
+        onOpenInquiry={(service) => handleOpenInquiry(service)}
+      />
 
       {/* Interactive Modals */}
       <ProjectInquiryModal
@@ -136,4 +154,3 @@ export default function App() {
     </div>
   );
 }
-
