@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, Sparkles, ArrowRight, TrendingUp, DollarSign, Target, ShieldCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface GrowthCalculatorProps {
   onOpenInquiry: (initialService?: string) => void;
@@ -19,12 +20,22 @@ export const GrowthCalculator: React.FC<GrowthCalculatorProps> = ({ onOpenInquir
   return (
     <section id="calculator" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/3 w-[650px] h-[450px] bg-[#8B3DFF]/15 rounded-full blur-[170px] pointer-events-none" />
+      <motion.div 
+        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/3 w-[650px] h-[450px] bg-[#8B3DFF]/15 rounded-full blur-[170px] pointer-events-none" 
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-block px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-4">
             Interactive ROI Engine
           </div>
@@ -39,10 +50,16 @@ export const GrowthCalculator: React.FC<GrowthCalculatorProps> = ({ onOpenInquir
           <p className="text-[#A7A3B1] text-base leading-relaxed">
             Model your brand&apos;s growth trajectory using our predictive telemetry algorithms calibrated on $140M+ in verified client ad spend.
           </p>
-        </div>
+        </motion.div>
 
         {/* Calculator Interactive Board */}
-        <div className="rounded-3xl bg-[#0A0810]/80 backdrop-blur-2xl border border-white/5 p-6 sm:p-10 shadow-[0_20px_60px_-15px_rgba(75,20,127,0.35)]">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.98, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="rounded-3xl bg-[#0A0810]/80 backdrop-blur-2xl border border-white/5 p-6 sm:p-10 shadow-[0_20px_60px_-15px_rgba(75,20,127,0.35)] hover:border-[#8B3DFF]/30 transition-colors duration-500"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Input Controls Column */}
@@ -107,9 +124,11 @@ export const GrowthCalculator: React.FC<GrowthCalculatorProps> = ({ onOpenInquir
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {['Luxury / DTC', 'Gym & Fitness', 'Real Estate', 'Haute Couture', 'Hospitality', 'Healthcare'].map((ind) => (
-                    <button
+                    <motion.button
                       key={ind}
                       type="button"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.96 }}
                       onClick={() => setIndustry(ind)}
                       className={`px-3 py-2 rounded-xl text-xs font-medium tracking-wide transition-all ${
                         industry === ind
@@ -118,7 +137,7 @@ export const GrowthCalculator: React.FC<GrowthCalculatorProps> = ({ onOpenInquir
                       }`}
                     >
                       {ind}
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -141,9 +160,15 @@ export const GrowthCalculator: React.FC<GrowthCalculatorProps> = ({ onOpenInquir
                   <span className="text-[11px] font-semibold text-[#85818E] uppercase tracking-wider block mb-1">
                     Projected Annual Incremental Lift
                   </span>
-                  <div className="font-['Space_Grotesk'] text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D7BFFF] to-[#8B3DFF]">
+                  <motion.div 
+                    key={annualIncrementalRevenue}
+                    initial={{ scale: 0.97, opacity: 0.8 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="font-['Space_Grotesk'] text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D7BFFF] to-[#8B3DFF]"
+                  >
                     +${Math.round(annualIncrementalRevenue).toLocaleString()}
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
@@ -162,18 +187,20 @@ export const GrowthCalculator: React.FC<GrowthCalculatorProps> = ({ onOpenInquir
                 </div>
               </div>
 
-              <button
+              <motion.button
                 onClick={() => onOpenInquiry(`Custom ROI Plan: $${monthlyRevenue.toLocaleString()} base to ${targetMultiplier}x (${industry})`)}
-                className="w-full py-4 rounded-xl text-xs sm:text-sm font-semibold tracking-wide text-white bg-[#8B3DFF] hover:bg-[#9B4DFF] shadow-[0_0_25px_rgba(139,61,255,0.4)] flex items-center justify-center gap-2 transition-all hover:scale-[1.01] cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-4 rounded-xl text-xs sm:text-sm font-semibold tracking-wide text-white bg-[#8B3DFF] hover:bg-[#9B4DFF] shadow-[0_0_25px_rgba(139,61,255,0.4)] flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
                 <span>Claim Your Custom Growth Blueprint</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </motion.button>
 
             </div>
 
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

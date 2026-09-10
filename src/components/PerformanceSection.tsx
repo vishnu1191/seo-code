@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TrendingUp, BarChart3, PieChart, Activity, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { PERFORMANCE_METRICS } from '../data/agencyData';
 
 interface PerformanceSectionProps {
@@ -12,12 +13,22 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
   return (
     <section id="performance" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#4B147F]/15 rounded-full blur-[160px] pointer-events-none" />
+      <motion.div 
+        animate={{ scale: [1, 1.15, 1], opacity: [0.12, 0.22, 0.12] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#4B147F]/15 rounded-full blur-[160px] pointer-events-none" 
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16"
+        >
           <div className="max-w-2xl">
             <div className="inline-block px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-4">
               Proven Performance
@@ -36,21 +47,30 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
           </div>
 
           <div className="flex items-center gap-3">
-            <button
+            <motion.button
               onClick={onOpenCaseStudies}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-wide text-white bg-[#8B3DFF] hover:bg-[#9B4DFF] border border-[#B15CFF]/50 transition-all duration-300 hover:shadow-[0_0_25px_rgba(139,61,255,0.4)] cursor-pointer"
             >
               <span>Explore Verified Case Studies</span>
               <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         {/* 4 Performance Metric Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Card 1: Traffic Line Graph Visualization */}
-          <div className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0 }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-colors duration-300 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]"
+          >
             <div>
               <div className="flex items-center justify-between text-xs text-[#85818E] mb-3">
                 <span className="font-mono text-[#8B3DFF]">METRIC_01</span>
@@ -88,10 +108,17 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 <circle cx="200" cy="10" r="4" fill="#FFFFFF" stroke="#8B3DFF" strokeWidth="2" className="animate-pulse" />
               </svg>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: Conversion Bar Chart Visualization */}
-          <div className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-colors duration-300 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]"
+          >
             <div>
               <div className="flex items-center justify-between text-xs text-[#85818E] mb-3">
                 <span className="font-mono text-[#8B3DFF]">METRIC_02</span>
@@ -120,10 +147,17 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3: ROAS Circular Progress Ring */}
-          <div className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.2 }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-colors duration-300 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]"
+          >
             <div>
               <div className="flex items-center justify-between text-xs text-[#85818E] mb-3">
                 <span className="font-mono text-[#8B3DFF]">METRIC_03</span>
@@ -163,10 +197,17 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 85%
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 4: Executive Retention Sparkline */}
-          <div className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.3 }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            className="group rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-6 flex flex-col justify-between transition-colors duration-300 hover:shadow-[0_15px_35px_-10px_rgba(139,61,255,0.25)]"
+          >
             <div>
               <div className="flex items-center justify-between text-xs text-[#85818E] mb-3">
                 <span className="font-mono text-[#8B3DFF]">METRIC_04</span>
@@ -185,7 +226,7 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 <CheckCircle2 className="w-6 h-6 text-emerald-400" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

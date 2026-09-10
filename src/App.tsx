@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -71,57 +72,67 @@ export default function App() {
 
       {/* Main Multi-Page Routed View Container */}
       <main className="relative z-10 flex-1">
-        {currentPage === 'home' && (
-          <HomePage
-            onOpenInquiry={handleOpenInquiry}
-            onOpenShowreel={() => setShowreelOpen(true)}
-            onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
-            onNavigate={navigateTo}
-          />
-        )}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {currentPage === 'home' && (
+              <HomePage
+                onOpenInquiry={handleOpenInquiry}
+                onOpenShowreel={() => setShowreelOpen(true)}
+                onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
+                onNavigate={navigateTo}
+              />
+            )}
 
-        {currentPage === 'about' && (
-          <AboutPage
-            onOpenInquiry={handleOpenInquiry}
-            onNavigate={navigateTo}
-          />
-        )}
+            {currentPage === 'about' && (
+              <AboutPage
+                onOpenInquiry={handleOpenInquiry}
+                onNavigate={navigateTo}
+              />
+            )}
 
-        {currentPage === 'services' && (
-          <ServicesPage
-            onOpenInquiry={handleOpenInquiry}
-            onNavigate={navigateTo}
-          />
-        )}
+            {currentPage === 'services' && (
+              <ServicesPage
+                onOpenInquiry={handleOpenInquiry}
+                onNavigate={navigateTo}
+              />
+            )}
 
-        {currentPage === 'performance' && (
-          <PerformancePage
-            onOpenInquiry={handleOpenInquiry}
-            onNavigate={navigateTo}
-          />
-        )}
+            {currentPage === 'performance' && (
+              <PerformancePage
+                onOpenInquiry={handleOpenInquiry}
+                onNavigate={navigateTo}
+              />
+            )}
 
-        {currentPage === 'work' && (
-          <WorkPage
-            onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
-            onOpenInquiry={handleOpenInquiry}
-            onNavigate={navigateTo}
-          />
-        )}
+            {currentPage === 'work' && (
+              <WorkPage
+                onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
+                onOpenInquiry={handleOpenInquiry}
+                onNavigate={navigateTo}
+              />
+            )}
 
-        {currentPage === 'process' && (
-          <ProcessPage
-            onOpenInquiry={handleOpenInquiry}
-            onNavigate={navigateTo}
-          />
-        )}
+            {currentPage === 'process' && (
+              <ProcessPage
+                onOpenInquiry={handleOpenInquiry}
+                onNavigate={navigateTo}
+              />
+            )}
 
-        {currentPage === 'calculator' && (
-          <RoiEnginePage
-            onOpenInquiry={handleOpenInquiry}
-            onNavigate={navigateTo}
-          />
-        )}
+            {currentPage === 'calculator' && (
+              <RoiEnginePage
+                onOpenInquiry={handleOpenInquiry}
+                onNavigate={navigateTo}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Multi-Column Professional Footer */}

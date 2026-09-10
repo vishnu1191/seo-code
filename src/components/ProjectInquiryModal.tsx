@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Send, Building2, User, Mail, DollarSign, MessageCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ProjectInquiryData } from '../types';
 import { BrandLogo } from './BrandLogo';
 
@@ -78,17 +79,30 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#0A0810] border border-[#8B3DFF]/35 shadow-[0_25px_60px_-15px_rgba(75,20,127,0.5)] p-6 sm:p-10 text-left">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl"
+    >
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 15 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#0A0810] border border-[#8B3DFF]/35 shadow-[0_25px_60px_-15px_rgba(75,20,127,0.5)] p-6 sm:p-10 text-left"
+      >
         
         {/* Close Button */}
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           onClick={onClose}
           aria-label="Close dialog"
           className="absolute top-6 right-6 p-2 rounded-full bg-[#140E23] border border-[#8B3DFF]/30 text-[#A7A3B1] hover:text-white hover:border-[#8B3DFF] transition-all cursor-pointer"
         >
           <X className="w-5 h-5" />
-        </button>
+        </motion.button>
 
         {isSubmitted ? (
           <div className="py-12 flex flex-col items-center text-center">
@@ -316,7 +330,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
           </div>
         )}
 
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };

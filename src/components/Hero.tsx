@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Play, Sparkles, Shield, Zap, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface HeroProps {
   onOpenInquiry: () => void;
@@ -12,7 +13,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
   return (
     <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 lg:py-24 overflow-hidden">
       {/* Dynamic Background Volumetric Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#8B3DFF]/15 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.12, 1],
+          opacity: [0.15, 0.25, 0.15]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#8B3DFF]/20 to-transparent rounded-full blur-[140px] pointer-events-none" 
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -21,56 +29,81 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
             {/* Live Status Eyebrow Badge */}
-            <div 
+            <motion.div 
               id="hero-eyebrow-badge"
-              className="inline-block px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-6 w-fit"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-6 w-fit shadow-[0_0_15px_rgba(139,61,255,0.2)]"
             >
-              Next-Gen Growth Agency
-            </div>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
+              <span>Next-Gen Growth Agency</span>
+            </motion.div>
 
             {/* Giant Headline with Violet Gradient Phrase */}
-            <h1 
+            <motion.h1 
               id="hero-headline"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
             >
               SEO That Ranks.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
                 Ads That Convert.
               </span>{' '}
               Growth That Matters.
-            </h1>
+            </motion.h1>
 
             {/* Supporting Copy */}
-            <p 
+            <motion.p 
               id="hero-supporting-copy"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
               From organic search to high-performance advertising, we help businesses increase visibility, generate qualified leads, and achieve measurable growth.
-            </p>
+            </motion.p>
 
             {/* Action Buttons */}
-            <div id="hero-actions" className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
-              <button
+            <motion.div 
+              id="hero-actions"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10"
+            >
+              <motion.button
                 id="hero-primary-cta"
                 onClick={onOpenInquiry}
+                whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.4)" }}
+                whileTap={{ scale: 0.97 }}
                 className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-[#D7BFFF] transition-colors cursor-pointer shadow-lg"
               >
                 <span>Book Strategy Call</span>
-                <span className="opacity-50 text-base">→</span>
-              </button>
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
 
-              <button
+              <motion.button
                 id="hero-secondary-cta"
                 onClick={onOpenShowreel}
-                className="w-full sm:w-auto px-8 py-4 border border-white/10 hover:bg-white/5 rounded-xl text-sm font-semibold transition-all text-white flex items-center justify-center gap-2 cursor-pointer"
+                whileHover={{ scale: 1.03, borderColor: "rgba(139,61,255,0.6)" }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full sm:w-auto px-8 py-4 border border-white/10 hover:bg-white/5 rounded-xl text-sm font-semibold transition-all text-white flex items-center justify-center gap-2 cursor-pointer shadow-sm"
               >
                 <Play className="w-3.5 h-3.5 text-[#D7BFFF] fill-[#D7BFFF]" />
                 <span>Explore Our Work</span>
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
 
             {/* Credibility Key Markers */}
-            <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-[#8B3DFF]/15 text-xs text-[#85818E]">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-6 pt-4 border-t border-[#8B3DFF]/15 text-xs text-[#85818E]"
+            >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">Zero Outsourcing</span>
@@ -83,12 +116,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">Guaranteed SLA Execution</span>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
           {/* Right Column: Large Cinematic Futuristic Visual Composition */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 relative flex items-center justify-center"
+          >
             
             {/* Ambient Background Aura */}
             <div className="absolute inset-0 bg-gradient-to-tr from-[#8B3DFF]/20 via-[#4B147F]/30 to-transparent rounded-3xl blur-[60px] pointer-events-none" />
@@ -112,14 +150,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <div className="absolute w-[210px] h-[210px] rounded-full border border-[#D7BFFF]/15 animate-pulse-slow pointer-events-none" />
 
                 {/* Floating Geometric Coordinates HUD */}
-                <div className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2.5 py-1 rounded-md border border-[#8B3DFF]/20">
+                <motion.div 
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2.5 py-1 rounded-md border border-[#8B3DFF]/20"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
                   <span>SYNAPSE_CORE // ACTIVE</span>
-                </div>
+                </motion.div>
 
-                <div className="absolute top-4 right-4 z-20 font-mono text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-2 py-1 rounded-md border border-white/5">
+                <motion.div 
+                  animate={{ y: [0, 4, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="absolute top-4 right-4 z-20 font-mono text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-2 py-1 rounded-md border border-white/5"
+                >
                   LAT: 4.8x ROAS
-                </div>
+                </motion.div>
 
                 {/* Cinematic Digital Architect / Mystic Strategist Silhouette Visual */}
                 <div className="relative w-full h-full flex items-center justify-center">
@@ -207,7 +253,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07070B] via-[#07070B]/80 to-transparent z-20 pointer-events-none" />
 
                 {/* Bottom Floating Stats Pill inside the Visual */}
-                <div className="absolute bottom-4 inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-xl shadow-lg">
+                <motion.div 
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute bottom-4 inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-xl shadow-lg"
+                >
                   <div className="flex items-center gap-2.5">
                     <div className="w-7 h-7 rounded-lg bg-[#8B3DFF]/20 flex items-center justify-center text-[#D7BFFF]">
                       <TrendingUp className="w-4 h-4" />
@@ -221,12 +271,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                     <span className="text-xs font-mono font-bold text-emerald-400">+380.4%</span>
                     <span className="block text-[9px] text-[#85818E]">Verified Lift</span>
                   </div>
-                </div>
+                </motion.div>
 
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

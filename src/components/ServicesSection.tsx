@@ -11,6 +11,7 @@ import {
   Zap,
   TrendingUp
 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { AGENCY_SERVICES } from '../data/agencyData';
 import { ServiceItem } from '../types';
 
@@ -38,7 +39,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-20"
+        >
           <div className="inline-block px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-4">
             Core Capabilities
           </div>
@@ -53,15 +60,20 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           <p className="text-[#A7A3B1] text-base sm:text-lg leading-relaxed">
             We eliminate the fragmentation of managing six different agencies. A unified, synchronized growth engine covering full-funnel strategy, execution, and retention.
           </p>
-        </div>
+        </motion.div>
 
         {/* 6 Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {AGENCY_SERVICES.map((service) => (
-            <div
+          {AGENCY_SERVICES.map((service, idx) => (
+            <motion.div
               key={service.id}
               id={`service-card-${service.id}`}
-              className="group relative rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-10px_rgba(139,61,255,0.25)] cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.08, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="group relative rounded-2xl bg-[#0A0810]/70 backdrop-blur-xl border border-white/5 hover:border-[#8B3DFF]/40 p-7 flex flex-col justify-between transition-colors duration-300 hover:shadow-[0_15px_40px_-10px_rgba(139,61,255,0.25)] cursor-pointer"
               onClick={() => onSelectService(service.title)}
             >
               {/* Subtle top card glow line on hover */}
@@ -70,9 +82,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               <div>
                 {/* Card Top: Number and Icon */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1F1235] to-[#0A0810] border border-[#8B3DFF]/25 flex items-center justify-center text-[#D7BFFF] group-hover:text-white group-hover:border-[#B15CFF]/60 group-hover:shadow-[0_0_20px_rgba(139,61,255,0.4)] transition-all duration-300">
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1F1235] to-[#0A0810] border border-[#8B3DFF]/25 flex items-center justify-center text-[#D7BFFF] group-hover:text-white group-hover:border-[#B15CFF]/60 group-hover:shadow-[0_0_20px_rgba(139,61,255,0.4)] transition-all duration-300"
+                  >
                     {iconMap[service.iconName] || <Zap className="w-6 h-6" />}
-                  </div>
+                  </motion.div>
 
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs font-semibold text-[#8B3DFF] bg-[#140E23] px-2.5 py-1 rounded-full border border-white/5">
@@ -117,7 +132,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </div>
               </div>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 

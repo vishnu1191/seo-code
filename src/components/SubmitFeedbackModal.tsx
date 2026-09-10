@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Star, Send, ShieldCheck, Sparkles, MapPin, Building2, User, MessageCircle, CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { Testimonial } from '../types';
 
 interface SubmitFeedbackModalProps {
@@ -77,19 +78,30 @@ export const SubmitFeedbackModal: React.FC<SubmitFeedbackModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-xl">
-      <div
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-xl"
+    >
+      <motion.div
         id="submit-feedback-modal"
-        className="relative w-full max-w-2xl bg-[#0A0810] border border-[#8B3DFF]/40 rounded-3xl p-6 sm:p-8 shadow-[0_25px_70px_rgba(139,61,255,0.25)] my-8 text-left animate-in fade-in zoom-in-95 duration-200"
+        initial={{ opacity: 0, scale: 0.95, y: 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 15 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="relative w-full max-w-2xl bg-[#0A0810] border border-[#8B3DFF]/40 rounded-3xl p-6 sm:p-8 shadow-[0_25px_70px_rgba(139,61,255,0.25)] my-8 text-left"
       >
         {/* Close Button */}
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           onClick={onClose}
           className="absolute top-5 right-5 p-2 rounded-full text-[#85818E] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
-        </button>
+        </motion.button>
 
         {isSuccess ? (
           <div className="py-12 flex flex-col items-center text-center space-y-4">
@@ -317,7 +329,7 @@ export const SubmitFeedbackModal: React.FC<SubmitFeedbackModalProps> = ({
             </form>
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
