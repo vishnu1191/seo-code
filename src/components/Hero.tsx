@@ -48,11 +48,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
             >
-              SEO That Ranks.{' '}
+              Grow Your Business with{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-                Ads That Convert.
+                SEO, Google Ads &amp; Meta Ads
               </span>{' '}
-              Growth That Matters.
+              in Jaipur
             </motion.h1>
 
             {/* Supporting Copy */}

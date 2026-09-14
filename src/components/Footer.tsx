@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Github, ArrowUp, MessageCircle } from 'lucide-react';
-import { motion } from 'motion/react';
 import { BrandLogo } from './BrandLogo';
 
 interface FooterProps {
@@ -39,22 +38,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
   return (
     <footer id="main-footer" className="relative bg-[#040307] border-t border-[#8B3DFF]/20 pt-16 sm:pt-20 pb-12 overflow-hidden text-left">
       {/* Background radial gradient */}
-      <motion.div 
-        animate={{ scale: [1, 1.15, 1], opacity: [0.08, 0.15, 0.08] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#4B147F]/10 blur-[160px] pointer-events-none" 
-      />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#4B147F]/10 blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main 4-Column Grid */}
-        <motion.div 
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-[#8B3DFF]/15"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-[#8B3DFF]/15">
           
           {/* Brand Info & Newsletter (Col span 4) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
@@ -102,15 +91,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                       newsletterStatus === 'error' ? 'border-rose-500' : 'border-white/10'
                     } rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-[#85818E] focus:outline-none focus:border-[#8B3DFF] pr-10`}
                   />
-                  <motion.button
+                  <button
                     type="submit"
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.92 }}
                     aria-label="Subscribe to newsletter"
                     className="absolute right-1.5 p-1.5 rounded-lg bg-[#8B3DFF] text-white hover:bg-[#9B4DFF] transition-colors cursor-pointer"
                   >
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </motion.button>
+                  </button>
                 </form>
               )}
             </div>
@@ -160,7 +147,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-[#8B3DFF] shrink-0 mt-0.5" />
                   <span className="leading-relaxed text-[#D7BFFF]/90">
-                    Joshi Marg, 100 Feet Road, near Jhotwara, Jaipur, Rajasthan 302012, India
+                    Joshi Marg, 100 Feet Road, Near Jhotwara, Jaipur, Rajasthan 302012, India
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5">
@@ -171,13 +158,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                     rel="noopener noreferrer"
                     className="hover:text-emerald-400 font-semibold text-white transition-colors"
                   >
-                    +91 70147 99233 (WhatsApp)
+                    Chat on WhatsApp
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Mail className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
-                  <a href="mailto:vishnukumawat0033@gmail.com" className="hover:text-white transition-colors truncate">
-                    vishnukumawat0033@gmail.com
+                  <a href="mailto:vishnusivota@gmail.com" className="hover:text-white transition-colors truncate">
+                    vishnusivota@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5">
@@ -197,7 +184,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
 
           </div>
 
-        </motion.div>
+        </div>
 
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#85818E]">
@@ -214,15 +201,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
             >
               Privacy &amp; Terms
             </button>
-            <motion.button
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 1 }}
+            <button
               onClick={scrollToTop}
               className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer"
             >
               <span>Back to top</span>
               <ArrowUp className="w-3 h-3 text-[#8B3DFF]" />
-            </motion.button>
+            </button>
           </div>
         </div>
 

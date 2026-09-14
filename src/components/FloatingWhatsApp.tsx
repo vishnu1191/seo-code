@@ -22,11 +22,10 @@ export const FloatingWhatsApp: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-bold text-white block font-['Space_Grotesk']">
-                  SEO Jaipur VIP Desk
+                  SEO in Jaipur Desk
                 </span>
-                <span className="text-[10px] text-emerald-400 flex items-center gap-1 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  Online • VIP Growth Desk
+                <span className="text-[11px] font-semibold text-[#25D366] block font-mono">
+                  +91 70147 99233
                 </span>
               </div>
             </div>

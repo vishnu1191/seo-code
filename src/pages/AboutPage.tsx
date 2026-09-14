@@ -192,7 +192,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
                   <div>
                     <div className="text-xs font-bold text-white">Jaipur HQ & Hub</div>
-                    <div className="text-[11px] text-[#85818E]">Jhotwara, Jaipur, Rajasthan 302012</div>
+                    <div className="text-[11px] text-[#85818E]">Joshi Marg, 100 Feet Road, Near Jhotwara, Jaipur, Rajasthan 302012, India</div>
                   </div>
                 </div>
 
@@ -248,7 +248,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
                   <button
                     onClick={() => onOpenInquiry('Enterprise Retainer')}
-                    className="px-4 py-2 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-[10px] uppercase tracking-wider font-bold transition-all"
+                    className="px-4 py-2 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-[10px] uppercase tracking-wider font-bold transition-all cursor-pointer"
                   >
                     Request Audit
                   </button>

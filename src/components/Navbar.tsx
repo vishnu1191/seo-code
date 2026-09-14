@@ -187,7 +187,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                   className="w-full py-3 rounded-xl text-sm font-semibold tracking-wide text-black bg-[#25D366] hover:bg-[#20bd5a] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,211,102,0.3)]"
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
-                  <span className="font-bold">Chat on WhatsApp</span>
+                  <span className="font-bold">WhatsApp (+91 70147 99233)</span>
                 </motion.a>
 
                 <motion.button
