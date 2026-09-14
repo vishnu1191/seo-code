@@ -28,28 +28,47 @@ export default function App() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [showreelOpen, setShowreelOpen] = useState(false);
 
-  // Sync state with URL Hash for seamless back/forward navigation and direct links
+  // Clean HTML5 History API path-based navigation (removes '#/' and uses clean URLs like /about/, /services/)
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#/', '').replace('#', '').trim();
+    const handleLocationChange = () => {
+      // If legacy or stray hash exists (e.g. #/ or #/about), automatically clean it up
+      if (window.location.hash) {
+        const hashTarget = window.location.hash.replace('#/', '').replace('#', '').trim();
+        const validPages = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator'];
+        if (hashTarget && validPages.includes(hashTarget)) {
+          const cleanPath = hashTarget === 'home' ? '/' : `/${hashTarget}/`;
+          window.history.replaceState({ page: hashTarget }, '', cleanPath);
+          setCurrentPage(hashTarget);
+          return;
+        } else {
+          window.history.replaceState(null, '', window.location.pathname || '/');
+        }
+      }
+
+      // Parse clean pathname (e.g., '/', '/about/', '/services/')
+      const normalizedPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
       const validPages = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator'];
-      if (validPages.includes(hash)) {
-        setCurrentPage(hash);
-      } else if (!hash) {
+      if (validPages.includes(normalizedPath)) {
+        setCurrentPage(normalizedPath);
+      } else {
         setCurrentPage('home');
       }
     };
 
-    // Initial check
-    handleHashChange();
+    // Initial check on load
+    handleLocationChange();
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    // Listen for browser forward/backward navigation
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
 
   const navigateTo = (page: string) => {
     setCurrentPage(page);
-    window.location.hash = `#/${page === 'home' ? '' : page}`;
+    const cleanPath = page === 'home' ? '/' : `/${page}/`;
+    if (window.location.pathname !== cleanPath || window.location.hash) {
+      window.history.pushState({ page }, '', cleanPath);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
