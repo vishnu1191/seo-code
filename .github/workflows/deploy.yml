@@ -2,7 +2,8 @@ name: Deploy Vite site to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -11,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -32,12 +33,13 @@ jobs:
 
       - name: Build
         run: npm run build
-       - name: Create static route pages for SEO
-  run: |
-    for route in about services performance work process calculator; do
-      mkdir -p "dist/$route"
-      cp dist/index.html "dist/$route/index.html"
-    done
+
+      - name: Create static route pages for SEO
+        run: |
+          for route in about services performance work process calculator; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
