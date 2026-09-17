@@ -43,7 +43,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
             {[
               { id: 'about', label: 'About Us', desc: 'Our Mission & Team', icon: Compass },
-              { id: 'services', label: 'Services', desc: '6 Core Practices', icon: Target },
+              { id: 'services', label: 'Services', desc: '18 Full-Stack Services', icon: Target },
               { id: 'performance', label: 'Performance', desc: 'Telemetry & SERP', icon: BarChart3 },
               { id: 'work', label: 'Work & Portfolio', desc: '20+ Case Studies', icon: Layers },
               { id: 'process', label: '4-Phase Process', desc: 'Growth Roadmap', icon: ShieldCheck },
@@ -109,7 +109,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             }}
             className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
           >
-            <span>View All Detailed Services, Tech Stacks & Packages</span>
+            <span>Explore All 18 Digital Marketing Services & Architecture</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

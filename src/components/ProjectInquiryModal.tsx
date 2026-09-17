@@ -145,9 +145,28 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
               <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-white mb-2">
                 Initiate Project Architecture.
               </h2>
-              <p className="text-xs sm:text-sm text-[#A7A3B1]">
-                Share your core objective. We will prepare an unassailable growth thesis before our initial call.
-              </p>
+              
+              {/* Founder Desk Trust Badge */}
+              <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#140E23]/80 border border-[#8B3DFF]/25 mt-3">
+                <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#8B3DFF]/50 shrink-0 bg-[#0A0810] shadow-[0_0_15px_rgba(139,61,255,0.25)]">
+                  <img
+                    src="/vishnu-sivota.png"
+                    alt="Vishnu Sivota - Founder"
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.parentElement?.querySelector('.fallback-modal');
+                      if (fallback) fallback.classList.remove('hidden');
+                    }}
+                  />
+                  <div className="fallback-modal hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-xs bg-[#0A0810]">
+                    VS
+                  </div>
+                </div>
+                <p className="text-xs text-[#A7A3B1] leading-relaxed">
+                  Direct Founder Desk: Reviewed directly by <strong className="text-white">Vishnu Sivota</strong> (Founder) &amp; <strong className="text-white">Manish Chaudhary</strong> (Director) with strict confidentiality.
+                </p>
+              </div>
             </div>
 
             {/* Form */}

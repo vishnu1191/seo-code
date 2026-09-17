@@ -17,7 +17,8 @@ import {
   Globe2, 
   Phone,
   MessageCircle,
-  FileCheck
+  FileCheck,
+  Mail
 } from 'lucide-react';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { BrandLogo } from '../components/BrandLogo';
@@ -69,24 +70,40 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
 
   const milestones = [
     {
-      year: '2020',
-      title: 'Foundation in Jaipur',
-      desc: 'Established with a core mission: replacing outdated agency retainer fluff with quantitative, code-level search engineering.',
+      year: '2025',
+      period: 'Q1 2025',
+      tag: 'AI-Native Genesis',
+      title: 'Disrupting Legacy Retainers',
+      desc: 'Founded in Jaipur by Vishnu Sivota & Manish Chaudhary to solve what outdated 2015-era agencies cannot: replacing vanity retainers with code-level semantic entity graphs and direct commercial revenue accountability.',
+      metric: 'Zero-Fluff Methodology',
+      highlight: false
     },
     {
-      year: '2022',
-      title: 'Real Estate & Luxury Breakthrough',
-      desc: 'Delivered ₹100 Cr+ in tracked property transactions across Jaipur, Delhi NCR, and Mumbai luxury residential developments.',
-    },
-    {
-      year: '2024',
-      title: 'Global Delivery Network Expansion',
-      desc: 'Expanded search operations to Dubai, London, and Singapore enterprise accounts while retaining 96%+ client renewal rates.',
+      year: '2025',
+      period: 'Q3 2025',
+      tag: 'Pan-India Footprint',
+      title: 'Pan-India Category Dominance',
+      desc: 'Captured #1 SERP real estate across Jaipur, Delhi NCR, Mumbai, and Bangalore. Scaled high-intent organic funnels and Google/Meta performance ads for luxury real estate, healthcare chains, and fast-growing D2C brands.',
+      metric: '₹150 Cr+ Tracked Pipeline',
+      highlight: false
     },
     {
       year: '2026',
-      title: '₹450 Cr+ Direct Transaction Benchmark',
-      desc: 'Pioneered Generative Engine Optimization (GEO) and AI search integrations across 280+ active brand deployments.',
+      period: 'Q1 2026',
+      tag: 'AI Search Supremacy',
+      title: 'Pioneering GEO & AI Citations',
+      desc: 'First-mover in Generative Engine Optimization (GEO). Engineered proprietary frameworks to guarantee partner brand citations inside Google AI Overviews (SGE), Perplexity AI, ChatGPT Search, and Apple Intelligence.',
+      metric: 'Top AI SGE Citation Share',
+      highlight: true
+    },
+    {
+      year: '2026',
+      period: 'Present & Beyond',
+      tag: 'Global Delivery',
+      title: 'Cross-Border Global Enterprise Scale',
+      desc: 'Deploying high-retention omni-channel growth across India, UAE (Dubai), UK, and North American markets. Delivering sub-second Core Web Vitals, enterprise CRO, and compounding customer acquisition velocity.',
+      metric: '96.8% Client Retention',
+      highlight: false
     }
   ];
 
@@ -298,37 +315,359 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
             </div>
           </div>
 
+          {/* Executive Leadership & Founders */}
+          <div className="mb-24" id="leadership">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#D7BFFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-3 shadow-[0_0_15px_rgba(139,61,255,0.2)]">
+                <Users2 className="w-3.5 h-3.5 text-[#B15CFF]" />
+                <span>Executive Leadership</span>
+              </div>
+              <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white mb-3">
+                The Minds Behind the Architecture
+              </h2>
+              <p className="text-xs sm:text-sm text-[#A7A3B1] leading-relaxed">
+                Direct, uncompromised strategic direction. Every client engagement is steered by senior practitioners with a personal stake in your compounding growth.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Vishnu Sivota - Founder */}
+              <div className="rounded-3xl bg-[#0A0810]/95 border border-[#8B3DFF]/30 p-8 flex flex-col justify-between relative overflow-hidden shadow-[0_20px_50px_-10px_rgba(139,61,255,0.2)] group hover:border-[#8B3DFF]/60 transition-all duration-300">
+                <div className="absolute top-0 right-0 w-44 h-44 bg-[#8B3DFF]/15 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#8B3DFF]/25 transition-all" />
+
+                <div>
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                      {/* Founder Photo with Fallback Monogram */}
+                      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#8B3DFF]/50 flex items-center justify-center bg-gradient-to-br from-[#1F1235] to-[#0A0810] shadow-[0_0_30px_rgba(139,61,255,0.35)] shrink-0 group/photo">
+                        <img
+                          src="/vishnu-sivota.png"
+                          alt="Vishnu Sivota - Founder & Performance Marketing Architect"
+                          className="w-full h-full object-cover object-top"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.parentElement?.querySelector('.fallback-monogram');
+                            if (fallback) fallback.classList.remove('hidden');
+                          }}
+                        />
+                        <div className="fallback-monogram hidden absolute inset-0 flex items-center justify-center text-white font-['Space_Grotesk'] text-2xl font-black bg-gradient-to-br from-[#1F1235] to-[#0A0810]">
+                          VS
+                        </div>
+                        <div className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-[#8B3DFF]/40 text-[8px] font-mono text-[#D7BFFF] font-bold">
+                          Founder
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-white group-hover:text-[#D7BFFF] transition-colors">
+                            Vishnu Sivota
+                          </h3>
+                        </div>
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#8B3DFF]/20 border border-[#8B3DFF]/40 text-[#D7BFFF] text-[11px] font-mono font-semibold mb-1.5">
+                          <Sparkles className="w-3 h-3 text-[#B15CFF]" />
+                          <span>Founder &amp; Performance Marketing Architect</span>
+                        </div>
+                        <div className="text-[11px] text-[#A7A3B1] flex items-center gap-1.5">
+                          <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span>Direct Strategic Direction &amp; Account Oversight</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#140E23] text-[#85818E] border border-white/5">
+                      Executive Founder
+                    </span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#C5C2CE] leading-relaxed mb-6">
+                    &ldquo;We engineered SEO IN JAIPUR to bridge the gap between creative marketing and hard commercial numbers. As a Performance Marketing specialist with comprehensive digital command across Google Ads, Meta Ads, and full-funnel CRO, I architect high-ROAS paid acquisition systems and deploy next-gen AI growth funnels that turn cold search and social demand into compounding, multi-crore revenue pipelines.&rdquo;
+                  </p>
+
+                  {/* Core Skillsets & AI Funnels Matrix */}
+                  <div className="mb-6 pt-4 border-t border-white/5 space-y-4">
+                    {/* Performance Ads Mastery */}
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#8B3DFF] font-bold mb-1.5 flex items-center justify-between">
+                        <span>Performance Marketing &amp; Ad Scaling Mastery</span>
+                        <span className="text-emerald-400 text-[9px] font-normal">Expert Level</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          'Google Ads (Search, Shopping, PMax & YouTube Action)',
+                          'Meta Ads (Facebook & Instagram High-ROAS Funnels)',
+                          'Meta CAPI Server-Side Tracking & Lookalike Scaling',
+                          'Target ROAS/CPA Optimization & Ad Waste Elimination'
+                        ].map((spec, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[#140E23] text-[#D7BFFF] border border-[#8B3DFF]/20 flex items-center gap-1.5"
+                          >
+                            <CheckCircle2 className="w-3 h-3 text-[#8B3DFF]" />
+                            <span>{spec}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* AI-Powered Growth Funnels */}
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#B15CFF] font-bold mb-1.5 flex items-center justify-between">
+                        <span>Next-Gen AI Acquisition Funnels</span>
+                        <span className="text-[#D7BFFF] text-[9px] font-normal">AI-Native</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          'Generative Engine Optimization (GEO for ChatGPT & Perplexity)',
+                          'AI Dynamic Creative Testing (DCT) & Copy Synthesis',
+                          'Predictive Algorithmic Bidding & Audience Clustering',
+                          'Automated WhatsApp AI Bots & Instant CRM Nurturing'
+                        ].map((spec, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[#140E23] text-[#F7F5FA] border border-white/5 flex items-center gap-1.5"
+                          >
+                            <Sparkles className="w-3 h-3 text-[#B15CFF]" />
+                            <span>{spec}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* 360° Full-Stack Digital Command */}
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#85818E] font-bold mb-1.5">
+                        360° Digital &amp; Search Authority
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          'Enterprise Organic SEO & Semantic Entity Graphs',
+                          'Sub-Second Page Speed & Core Web Vitals Engineering',
+                          'Conversion Rate Optimization (CRO) & Heatmap Analytics',
+                          'Hyper-Local Google Business Profile (GBP) 3-Pack'
+                        ].map((spec, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[#0C0816] text-[#A7A3B1] border border-white/5 flex items-center gap-1.5"
+                          >
+                            <CheckCircle2 className="w-3 h-3 text-[#85818E]" />
+                            <span>{spec}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-5 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 text-xs text-[#A7A3B1]">
+                    <a
+                      href="mailto:vishnusivota@gmail.com"
+                      className="hover:text-white transition-colors flex items-center gap-1.5"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-[#8B3DFF]" />
+                      <span>vishnusivota@gmail.com</span>
+                    </a>
+                  </div>
+
+                  <a
+                    href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20would%20like%20to%20connect%20regarding%20an%20enterprise%20growth%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded-full bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-[0_0_15px_rgba(37,211,102,0.15)]"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>WhatsApp Founder Desk</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Manish Chaudhary - Director */}
+              <div className="rounded-3xl bg-[#0A0810]/95 border border-[#8B3DFF]/30 p-8 flex flex-col justify-between relative overflow-hidden shadow-[0_20px_50px_-10px_rgba(139,61,255,0.2)] group hover:border-[#8B3DFF]/60 transition-all duration-300">
+                <div className="absolute top-0 right-0 w-44 h-44 bg-[#8B3DFF]/15 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#8B3DFF]/25 transition-all" />
+
+                <div>
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div className="flex items-center gap-4">
+                      {/* Avatar Monogram */}
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1F1235] to-[#0A0810] border-2 border-[#8B3DFF]/50 flex items-center justify-center text-white font-['Space_Grotesk'] text-2xl font-black shadow-[0_0_25px_rgba(139,61,255,0.3)] shrink-0">
+                        MC
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-white group-hover:text-[#D7BFFF] transition-colors">
+                            Manish Chaudhary
+                          </h3>
+                        </div>
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#8B3DFF]/20 border border-[#8B3DFF]/40 text-[#D7BFFF] text-[11px] font-mono font-semibold">
+                          <ShieldCheck className="w-3 h-3 text-[#B15CFF]" />
+                          <span>Director &amp; Operations Head</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#140E23] text-[#85818E] border border-white/5">
+                      Executive Director
+                    </span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#C5C2CE] leading-relaxed mb-6">
+                    &ldquo;Delivery excellence and execution velocity are non-negotiable. We ensure every multi-channel campaign sprint is deployed with surgical accuracy, sub-second telemetry tracking, and measurable revenue attribution.&rdquo;
+                  </p>
+
+                  {/* Operational Core Pillars */}
+                  <div className="mb-6 pt-4 border-t border-white/5 space-y-4">
+                    {/* Sprint & Campaign Operations */}
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#8B3DFF] font-bold mb-1.5 flex items-center justify-between">
+                        <span>Campaign Delivery &amp; Sprint Execution</span>
+                        <span className="text-emerald-400 text-[9px] font-normal">Active Sprints</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          'Omni-Channel Campaign Orchestration & Quality Audits',
+                          'Sprint Velocity & Sub-Second Technical Deployments',
+                          'Cross-Platform Conversion Tracking & Tag Governance',
+                          'Full-Funnel Creative Pipeline Management'
+                        ].map((spec, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[#140E23] text-[#D7BFFF] border border-[#8B3DFF]/20 flex items-center gap-1.5"
+                          >
+                            <CheckCircle2 className="w-3 h-3 text-[#8B3DFF]" />
+                            <span>{spec}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Client Retention & Scalability */}
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#B15CFF] font-bold mb-1.5 flex items-center justify-between">
+                        <span>Enterprise Client Success &amp; Retention</span>
+                        <span className="text-[#D7BFFF] text-[9px] font-normal">96.8% Renewal</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          'Transparent Weekly Senior Telemetry Reviews',
+                          'Rapid Crisis Resolution & Penalty Recovery',
+                          'Dedicated Enterprise SLA & Account Governance',
+                          'Cross-Market Scalability (India, UAE, UK, US)'
+                        ].map((spec, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[#140E23] text-[#F7F5FA] border border-white/5 flex items-center gap-1.5"
+                          >
+                            <Sparkles className="w-3 h-3 text-[#B15CFF]" />
+                            <span>{spec}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Operational Standards */}
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#85818E] font-bold mb-1.5">
+                        Operational Quality Standards
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          'Zero Junior Hand-offs Guarantee',
+                          'Strict NDA & Enterprise Data Privacy',
+                          'Real-Time Live Analytics Dashboard Access',
+                          'Guaranteed Sub-12-Hour Support Turnaround'
+                        ].map((spec, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[#0C0816] text-[#A7A3B1] border border-white/5 flex items-center gap-1.5"
+                          >
+                            <CheckCircle2 className="w-3 h-3 text-[#85818E]" />
+                            <span>{spec}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-5 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 text-xs text-[#A7A3B1]">
+                    <a
+                      href="tel:+916367420500"
+                      className="hover:text-white transition-colors flex items-center gap-1.5"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-[#8B3DFF]" />
+                      <span>+91 63674 20500</span>
+                    </a>
+                  </div>
+
+                  <button
+                    onClick={() => onOpenInquiry('Executive Consultation - Manish Chaudhary')}
+                    className="px-4 py-2 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-[0_0_15px_rgba(139,61,255,0.3)] hover:scale-105 cursor-pointer"
+                  >
+                    <span>Consult Operations Desk</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Agency Milestones Timeline */}
           <div className="mb-24">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <div className="text-xs font-mono font-bold text-[#8B3DFF] uppercase tracking-widest mb-2">
-                Proven Track Record
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#D7BFFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-3 shadow-[0_0_15px_rgba(139,61,255,0.2)]">
+                <Sparkles className="w-3.5 h-3.5 text-[#B15CFF]" />
+                <span>Next-Gen Trajectory (2025 &ndash; 2026)</span>
               </div>
-              <h2 className="font-['Space_Grotesk'] text-3xl font-bold text-white mb-3">
-                Agency Evolution & Milestones
+              <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white mb-3">
+                Born for the Modern AI Search Revolution
               </h2>
+              <p className="text-xs sm:text-sm text-[#A7A3B1] leading-relaxed">
+                While legacy agencies struggle to unlearn decade-old vanity tactics, SEO IN JAIPUR was engineered from day one for Google&apos;s latest Core Updates, Generative AI answer engines, and rapid cross-border revenue scaling.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {milestones.map((ms, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-[#0A0810] border border-white/5 hover:border-[#8B3DFF]/40 transition-all flex flex-col justify-between"
+                  className={`p-6 rounded-2xl bg-[#0A0810] border transition-all flex flex-col justify-between group relative overflow-hidden ${
+                    ms.highlight
+                      ? 'border-[#8B3DFF]/60 shadow-[0_0_30px_rgba(139,61,255,0.25)]'
+                      : 'border-white/5 hover:border-[#8B3DFF]/40'
+                  }`}
                 >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#8B3DFF]/10 rounded-full blur-[40px] pointer-events-none group-hover:bg-[#8B3DFF]/20 transition-all" />
+
                   <div>
-                    <div className="font-['Space_Grotesk'] text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF] mb-2">
-                      {ms.year}
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-['Space_Grotesk'] text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF]">
+                          {ms.year}
+                        </span>
+                        <span className="text-[10px] font-mono text-[#A7A3B1] font-semibold">
+                          {ms.period}
+                        </span>
+                      </div>
+                      <span className="text-[9px] uppercase tracking-wider font-mono font-bold px-2 py-0.5 rounded-full bg-[#140E23] text-[#D7BFFF] border border-[#8B3DFF]/30 whitespace-nowrap">
+                        {ms.tag}
+                      </span>
                     </div>
-                    <div className="text-sm font-bold text-white mb-2">
+
+                    <h3 className="text-sm font-bold text-white mb-2 group-hover:text-[#D7BFFF] transition-colors leading-snug">
                       {ms.title}
-                    </div>
-                    <p className="text-xs text-[#85818E] leading-relaxed">
+                    </h3>
+                    <p className="text-xs text-[#85818E] leading-relaxed mb-4">
                       {ms.desc}
                     </p>
                   </div>
-                  <div className="mt-4 pt-4 border-t border-white/5 flex items-center gap-1 text-[10px] text-[#8B3DFF] font-mono">
-                    <CheckCircle2 className="w-3 h-3" />
-                    <span>Verified Milestone</span>
+
+                  <div className="mt-2 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
+                    <div className="flex items-center gap-1.5 text-[#D7BFFF]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
+                      <span className="font-semibold text-[10px]">{ms.metric}</span>
+                    </div>
                   </div>
                 </div>
               ))}

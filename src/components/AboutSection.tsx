@@ -167,6 +167,38 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
               ))}
             </div>
 
+            {/* Leadership Trust Strip */}
+            <div className="w-full p-4 rounded-2xl bg-gradient-to-r from-[#140E23]/90 via-[#0A0810] to-[#140E23]/90 border border-[#8B3DFF]/25 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-[#8B3DFF]/50 bg-[#1E1133] shrink-0 shadow-[0_0_15px_rgba(139,61,255,0.3)]">
+                  <img
+                    src="/vishnu-sivota.png"
+                    alt="Vishnu Sivota"
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.parentElement?.querySelector('.fallback-thumb');
+                      if (fallback) fallback.classList.remove('hidden');
+                    }}
+                  />
+                  <div className="fallback-thumb hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-xs bg-[#1E1133]">
+                    VS
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono uppercase text-[#8B3DFF] font-bold tracking-wider">
+                    Senior Executive Oversight
+                  </div>
+                  <div className="text-xs text-white font-medium">
+                    Led by <strong className="text-[#D7BFFF]">Vishnu Sivota</strong> (Founder) &amp; <strong className="text-[#D7BFFF]">Manish Chaudhary</strong> (Director)
+                  </div>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#080512] text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
+                ● 100% In-House Direct Strategy
+              </span>
+            </div>
+
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
               <motion.button
