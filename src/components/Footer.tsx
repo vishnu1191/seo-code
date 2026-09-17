@@ -62,31 +62,64 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                 Jaipur&apos;s premier SEO &amp; digital growth agency combining predictive data strategy, organic search dominance, and algorithmic media to scale ambitious businesses.
               </p>
 
-              {/* Leadership Attribution */}
-              <div className="mb-6 p-3 rounded-xl bg-[#0A0810] border border-white/5 text-[11px] flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-[#8B3DFF]/40 shrink-0 bg-[#140E23]">
-                  <img
-                    src="/vishnu-sivota.png"
-                    alt="Vishnu Sivota"
-                    className="w-full h-full object-cover object-top"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.parentElement?.querySelector('.fallback-footer');
-                      if (fallback) fallback.classList.remove('hidden');
-                    }}
-                  />
-                  <div className="fallback-footer hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-[10px] bg-[#140E23]">
-                    VS
-                  </div>
+              {/* Leadership Attribution - Separate Founder & Director Boxes */}
+              <div className="mb-6">
+                <div className="text-[10px] font-mono text-[#8B3DFF] uppercase tracking-wider mb-2 font-bold">
+                  Executive Leadership
                 </div>
-                <div>
-                  <div className="text-[10px] font-mono text-[#8B3DFF] uppercase tracking-wider mb-0.5 font-bold">
-                    Executive Leadership
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                  {/* Box 1: Founder */}
+                  <div className="p-2.5 rounded-xl bg-[#0A0810] border border-white/5 hover:border-[#8B3DFF]/30 transition-all flex items-center gap-2.5">
+                    <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#8B3DFF]/40 shrink-0 bg-[#140E23]">
+                      <img
+                        src="/vishnu-sivota.png"
+                        alt="Vishnu Sivota"
+                        className="w-full h-full object-cover object-top"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const fallback = e.currentTarget.parentElement?.querySelector('.fallback-footer-vs');
+                          if (fallback) fallback.classList.remove('hidden');
+                        }}
+                      />
+                      <div className="fallback-footer-vs hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-[9px] bg-[#140E23]">
+                        VS
+                      </div>
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-white font-bold text-xs truncate">
+                        Vishnu Sivota
+                      </div>
+                      <div className="text-[10px] text-[#85818E] font-mono truncate">
+                        Founder &bull; Marketing Architect
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-white">
-                    <span><strong>Vishnu Sivota</strong> <span className="text-[#85818E] text-[10px]">(Founder)</span></span>
-                    <span className="text-[#85818E]">•</span>
-                    <span><strong>Manish Chaudhary</strong> <span className="text-[#85818E] text-[10px]">(Director)</span></span>
+
+                  {/* Box 2: Director */}
+                  <div className="p-2.5 rounded-xl bg-[#0A0810] border border-white/5 hover:border-[#8B3DFF]/30 transition-all flex items-center gap-2.5">
+                    <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#8B3DFF]/40 shrink-0 bg-[#140E23]">
+                      <img
+                        src="/manish-chaudhary.png"
+                        alt="Manish Chaudhary"
+                        className="w-full h-full object-cover object-top"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const fallback = e.currentTarget.parentElement?.querySelector('.fallback-footer-mc');
+                          if (fallback) fallback.classList.remove('hidden');
+                        }}
+                      />
+                      <div className="fallback-footer-mc hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-[9px] bg-[#140E23]">
+                        MC
+                      </div>
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-white font-bold text-xs truncate">
+                        Manish Chaudhary
+                      </div>
+                      <div className="text-[10px] text-[#85818E] font-mono truncate">
+                        Director &bull; SEO Specialist
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

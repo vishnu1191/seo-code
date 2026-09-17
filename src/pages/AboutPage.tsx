@@ -482,53 +482,73 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                 </div>
               </div>
 
-              {/* Manish Chaudhary - Director */}
+              {/* Manish Chaudhary - Director & SEO Specialist */}
               <div className="rounded-3xl bg-[#0A0810]/95 border border-[#8B3DFF]/30 p-8 flex flex-col justify-between relative overflow-hidden shadow-[0_20px_50px_-10px_rgba(139,61,255,0.2)] group hover:border-[#8B3DFF]/60 transition-all duration-300">
                 <div className="absolute top-0 right-0 w-44 h-44 bg-[#8B3DFF]/15 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#8B3DFF]/25 transition-all" />
 
                 <div>
                   <div className="flex items-start justify-between gap-4 mb-6">
-                    <div className="flex items-center gap-4">
-                      {/* Avatar Monogram */}
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1F1235] to-[#0A0810] border-2 border-[#8B3DFF]/50 flex items-center justify-center text-white font-['Space_Grotesk'] text-2xl font-black shadow-[0_0_25px_rgba(139,61,255,0.3)] shrink-0">
-                        MC
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                      {/* Director Photo with Fallback Monogram */}
+                      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#8B3DFF]/50 flex items-center justify-center bg-gradient-to-br from-[#1F1235] to-[#0A0810] shadow-[0_0_30px_rgba(139,61,255,0.35)] shrink-0 group/photo">
+                        <img
+                          src="/manish-chaudhary.png"
+                          alt="Manish Chaudhary - Director & SEO Specialist"
+                          className="w-full h-full object-cover object-top"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.parentElement?.querySelector('.fallback-monogram-mc');
+                            if (fallback) fallback.classList.remove('hidden');
+                          }}
+                        />
+                        <div className="fallback-monogram-mc hidden absolute inset-0 flex items-center justify-center text-white font-['Space_Grotesk'] text-2xl font-black bg-gradient-to-br from-[#1F1235] to-[#0A0810]">
+                          MC
+                        </div>
+                        <div className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-[#8B3DFF]/40 text-[8px] font-mono text-[#D7BFFF] font-bold">
+                          Director
+                        </div>
                       </div>
+
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-white group-hover:text-[#D7BFFF] transition-colors">
                             Manish Chaudhary
                           </h3>
                         </div>
-                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#8B3DFF]/20 border border-[#8B3DFF]/40 text-[#D7BFFF] text-[11px] font-mono font-semibold">
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#8B3DFF]/20 border border-[#8B3DFF]/40 text-[#D7BFFF] text-[11px] font-mono font-semibold mb-1.5">
                           <ShieldCheck className="w-3 h-3 text-[#B15CFF]" />
-                          <span>Director &amp; Operations Head</span>
+                          <span>Director &amp; SEO Specialist</span>
+                        </div>
+                        <div className="text-[11px] text-[#A7A3B1] flex items-center gap-1.5">
+                          <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span>Organic Search Architecture &amp; Technical Dominance</span>
                         </div>
                       </div>
                     </div>
 
-                    <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#140E23] text-[#85818E] border border-white/5">
-                      Executive Director
+                    <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#140E23] text-[#D7BFFF] border border-[#8B3DFF]/30">
+                      SEO Specialist
                     </span>
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#C5C2CE] leading-relaxed mb-6">
-                    &ldquo;Delivery excellence and execution velocity are non-negotiable. We ensure every multi-channel campaign sprint is deployed with surgical accuracy, sub-second telemetry tracking, and measurable revenue attribution.&rdquo;
+                    &ldquo;Real SEO isn&apos;t just keyword stuffing or cheap backlinks. It&apos;s an architectural engineering discipline of semantic topic clusters, flawless crawlability, Core Web Vitals perfection, and unshakeable first-page search authority.&rdquo;
                   </p>
 
                   {/* Operational Core Pillars */}
                   <div className="mb-6 pt-4 border-t border-white/5 space-y-4">
-                    {/* Sprint & Campaign Operations */}
+                    {/* SEO Architecture & Algorithm Engineering */}
                     <div>
                       <div className="text-[10px] font-mono uppercase tracking-wider text-[#8B3DFF] font-bold mb-1.5 flex items-center justify-between">
-                        <span>Campaign Delivery &amp; Sprint Execution</span>
-                        <span className="text-emerald-400 text-[9px] font-normal">Active Sprints</span>
+                        <span>Search Engine Architecture &amp; Core Vitals</span>
+                        <span className="text-emerald-400 text-[9px] font-normal">Page 1 Domination</span>
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {[
-                          'Omni-Channel Campaign Orchestration & Quality Audits',
-                          'Sprint Velocity & Sub-Second Technical Deployments',
-                          'Cross-Platform Conversion Tracking & Tag Governance',
-                          'Full-Funnel Creative Pipeline Management'
+                          'Enterprise Technical SEO & Crawl Budget Optimization',
+                          'Semantic Topic Clustering & Entity Graph Engineering',
+                          'Core Web Vitals & Sub-Second LCP Performance Audits',
+                          'AI Search Engine Readiness (Google SGE, Perplexity, Gemini)'
                         ].map((spec, sIdx) => (
                           <span
                             key={sIdx}
@@ -541,18 +561,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       </div>
                     </div>
 
-                    {/* Client Retention & Scalability */}
+                    {/* Link Equity & Organic Growth */}
                     <div>
                       <div className="text-[10px] font-mono uppercase tracking-wider text-[#B15CFF] font-bold mb-1.5 flex items-center justify-between">
-                        <span>Enterprise Client Success &amp; Retention</span>
-                        <span className="text-[#D7BFFF] text-[9px] font-normal">96.8% Renewal</span>
+                        <span>Organic Authority &amp; Market Penetration</span>
+                        <span className="text-[#D7BFFF] text-[9px] font-normal">High-Intent Traffic</span>
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {[
-                          'Transparent Weekly Senior Telemetry Reviews',
-                          'Rapid Crisis Resolution & Penalty Recovery',
-                          'Dedicated Enterprise SLA & Account Governance',
-                          'Cross-Market Scalability (India, UAE, UK, US)'
+                          'High-Domain Authority Digital PR & Editorial Links',
+                          'Hyper-Local Jaipur Map Pack (#1 Google Maps Pack)',
+                          'Google Algorithm Core Update Immune Architecture',
+                          'Zero-Click Search & Featured Snippet Takeovers'
                         ].map((spec, sIdx) => (
                           <span
                             key={sIdx}
@@ -568,14 +588,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                     {/* Operational Standards */}
                     <div>
                       <div className="text-[10px] font-mono uppercase tracking-wider text-[#85818E] font-bold mb-1.5">
-                        Operational Quality Standards
+                        Client Delivery Standards
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {[
-                          'Zero Junior Hand-offs Guarantee',
-                          'Strict NDA & Enterprise Data Privacy',
-                          'Real-Time Live Analytics Dashboard Access',
-                          'Guaranteed Sub-12-Hour Support Turnaround'
+                          '100% White-Hat Google Search Essentials Compliant',
+                          'Transparent Weekly Live Keyword Ranking Dashboards',
+                          'Direct Director-Level Technical Code & Schema Reviews',
+                          'Fast SLA Turnaround on Algorithm Updates'
                         ].map((spec, sIdx) => (
                           <span
                             key={sIdx}
@@ -602,10 +622,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
 
                   <button
-                    onClick={() => onOpenInquiry('Executive Consultation - Manish Chaudhary')}
+                    onClick={() => onOpenInquiry('SEO Architecture Consultation - Manish Chaudhary')}
                     className="px-4 py-2 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-[0_0_15px_rgba(139,61,255,0.3)] hover:scale-105 cursor-pointer"
                   >
-                    <span>Consult Operations Desk</span>
+                    <span>Consult SEO Desk</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

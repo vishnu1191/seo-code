@@ -167,36 +167,73 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
               ))}
             </div>
 
-            {/* Leadership Trust Strip */}
-            <div className="w-full p-4 rounded-2xl bg-gradient-to-r from-[#140E23]/90 via-[#0A0810] to-[#140E23]/90 border border-[#8B3DFF]/25 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-[#8B3DFF]/50 bg-[#1E1133] shrink-0 shadow-[0_0_15px_rgba(139,61,255,0.3)]">
-                  <img
-                    src="/vishnu-sivota.png"
-                    alt="Vishnu Sivota"
-                    className="w-full h-full object-cover object-top"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.parentElement?.querySelector('.fallback-thumb');
-                      if (fallback) fallback.classList.remove('hidden');
-                    }}
-                  />
-                  <div className="fallback-thumb hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-xs bg-[#1E1133]">
-                    VS
+            {/* Leadership Trust Cards - Separate Founder & Director Boxes */}
+            <div className="w-full mb-8">
+              <div className="text-[10px] font-mono uppercase text-[#8B3DFF] font-bold tracking-wider mb-2.5 flex items-center justify-between">
+                <span>Executive Leadership &amp; Account Oversight</span>
+                <span className="text-emerald-400 font-normal">● 100% In-House Direction</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* Box 1: Founder Vishnu Sivota */}
+                <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#160D27]/90 via-[#0A0810] to-[#120B20]/90 border border-[#8B3DFF]/30 hover:border-[#8B3DFF]/60 transition-all flex items-center gap-3.5 shadow-[0_4px_20px_rgba(139,61,255,0.15)]">
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-[#8B3DFF]/50 bg-[#1E1133] shrink-0 shadow-[0_0_15px_rgba(139,61,255,0.35)]">
+                    <img
+                      src="/vishnu-sivota.png"
+                      alt="Vishnu Sivota"
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const fallback = e.currentTarget.parentElement?.querySelector('.fallback-thumb-vs');
+                        if (fallback) fallback.classList.remove('hidden');
+                      }}
+                    />
+                    <div className="fallback-thumb-vs hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-xs bg-[#1E1133]">
+                      VS
+                    </div>
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-bold text-white flex items-center gap-1.5 truncate">
+                      <span>Vishnu Sivota</span>
+                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#8B3DFF]/25 text-[#D7BFFF] border border-[#8B3DFF]/40 font-semibold">
+                        Founder
+                      </span>
+                    </div>
+                    <div className="text-[11px] text-[#A7A3B1] truncate mt-0.5">
+                      Performance Marketing Architect
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <div className="text-[10px] font-mono uppercase text-[#8B3DFF] font-bold tracking-wider">
-                    Senior Executive Oversight
+
+                {/* Box 2: Director Manish Chaudhary */}
+                <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#120B20]/90 via-[#0A0810] to-[#160D27]/90 border border-[#8B3DFF]/30 hover:border-[#8B3DFF]/60 transition-all flex items-center gap-3.5 shadow-[0_4px_20px_rgba(139,61,255,0.15)]">
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-[#8B3DFF]/50 bg-[#1E1133] shrink-0 shadow-[0_0_15px_rgba(139,61,255,0.35)]">
+                    <img
+                      src="/manish-chaudhary.png"
+                      alt="Manish Chaudhary - Director & SEO Specialist"
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const fallback = e.currentTarget.parentElement?.querySelector('.fallback-thumb-mc');
+                        if (fallback) fallback.classList.remove('hidden');
+                      }}
+                    />
+                    <div className="fallback-thumb-mc hidden absolute inset-0 flex items-center justify-center text-[#D7BFFF] font-['Space_Grotesk'] font-bold text-xs bg-[#1E1133]">
+                      MC
+                    </div>
                   </div>
-                  <div className="text-xs text-white font-medium">
-                    Led by <strong className="text-[#D7BFFF]">Vishnu Sivota</strong> (Founder) &amp; <strong className="text-[#D7BFFF]">Manish Chaudhary</strong> (Director)
+                  <div className="min-w-0">
+                    <div className="text-xs font-bold text-white flex items-center gap-1.5 truncate">
+                      <span>Manish Chaudhary</span>
+                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#8B3DFF]/25 text-[#D7BFFF] border border-[#8B3DFF]/40 font-semibold">
+                        Director
+                      </span>
+                    </div>
+                    <div className="text-[11px] text-[#A7A3B1] truncate mt-0.5">
+                      SEO Specialist &amp; Search Dominance
+                    </div>
                   </div>
                 </div>
               </div>
-              <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#080512] text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
-                ● 100% In-House Direct Strategy
-              </span>
             </div>
 
             {/* CTAs */}
