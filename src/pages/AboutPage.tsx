@@ -341,7 +341,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       {/* Founder Photo with Fallback Monogram */}
                       <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#8B3DFF]/50 flex items-center justify-center bg-gradient-to-br from-[#1F1235] to-[#0A0810] shadow-[0_0_30px_rgba(139,61,255,0.35)] shrink-0 group/photo">
                         <img
-                          src="/vishnu-sivota.png"
+                          src="/vishnu-sivota.webp"
                           alt="Vishnu Sivota - Founder & Performance Marketing Architect"
                           className="w-full h-full object-cover object-top"
                           onError={(e) => {
