@@ -208,7 +208,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                 <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#120B20]/90 via-[#0A0810] to-[#160D27]/90 border border-[#8B3DFF]/30 hover:border-[#8B3DFF]/60 transition-all flex items-center gap-3.5 shadow-[0_4px_20px_rgba(139,61,255,0.15)]">
                   <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-[#8B3DFF]/50 bg-[#1E1133] shrink-0 shadow-[0_0_15px_rgba(139,61,255,0.35)]">
                     <img
-                      src="/manish-chaudhary.png"
+                      src="/manish-chaudhary.webp"
                       alt="Manish Chaudhary - Director & SEO Specialist"
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
