@@ -187,7 +187,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                   <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#140E23]/90 border border-[#8B3DFF]/30">
                     <div className="relative w-9 h-9 rounded-lg overflow-hidden border border-[#8B3DFF]/50 shrink-0 bg-[#0A0810] shadow-[0_0_10px_rgba(139,61,255,0.25)]">
                       <img
-                        src="/manish-chaudhary.png"
+                        src="/manish-chaudhary.webp"
                         alt="Manish Chaudhary - Director & SEO Specialist"
                         className="w-full h-full object-cover object-top"
                         onError={(e) => {
