@@ -72,6 +72,11 @@ export const HomePage: React.FC<HomePageProps> = ({
   onNavigate,
 }) => {
   return (
+  <React.Suspense
+    fallback={
+      <div className="min-h-[200px]" aria-hidden="true" />
+    }
+  >
     <div className="flex flex-col">
       {/* 1. Hero Section */}
       <Hero
@@ -247,6 +252,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <CTASection
         onOpenInquiry={(intent) => onOpenInquiry(intent)}
       />
-    </div>
+        </div>
+  </React.Suspense>
   );
 };
