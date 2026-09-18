@@ -2,15 +2,60 @@ import React from 'react';
 import { ArrowRight, Sparkles, TrendingUp, Compass, Target, BarChart3, Layers, ShieldCheck, Zap } from 'lucide-react';
 import { Hero } from '../components/Hero';
 import { StatsStrip } from '../components/StatsStrip';
-import { AboutSection } from '../components/AboutSection';
-import { ServicesSection } from '../components/ServicesSection';
-import { PerformanceSection } from '../components/PerformanceSection';
-import { CaseStudiesSection } from '../components/CaseStudiesSection';
-import { ProcessSection } from '../components/ProcessSection';
-import { GrowthCalculator } from '../components/GrowthCalculator';
-import { TestimonialsSection } from '../components/TestimonialsSection';
-import { FAQSection } from '../components/FAQSection';
-import { CTASection } from '../components/CTASection';
+
+const AboutSection = React.lazy(() =>
+  import('../components/AboutSection').then((module) => ({
+    default: module.AboutSection,
+  }))
+);
+
+const ServicesSection = React.lazy(() =>
+  import('../components/ServicesSection').then((module) => ({
+    default: module.ServicesSection,
+  }))
+);
+
+const PerformanceSection = React.lazy(() =>
+  import('../components/PerformanceSection').then((module) => ({
+    default: module.PerformanceSection,
+  }))
+);
+
+const CaseStudiesSection = React.lazy(() =>
+  import('../components/CaseStudiesSection').then((module) => ({
+    default: module.CaseStudiesSection,
+  }))
+);
+
+const ProcessSection = React.lazy(() =>
+  import('../components/ProcessSection').then((module) => ({
+    default: module.ProcessSection,
+  }))
+);
+
+const GrowthCalculator = React.lazy(() =>
+  import('../components/GrowthCalculator').then((module) => ({
+    default: module.GrowthCalculator,
+  }))
+);
+
+const TestimonialsSection = React.lazy(() =>
+  import('../components/TestimonialsSection').then((module) => ({
+    default: module.TestimonialsSection,
+  }))
+);
+
+const FAQSection = React.lazy(() =>
+  import('../components/FAQSection').then((module) => ({
+    default: module.FAQSection,
+  }))
+);
+
+const CTASection = React.lazy(() =>
+  import('../components/CTASection').then((module) => ({
+    default: module.CTASection,
+  }))
+);
 import { CaseStudy } from '../types';
 
 interface HomePageProps {
