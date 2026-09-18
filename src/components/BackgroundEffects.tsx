@@ -4,6 +4,9 @@ export const BackgroundEffects: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
+    // Disable particle animation on mobile devices
+    if (window.innerWidth < 768) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -15,15 +18,14 @@ export const BackgroundEffects: React.FC = () => {
     let height = (canvas.height = window.innerHeight);
 
     const handleResize = () => {
-      if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
-    // Particle system
-    const particleCount = Math.min(Math.floor(window.innerWidth / 25), 45);
+    const particleCount = Math.min(Math.floor(window.innerWidth / 40), 30);
+
     const particles: Array<{
       x: number;
       y: number;
@@ -39,19 +41,20 @@ export const BackgroundEffects: React.FC = () => {
         x: Math.random() * width,
         y: Math.random() * height,
         size: Math.random() * 1.6 + 0.4,
-        speedX: (Math.random() - 0.5) * 0.18,
-        speedY: (Math.random() - 0.5) * 0.18 - 0.05,
+        speedX: (Math.random() - 0.5) * 0.12,
+        speedY: (Math.random() - 0.5) * 0.12 - 0.03,
         opacity: Math.random() * 0.6 + 0.15,
-        pulseSpeed: Math.random() * 0.015 + 0.005,
+        pulseSpeed: Math.random() * 0.01 + 0.003,
       });
     }
 
     let frame = 0;
+
     const render = () => {
       frame++;
+
       ctx.clearRect(0, 0, width, height);
 
-      // Draw subtle particles
       particles.forEach((p) => {
         p.x += p.speedX;
         p.y += p.speedY;
@@ -61,7 +64,8 @@ export const BackgroundEffects: React.FC = () => {
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
-        const currentOpacity = Math.abs(Math.sin(frame * p.pulseSpeed)) * p.opacity;
+        const currentOpacity =
+          Math.abs(Math.sin(frame * p.pulseSpeed)) * p.opacity;
 
         ctx.fillStyle = `rgba(177, 92, 255, ${currentOpacity})`;
         ctx.beginPath();
@@ -81,34 +85,39 @@ export const BackgroundEffects: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      aria-hidden="true"
+    >
       {/* Base deep obsidian background */}
       <div className="absolute inset-0 bg-[#050507]" />
 
-      {/* Signature Artistic Flair Top Radial Gradient */}
+      {/* Top radial gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(circle_at_50%_-20%,rgba(139,61,255,0.18),transparent_70%)] pointer-events-none" />
 
       {/* Grid texture */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40" />
 
-      {/* Ambient violet and purple radial lighting orbs */}
-      <div 
-        className="absolute top-[-10%] left-[20%] w-[650px] h-[650px] rounded-full bg-[#4B147F]/20 blur-[130px] animate-pulse-slow" 
-      />
-      <div 
-        className="absolute top-[35%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#35105C]/25 blur-[150px] animate-pulse-slow" 
+      {/* Ambient violet lighting */}
+      <div className="absolute top-[-10%] left-[20%] w-[650px] h-[650px] rounded-full bg-[#4B147F]/20 blur-[130px] animate-pulse-slow" />
+
+      <div
+        className="absolute top-[35%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#35105C]/25 blur-[150px] animate-pulse-slow"
         style={{ animationDelay: '3s' }}
       />
-      <div 
-        className="absolute top-[65%] left-[-10%] w-[700px] h-[700px] rounded-full bg-[#8B3DFF]/10 blur-[160px] animate-pulse-slow" 
+
+      <div
+        className="absolute top-[65%] left-[-10%] w-[700px] h-[700px] rounded-full bg-[#8B3DFF]/10 blur-[160px] animate-pulse-slow"
         style={{ animationDelay: '1.5s' }}
       />
-      <div 
-        className="absolute bottom-[-10%] right-[20%] w-[800px] h-[600px] rounded-full bg-[#4B147F]/20 blur-[160px]" 
-      />
 
-      {/* Subtle star particle canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
+      <div className="absolute bottom-[-10%] right-[20%] w-[800px] h-[600px] rounded-full bg-[#4B147F]/20 blur-[160px]" />
+
+      {/* Desktop particle animation */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full opacity-60 hidden md:block"
+      />
     </div>
   );
 };
