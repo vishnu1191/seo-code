@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                   <div className="p-2.5 rounded-xl bg-[#0A0810] border border-white/5 hover:border-[#8B3DFF]/30 transition-all flex items-center gap-2.5">
                     <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#8B3DFF]/40 shrink-0 bg-[#140E23]">
                       <img
-                        src="/manish-chaudhary.png"
+                        src="/manish-chaudhary.webp"
                         alt="Manish Chaudhary"
                         className="w-full h-full object-cover object-top"
                         onError={(e) => {
