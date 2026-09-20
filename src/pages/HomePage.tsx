@@ -56,6 +56,7 @@ const CTASection = React.lazy(() =>
     default: module.CTASection,
   }))
 );
+
 import { CaseStudy } from '../types';
 
 interface HomePageProps {
@@ -72,7 +73,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onNavigate,
 }) => {
   return (
-  <div className="flex flex-col">
+    <div className="flex flex-col">
       {/* 1. Hero Section */}
       <Hero
         onOpenInquiry={() => onOpenInquiry('Enterprise Growth Retainer')}
@@ -121,133 +122,136 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* 3. About Section Preview with page navigation trigger */}
-      <div className="relative">
-        <AboutSection
-          onOpenInquiry={() => onOpenInquiry('Strategic Partnership')}
-          onExploreApproach={() => onNavigate('process')}
-        />
-        <div className="flex justify-center pb-12 -mt-8 relative z-20">
-          <button
-            onClick={() => {
-              onNavigate('about');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
-          >
-            <span>Read Complete About Us & Leadership Story</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+      <React.Suspense
+        fallback={<div className="min-h-[400px]" aria-hidden="true" />}
+      >
+        {/* 3. About Section Preview with page navigation trigger */}
+        <div className="relative">
+          <AboutSection
+            onOpenInquiry={() => onOpenInquiry('Strategic Partnership')}
+            onExploreApproach={() => onNavigate('process')}
+          />
+          <div className="flex justify-center pb-12 -mt-8 relative z-20">
+            <button
+              onClick={() => {
+                onNavigate('about');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
+            >
+              <span>Read Complete About Us & Leadership Story</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* 4. Core Services & Practices with page navigation trigger */}
-      <div className="relative">
-        <ServicesSection
-          onSelectService={(serviceTitle) => onOpenInquiry(serviceTitle)}
-        />
-        <div className="flex justify-center pb-12 -mt-6 relative z-20">
-          <button
-            onClick={() => {
-              onNavigate('services');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
-          >
-            <span>Explore All 18 Digital Marketing Services & Architecture</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+        {/* 4. Core Services & Practices with page navigation trigger */}
+        <div className="relative">
+          <ServicesSection
+            onSelectService={(serviceTitle) => onOpenInquiry(serviceTitle)}
+          />
+          <div className="flex justify-center pb-12 -mt-6 relative z-20">
+            <button
+              onClick={() => {
+                onNavigate('services');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
+            >
+              <span>Explore All 18 Digital Marketing Services & Architecture</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* 5. Performance & Telemetry Visualizations with page navigation trigger */}
-      <div className="relative">
-        <PerformanceSection
-          onOpenCaseStudies={() => {
-            onNavigate('work');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        />
-        <div className="flex justify-center pb-12 -mt-6 relative z-20">
-          <button
-            onClick={() => {
-              onNavigate('performance');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
-          >
-            <span>Launch Complete Telemetry & Live SERP Tracker</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </div>
-
-      {/* 6. Featured Case Studies with page navigation trigger */}
-      <div className="relative">
-        <CaseStudiesSection
-          onSelectCaseStudy={onSelectCaseStudy}
-        />
-        <div className="flex justify-center pb-12 -mt-6 relative z-20">
-          <button
-            onClick={() => {
+        {/* 5. Performance & Telemetry Visualizations with page navigation trigger */}
+        <div className="relative">
+          <PerformanceSection
+            onOpenCaseStudies={() => {
               onNavigate('work');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
-          >
-            <span>Explore All 20+ Enterprise Case Studies</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          />
+          <div className="flex justify-center pb-12 -mt-6 relative z-20">
+            <button
+              onClick={() => {
+                onNavigate('performance');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
+            >
+              <span>Launch Complete Telemetry & Live SERP Tracker</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* 7. Strategic 4-Phase Process with page navigation trigger */}
-      <div className="relative">
-        <ProcessSection />
-        <div className="flex justify-center pb-12 -mt-6 relative z-20">
-          <button
-            onClick={() => {
-              onNavigate('process');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
-          >
-            <span>Inspect Full 4-Phase Execution Roadmap & Deliverables</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+        {/* 6. Featured Case Studies with page navigation trigger */}
+        <div className="relative">
+          <CaseStudiesSection
+            onSelectCaseStudy={onSelectCaseStudy}
+          />
+          <div className="flex justify-center pb-12 -mt-6 relative z-20">
+            <button
+              onClick={() => {
+                onNavigate('work');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
+            >
+              <span>Explore All 20+ Enterprise Case Studies</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* 8. Interactive Growth & ROI Engine with page navigation trigger */}
-      <div className="relative">
-        <GrowthCalculator
-          onOpenInquiry={(planDetails) => onOpenInquiry(planDetails)}
+        {/* 7. Strategic 4-Phase Process with page navigation trigger */}
+        <div className="relative">
+          <ProcessSection />
+          <div className="flex justify-center pb-12 -mt-6 relative z-20">
+            <button
+              onClick={() => {
+                onNavigate('process');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
+            >
+              <span>Inspect Full 4-Phase Execution Roadmap & Deliverables</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* 8. Interactive Growth & ROI Engine with page navigation trigger */}
+        <div className="relative">
+          <GrowthCalculator
+            onOpenInquiry={(planDetails) => onOpenInquiry(planDetails)}
+          />
+          <div className="flex justify-center pb-12 -mt-6 relative z-20">
+            <button
+              onClick={() => {
+                onNavigate('calculator');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
+            >
+              <span>Open Dedicated ROI Modeler & Scenario Generator</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* 9. Executive Testimonials & Social Proof */}
+        <TestimonialsSection />
+
+        {/* 10. Frequently Addressed Questions */}
+        <FAQSection />
+
+        {/* 11. Final High-Impact Climax CTA Banner */}
+        <CTASection
+          onOpenInquiry={(intent) => onOpenInquiry(intent)}
         />
-        <div className="flex justify-center pb-12 -mt-6 relative z-20">
-          <button
-            onClick={() => {
-              onNavigate('calculator');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
-          >
-            <span>Open Dedicated ROI Modeler & Scenario Generator</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </div>
-
-      {/* 9. Executive Testimonials & Social Proof */}
-      <TestimonialsSection />
-
-      {/* 10. Frequently Addressed Questions */}
-      <FAQSection />
-
-      {/* 11. Final High-Impact Climax CTA Banner */}
-      <CTASection
-        onOpenInquiry={(intent) => onOpenInquiry(intent)}
-      />
-        </div>
-  </React.Suspense>
+      </React.Suspense>
+    </div>
   );
 };
