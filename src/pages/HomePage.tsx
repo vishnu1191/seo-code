@@ -72,12 +72,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onNavigate,
 }) => {
   return (
-  <React.Suspense
-    fallback={
-      <div className="min-h-[200px]" aria-hidden="true" />
-    }
-  >
-    <div className="flex flex-col">
+  <div className="flex flex-col">
       {/* 1. Hero Section */}
       <Hero
         onOpenInquiry={() => onOpenInquiry('Enterprise Growth Retainer')}
