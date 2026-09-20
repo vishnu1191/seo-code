@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ArrowRight,
-  Sparkles,
   TrendingUp,
   Compass,
   Target,
@@ -13,7 +12,6 @@ import {
 
 import { Hero } from '../components/Hero';
 import { StatsStrip } from '../components/StatsStrip';
-import { DeferredSection } from '../components/DeferredSection';
 
 const AboutSection = React.lazy(() =>
   import('../components/AboutSection').then((module) => ({
@@ -87,16 +85,16 @@ export const HomePage: React.FC<HomePageProps> = ({
   return (
     <div className="flex flex-col">
 
-      {/* 1. Hero Section */}
+      {/* Hero Section */}
       <Hero
         onOpenInquiry={() => onOpenInquiry('Enterprise Growth Retainer')}
         onOpenShowreel={onOpenShowreel}
       />
 
-      {/* 2. Floating Statistics Strip */}
+      {/* Statistics Strip */}
       <StatsStrip />
 
-      {/* Quick Navigation Cards Bar */}
+      {/* Quick Navigation */}
       <section className="relative py-6 bg-[#07050E] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
@@ -145,12 +143,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                   key={item.id}
                   onClick={() => {
                     onNavigate(item.id);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth',
+                    });
                   }}
                   className="flex flex-col items-start p-3 sm:p-3.5 rounded-xl bg-[#0C0A15] hover:bg-[#150F25] border border-white/5 hover:border-[#8B3DFF]/40 transition-all text-left group cursor-pointer"
                 >
                   <div className="flex items-center justify-between w-full mb-1">
                     <Icon className="w-4 h-4 text-[#8B3DFF] group-hover:text-[#D7BFFF] transition-colors" />
+
                     <ArrowRight className="w-3 h-3 text-[#85818E] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
                   </div>
 
@@ -177,8 +179,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         }
       >
 
-        {/* 3. About Section */}
-        <DeferredSection minHeight="700px">
+        {/* About Section */}
+        <section>
           <div className="relative">
             <AboutSection
               onOpenInquiry={() =>
@@ -191,21 +193,25 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 onClick={() => {
                   onNavigate('about');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
                 }}
                 className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
               >
                 <span>
                   Read Complete About Us & Leadership Story
                 </span>
+
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
-        </DeferredSection>
+        </section>
 
-        {/* 4. Services Section */}
-        <DeferredSection minHeight="700px">
+        {/* Services Section */}
+        <section>
           <div className="relative">
             <ServicesSection
               onSelectService={(serviceTitle) =>
@@ -217,26 +223,33 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 onClick={() => {
                   onNavigate('services');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
                 }}
                 className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
               >
                 <span>
                   Explore All 18 Digital Marketing Services & Architecture
                 </span>
+
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
-        </DeferredSection>
+        </section>
 
-        {/* 5. Performance Section */}
-        <DeferredSection minHeight="700px">
+        {/* Performance Section */}
+        <section>
           <div className="relative">
             <PerformanceSection
               onOpenCaseStudies={() => {
                 onNavigate('work');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
               }}
             />
 
@@ -244,21 +257,25 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 onClick={() => {
                   onNavigate('performance');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
                 }}
                 className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
               >
                 <span>
                   Launch Complete Telemetry & Live SERP Tracker
                 </span>
+
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
-        </DeferredSection>
+        </section>
 
-        {/* 6. Case Studies Section */}
-        <DeferredSection minHeight="700px">
+        {/* Case Studies Section */}
+        <section>
           <div className="relative">
             <CaseStudiesSection
               onSelectCaseStudy={onSelectCaseStudy}
@@ -268,21 +285,25 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 onClick={() => {
                   onNavigate('work');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
                 }}
                 className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
               >
                 <span>
                   Explore All 20+ Enterprise Case Studies
                 </span>
+
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
-        </DeferredSection>
+        </section>
 
-        {/* 7. Process Section */}
-        <DeferredSection minHeight="700px">
+        {/* Process Section */}
+        <section>
           <div className="relative">
             <ProcessSection />
 
@@ -290,21 +311,25 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 onClick={() => {
                   onNavigate('process');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
                 }}
                 className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
               >
                 <span>
                   Inspect Full 4-Phase Execution Roadmap & Deliverables
                 </span>
+
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
-        </DeferredSection>
+        </section>
 
-        {/* 8. Growth Calculator */}
-        <DeferredSection minHeight="700px">
+        {/* Growth Calculator */}
+        <section>
           <div className="relative">
             <GrowthCalculator
               onOpenInquiry={(planDetails) =>
@@ -316,37 +341,41 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 onClick={() => {
                   onNavigate('calculator');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
                 }}
                 className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
               >
                 <span>
                   Open Dedicated ROI Modeler & Scenario Generator
                 </span>
+
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
-        </DeferredSection>
+        </section>
 
-        {/* 9. Testimonials */}
-        <DeferredSection minHeight="500px">
+        {/* Testimonials */}
+        <section>
           <TestimonialsSection />
-        </DeferredSection>
+        </section>
 
-        {/* 10. FAQ */}
-        <DeferredSection minHeight="500px">
+        {/* FAQ */}
+        <section>
           <FAQSection />
-        </DeferredSection>
+        </section>
 
-        {/* 11. Final CTA */}
-        <DeferredSection minHeight="400px">
+        {/* Final CTA */}
+        <section>
           <CTASection
             onOpenInquiry={(intent) =>
               onOpenInquiry(intent)
             }
           />
-        </DeferredSection>
+        </section>
 
       </React.Suspense>
     </div>
