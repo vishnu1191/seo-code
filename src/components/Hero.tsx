@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Play, Sparkles, Shield, Zap, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Play, TrendingUp, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface HeroProps {
@@ -12,24 +12,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
   return (
     <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 lg:py-24 overflow-hidden">
-      {/* Dynamic Background Volumetric Glows */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           scale: [1, 1.12, 1],
           opacity: [0.15, 0.25, 0.15]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#8B3DFF]/20 to-transparent rounded-full blur-[140px] pointer-events-none" 
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#8B3DFF]/20 to-transparent rounded-full blur-[140px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Column: Hero Content */}
+
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            
-            {/* Live Status Eyebrow Badge */}
-            <motion.div 
+
+            <motion.div
               id="hero-eyebrow-badge"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -40,19 +37,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               <span>Next-Gen Growth Agency</span>
             </motion.div>
 
-            {/* Giant Headline with Violet Gradient Phrase */}
-         <h1
-  id="hero-headline"
-  className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
->
-  Grow Your Business with{' '}
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-    SEO, Google Ads &amp; Meta Ads
-  </span>{' '}
-  in Jaipur
-</h1>
-            {/* Supporting Copy */}
-            <motion.p 
+            <h1
+              id="hero-headline"
+              className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
+            >
+              Grow Your Business with{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
+                SEO, Google Ads &amp; Meta Ads
+              </span>{' '}
+              in Jaipur
+            </h1>
+
+            <motion.p
               id="hero-supporting-copy"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -62,8 +58,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               From organic search to high-performance advertising, we help businesses increase visibility, generate qualified leads, and achieve measurable growth.
             </motion.p>
 
-            {/* Action Buttons */}
-            <motion.div 
+            <motion.div
               id="hero-actions"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -93,8 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               </motion.button>
             </motion.div>
 
-            {/* Credibility Key Markers */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -104,10 +98,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">Zero Outsourcing</span>
               </div>
+
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">First-Party Attribution</span>
               </div>
+
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">Guaranteed SLA Execution</span>
@@ -116,37 +112,31 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
           </div>
 
-          {/* Right Column: Large Cinematic Futuristic Visual Composition */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 relative flex items-center justify-center"
           >
-            
-            {/* Ambient Background Aura */}
+
             <div className="absolute inset-0 bg-gradient-to-tr from-[#8B3DFF]/20 via-[#4B147F]/30 to-transparent rounded-3xl blur-[60px] pointer-events-none" />
 
-            {/* Main Visual Container */}
-            <div 
+            <div
               id="hero-cinematic-stage"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               className="relative w-full max-w-[480px] lg:max-w-none aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] rounded-3xl overflow-hidden glass-panel-glow border border-[#8B3DFF]/30 p-1 group transition-all duration-500 shadow-[0_20px_60px_-15px_rgba(75,20,127,0.4)]"
             >
-              {/* Inner Frame */}
+
               <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#07070B] flex items-center justify-center">
-                
-                {/* Background Cosmic Starfield Layer */}
+
                 <div className="absolute inset-0 bg-radial from-[#1A0B2E] via-[#090611] to-[#040308] opacity-95" />
 
-                {/* Concentric Hologram HUD Rings */}
                 <div className="absolute w-[360px] h-[360px] rounded-full border border-[#8B3DFF]/20 animate-orbit pointer-events-none" />
                 <div className="absolute w-[290px] h-[290px] rounded-full border border-dashed border-[#B15CFF]/25 animate-orbit-reverse pointer-events-none" />
                 <div className="absolute w-[210px] h-[210px] rounded-full border border-[#D7BFFF]/15 animate-pulse-slow pointer-events-none" />
 
-                {/* Floating Geometric Coordinates HUD */}
-                <motion.div 
+                <motion.div
                   animate={{ y: [0, -4, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2.5 py-1 rounded-md border border-[#8B3DFF]/20"
@@ -155,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                   <span>SYNAPSE_CORE // ACTIVE</span>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   animate={{ y: [0, 4, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   className="absolute top-4 right-4 z-20 font-mono text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-2 py-1 rounded-md border border-white/5"
@@ -163,19 +153,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                   LAT: 4.8x ROAS
                 </motion.div>
 
-                {/* Cinematic Digital Architect / Mystic Strategist Silhouette Visual */}
                 <div className="relative w-full h-full flex items-center justify-center">
-                  
-                  {/* Atmospheric Light Rays & Volumetric Backlight */}
+
                   <div className="absolute w-64 h-64 bg-[#8B3DFF]/30 rounded-full blur-[70px] animate-pulse-slow" />
-                  
-                  {/* SVG & Graphic Layer for the Cloaked Futuristic Digital Strategist with Radiant Energy Orb */}
+
                   <div className="relative z-10 w-full h-full flex flex-col items-center justify-end pb-4">
-                    
-                    {/* Floating Energy Orb manipulated between ethereal hands */}
+
                     <div className="relative mb-6 flex items-center justify-center">
-                      
-                      {/* Luminous Pulsing Core */}
+
                       <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-[#6b21a8] via-[#B15CFF] to-[#FFFFFF] p-[2px] shadow-[0_0_60px_#8B3DFF] animate-float-slow">
                         <div className="w-full h-full rounded-full bg-radial from-[#ffffff] via-[#B15CFF] to-[#35105C] flex items-center justify-center overflow-hidden relative">
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.9),transparent_60%)]" />
@@ -183,16 +168,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                         </div>
                       </div>
 
-                      {/* Orbiting particles */}
                       <div className="absolute -inset-4 border border-[#B15CFF]/30 rounded-full animate-orbit" />
                       <div className="absolute -inset-8 border border-dashed border-[#8B3DFF]/20 rounded-full animate-orbit-reverse" />
-                      
-                      {/* Energy spark streams */}
+
                       <div className="absolute -left-8 top-1/2 w-8 h-[1px] bg-gradient-to-r from-transparent to-[#B15CFF] opacity-75" />
                       <div className="absolute -right-8 top-1/2 w-8 h-[1px] bg-gradient-to-l from-transparent to-[#B15CFF] opacity-75" />
                     </div>
 
-                    {/* Cloaked Futuristic Silhouette SVG Figure */}
                     <svg
                       viewBox="0 0 400 320"
                       className="w-[90%] max-w-[340px] text-[#0A0812] drop-shadow-[0_0_30px_rgba(75,20,127,0.8)] filter transition-transform duration-700 group-hover:scale-105"
@@ -204,6 +186,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                           <stop offset="50%" stopColor="#0E091B" />
                           <stop offset="100%" stopColor="#05030A" />
                         </linearGradient>
+
                         <linearGradient id="glowTrim" x1="0%" y1="0%" x2="100%" y2="0%">
                           <stop offset="0%" stopColor="#8B3DFF" stopOpacity="0.8" />
                           <stop offset="50%" stopColor="#D7BFFF" stopOpacity="0.9" />
@@ -211,28 +194,33 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                         </linearGradient>
                       </defs>
 
-                      {/* Hooded head & cowl silhouette */}
                       <path
                         d="M 200 40 C 160 40, 140 80, 135 140 C 130 180, 120 220, 100 290 L 300 290 C 280 220, 270 180, 265 140 C 260 80, 240 40, 200 40 Z"
                         fill="url(#hoodGrad)"
                       />
-                      {/* Deep face shadow hollow with subtle violet visor gleam */}
-                      <ellipse cx="200" cy="115" rx="30" ry="42" fill="#040207" />
-                      <path d="M 185 110 Q 200 118 215 110" stroke="url(#glowTrim)" strokeWidth="2.5" fill="none" opacity="0.85" />
 
-                      {/* Cloak shoulders and sleek high-tech cybernetic contours */}
+                      <ellipse cx="200" cy="115" rx="30" ry="42" fill="#040207" />
+
+                      <path
+                        d="M 185 110 Q 200 118 215 110"
+                        stroke="url(#glowTrim)"
+                        strokeWidth="2.5"
+                        fill="none"
+                        opacity="0.85"
+                      />
+
                       <path
                         d="M 100 290 Q 70 310, 40 320 L 360 320 Q 330 310, 300 290 Z"
                         fill="#080511"
                       />
 
-                      {/* Hands reaching up towards the orb */}
                       <path
                         d="M 130 180 C 145 150, 160 135, 175 140 C 170 148, 160 165, 145 195 Z"
                         fill="url(#hoodGrad)"
                         stroke="#8B3DFF"
                         strokeWidth="0.8"
                       />
+
                       <path
                         d="M 270 180 C 255 150, 240 135, 225 140 C 230 148, 240 165, 255 195 Z"
                         fill="url(#hoodGrad)"
@@ -242,14 +230,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                     </svg>
 
                   </div>
-
                 </div>
 
-                {/* Bottom Gradient Fade to merge seamlessly with the card */}
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07070B] via-[#07070B]/80 to-transparent z-20 pointer-events-none" />
 
-                {/* Bottom Floating Stats Pill inside the Visual */}
-                <motion.div 
+                <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute bottom-4 inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-xl shadow-lg"
@@ -258,14 +243,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                     <div className="w-7 h-7 rounded-lg bg-[#8B3DFF]/20 flex items-center justify-center text-[#D7BFFF]">
                       <TrendingUp className="w-4 h-4" />
                     </div>
+
                     <div className="flex flex-col">
-                      <span className="text-[10px] text-[#85818E] uppercase tracking-wider font-semibold">Currently Scaling</span>
-                      <span className="text-xs text-white font-bold tracking-tight">Vanta Cloud Systems</span>
+                      <span className="text-[10px] text-[#85818E] uppercase tracking-wider font-semibold">
+                        Currently Scaling
+                      </span>
+                      <span className="text-xs text-white font-bold tracking-tight">
+                        Vanta Cloud Systems
+                      </span>
                     </div>
                   </div>
+
                   <div className="text-right">
-                    <span className="text-xs font-mono font-bold text-emerald-400">+380.4%</span>
-                    <span className="block text-[9px] text-[#85818E]">Verified Lift</span>
+                    <span className="text-xs font-mono font-bold text-emerald-400">
+                      +380.4%
+                    </span>
+                    <span className="block text-[9px] text-[#85818E]">
+                      Verified Lift
+                    </span>
                   </div>
                 </motion.div>
 
