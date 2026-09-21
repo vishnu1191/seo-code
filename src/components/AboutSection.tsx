@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Shield, Sparkles, Target, Users2, Compass } from 'lucide-react';
-import { motion } from 'motion/react';
 
 interface AboutSectionProps {
   onOpenInquiry: () => void;
@@ -30,9 +29,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
   return (
     <section id="about" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background Ambient Glow */}
-      <motion.div 
-        animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      <div 
         className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#4B147F]/20 rounded-full blur-[140px] pointer-events-none" 
       />
 
@@ -40,11 +37,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Cosmic Explorer & Portal Visual Stage */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          <div 
             className="lg:col-span-6 relative"
           >
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-3xl overflow-hidden glass-panel-glow border border-[#8B3DFF]/25 p-1 group shadow-[0_20px_50px_-10px_rgba(75,20,127,0.35)]">
@@ -75,9 +68,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                   </div>
 
                   {/* Astronaut Explorer Silhouette Standing in Front of Portal */}
-                  <motion.div 
-                    animate={{ y: [0, -4, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  <div 
                     className="absolute -bottom-4 z-20 flex flex-col items-center"
                   >
                     <svg viewBox="0 0 100 140" className="w-16 h-24 text-[#06040A] drop-shadow-[0_0_15px_rgba(139,61,255,0.6)]">
@@ -92,7 +83,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                       <path d="M 36 85 L 34 130 L 46 130 L 48 85 Z" fill="#07050E" />
                       <path d="M 52 85 L 54 130 L 66 130 L 64 85 Z" fill="#07050E" />
                     </svg>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Rocky Alien Landscape Surface Bottom */}
@@ -104,26 +95,20 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                 </div>
 
                 {/* Floating Tag in Stage */}
-                <motion.div 
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                <div 
                   className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#D7BFFF] bg-[#0A0810]/85 px-3 py-1 rounded-full border border-[#8B3DFF]/25 shadow-md flex items-center gap-1.5"
                 >
                   <Compass className="w-3 h-3 text-[#8B3DFF]" />
                   <span>EXPEDITION_ZERO // FRONTIER</span>
-                </motion.div>
+                </div>
 
               </div>
 
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: About Agency Narrative & Value Markers */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          <div 
             className="lg:col-span-6 flex flex-col items-start"
           >
             
@@ -143,13 +128,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
             {/* Value Propositions Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-8">
               {valueProps.map((prop, idx) => (
-                <motion.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  whileHover={{ y: -3, borderColor: "rgba(139,61,255,0.4)" }}
                   className="p-4 rounded-xl bg-[#0A0810]/70 border border-white/5 transition-all duration-200"
                 >
                   <div className="flex items-center gap-2.5 mb-2">
@@ -163,7 +143,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                   <p className="text-[12px] text-[#85818E] leading-normal pl-7">
                     {prop.desc}
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -238,28 +218,25 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
-              <motion.button
+              <button
                 id="about-discover-approach-cta"
                 onClick={onExploreApproach}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-wide text-white bg-[#8B3DFF] hover:bg-[#9B4DFF] border border-[#B15CFF]/50 shadow-[0_0_20px_rgba(139,61,255,0.3)] transition-all duration-300 cursor-pointer"
               >
                 <span>Discover Our Methodology</span>
                 <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              </button>
 
-              <motion.button
+              <button
                 id="about-book-consult-cta"
                 onClick={onOpenInquiry}
-                whileHover={{ x: 2 }}
                 className="text-xs font-semibold text-[#A7A3B1] hover:text-white transition-colors underline underline-offset-4 decoration-[#8B3DFF]/40 hover:decoration-[#8B3DFF] cursor-pointer"
               >
                 Book Strategic Consultation →
-              </motion.button>
+              </button>
             </div>
 
-          </motion.div>
+          </div>
 
         </div>
       </div>
