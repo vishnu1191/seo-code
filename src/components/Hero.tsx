@@ -14,7 +14,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
     <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 lg:py-24 overflow-hidden">
       <motion.div
         animate={{
-          scale: [1, 1.12, 1],
           opacity: [0.15, 0.25, 0.15]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
