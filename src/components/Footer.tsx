@@ -67,7 +67,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                 <div className="text-[10px] font-mono text-[#8B3DFF] uppercase tracking-wider mb-2 font-bold">
                   Executive Leadership
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   {/* Box 1: Founder */}
                   <div className="p-2.5 rounded-xl bg-[#0A0810] border border-white/5 hover:border-[#8B3DFF]/30 transition-all flex items-center gap-2.5">
                     <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#8B3DFF]/40 shrink-0 bg-[#140E23]">
@@ -127,10 +127,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
 
             {/* Newsletter Input Box */}
             <div className="p-4 rounded-2xl bg-[#0A0810] border border-white/5">
-              <span className="text-[11px] font-semibold text-[#F7F5FA] block mb-1">
+              <span className="text-xs font-semibold text-[#F7F5FA] block mb-1">
                 The Growth Dispatch
               </span>
-              <p className="text-[11px] text-[#85818E] mb-3">
+              <p className="text-xs text-[#85818E] mb-3">
                 Bi-weekly teardowns of high-converting brands & algorithmic acquisition.
               </p>
 
@@ -171,9 +171,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
             
             {/* Column 1: Company Navigation */}
             <div>
-              <h4 className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest text-[#D7BFFF] mb-4">
+              <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">
                 Architecture Pages
-              </h4>
+              </h3>
               <ul className="space-y-2.5 text-xs text-[#A7A3B1]">
                 <li><button onClick={() => handleLinkClick('home')} className="hover:text-white transition-colors cursor-pointer text-left">Home Overview</button></li>
                 <li><button onClick={() => handleLinkClick('about')} className="hover:text-white transition-colors cursor-pointer text-left">About the Agency</button></li>
@@ -187,9 +187,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
 
             {/* Column 2: Specific Service Inquiries */}
             <div>
-              <h4 className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest text-[#D7BFFF] mb-4">
+              <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">
                 Core Practices
-              </h4>
+              </h3>
               <ul className="space-y-2.5 text-xs text-[#A7A3B1]">
                 <li><button onClick={() => onOpenInquiry('Enterprise Organic SEO & Entity Architecture')} className="hover:text-white transition-colors cursor-pointer text-left">Organic Search &amp; GEO</button></li>
                 <li><button onClick={() => onOpenInquiry('High-Performance Google & Meta Ads Management')} className="hover:text-white transition-colors cursor-pointer text-left">Google &amp; Meta Ads</button></li>
@@ -202,9 +202,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
 
             {/* Column 3: Contact & Global Hubs */}
             <div className="col-span-2 sm:col-span-1">
-              <h4 className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest text-[#D7BFFF] mb-4">
+              <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">
                 Direct Inquiries
-              </h4>
+              </h3>
               <div className="space-y-3 text-xs text-[#A7A3B1]">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-[#8B3DFF] shrink-0 mt-0.5" />
