@@ -130,7 +130,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                     <TrendingUp className="w-3.5 h-3.5 text-[#B15CFF]" />
                     <div className="flex flex-col text-right">
                       <span className="font-['Space_Grotesk'] font-bold text-sm text-white">{study.metricHighlight}</span>
-                      <span className="text-[9px] text-[#85818E]">{study.metricLabel}</span>
+                      <span className="text-xs text-[#85818E]">{study.metricLabel}</span>
                     </div>
                   </div>
 
@@ -186,7 +186,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
               onClick={() => setShowAll(!showAll)}
               className="px-7 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 hover:border-[#8B3DFF]/70 text-[#D7BFFF] hover:text-white text-xs uppercase tracking-widest font-bold flex items-center gap-2.5 transition-colors shadow-[0_0_20px_rgba(139,61,255,0.25)] cursor-pointer"
             >
-              <span>{showAll ? 'Show Less' : `View More Projects (+${filteredStudies.length - 4} More)`}</span>
+              <span>{showAll ? 'Show Less' : `View All Case Studies (+${filteredStudies.length - 4} More)`}</span>
               {showAll ? (
                 <ChevronUp className="w-4 h-4 text-[#B15CFF]" />
               ) : (
