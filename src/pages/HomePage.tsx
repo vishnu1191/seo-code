@@ -205,24 +205,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               onSelectCaseStudy={onSelectCaseStudy}
             />
 
-            <div className="flex justify-center pb-12 -mt-6 relative z-20">
-              <button
-                onClick={() => {
-                  onNavigate('work');
-                  window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth',
-                  });
-                }}
-                className="px-6 py-3 rounded-full bg-[#120B20] hover:bg-[#1A1030] border border-[#8B3DFF]/40 text-[#D7BFFF] text-xs uppercase tracking-widest font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,61,255,0.2)] cursor-pointer"
-              >
-                <span>
-                  Explore All 20+ Enterprise Case Studies
-                </span>
 
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
           </div>
         </section>
 
