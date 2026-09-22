@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-6 w-fit shadow-[0_0_15px_rgba(139,61,255,0.2)]"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-xs uppercase tracking-[0.15em] font-bold mb-6 w-fit shadow-[0_0_15px_rgba(139,61,255,0.2)]"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
               <span>Next-Gen Growth Agency</span>
@@ -141,7 +141,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                   className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2.5 py-1 rounded-md border border-[#8B3DFF]/20"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
-                  <span>SYNAPSE_CORE // ACTIVE</span>
+                  <span>Synapse Core // Active</span>
                 </motion.div>
 
                 <motion.div
