@@ -143,7 +143,7 @@ export const TestimonialsSection: React.FC = () => {
             <button
               id="open-submit-feedback-btn"
               onClick={() => setIsSubmitModalOpen(true)}
-              className="px-3 py-1.5 rounded-full bg-[#140E23] hover:bg-[#1f1538] border border-[#8B3DFF]/40 text-[#D7BFFF] text-[11px] font-semibold flex items-center gap-1 transition-all shadow-sm cursor-pointer"
+              className="px-3 py-1.5 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] border border-[#B15CFF]/50 text-white text-xs font-semibold flex items-center gap-1 transition-all shadow-sm cursor-pointer"
             >
               <Plus className="w-3 h-3" />
               <span>Add Review</span>
@@ -221,7 +221,7 @@ export const TestimonialsSection: React.FC = () => {
                         </span>
                         <ShieldCheck className="w-3 h-3 text-[#8B3DFF] shrink-0" />
                       </div>
-                      <span className="text-[10px] text-[#A7A3B1] truncate">
+                      <span className="text-xs text-[#A7A3B1] break-words leading-snug">
                         {testimonial.role} • <span className="text-[#85818E]">{testimonial.company}</span>
                       </span>
                     </div>
