@@ -80,7 +80,7 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 +340%
               </div>
               <div className="text-xs font-semibold text-[#F7F5FA] mb-1">Qualified Inbound Traffic</div>
-              <div className="text-[11px] text-[#85818E] mb-6">Organic & GEO-driven search</div>
+              <div className="text-xs text-[#85818E] mb-6">Organic & GEO-driven search</div>
             </div>
 
             {/* SVG Line Graph */}
@@ -128,7 +128,7 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 +185%
               </div>
               <div className="text-xs font-semibold text-[#F7F5FA] mb-1">Conversion Velocity</div>
-              <div className="text-[11px] text-[#85818E] mb-6">Funnel & checkout optimization</div>
+              <div className="text-xs text-[#85818E] mb-6">Funnel & checkout optimization</div>
             </div>
 
             {/* SVG Bar Chart with glowing heights */}
@@ -167,7 +167,7 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 4.4x
               </div>
               <div className="text-xs font-semibold text-[#F7F5FA] mb-1">Blended Return on Ad Spend</div>
-              <div className="text-[11px] text-[#85818E] mb-4">Paid social & programmatic</div>
+              <div className="text-xs text-[#85818E] mb-4">Paid social & programmatic</div>
             </div>
 
             {/* Circular Progress Gauge */}
@@ -217,7 +217,7 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
                 96.4%
               </div>
               <div className="text-xs font-semibold text-[#F7F5FA] mb-1">Client Retention Rate</div>
-              <div className="text-[11px] text-[#85818E] mb-6">Multi-year growth contracts</div>
+              <div className="text-xs text-[#85818E] mb-6">Multi-year growth contracts</div>
             </div>
 
             {/* Circular Ring Gauge Dual Accent */}
@@ -232,7 +232,7 @@ export const PerformanceSection: React.FC<PerformanceSectionProps> = ({ onOpenCa
 
         {/* Footnote */}
         <div className="mt-8 text-center">
-          <p className="text-[11px] text-[#85818E] tracking-wider">
+          <p className="text-xs text-[#85818E] tracking-wider">
             * Selected illustrative client telemetry and blended historical benchmarks across $140M+ managed ad pipeline.
           </p>
         </div>
