@@ -61,7 +61,7 @@ export const StatsStrip: React.FC = () => {
                   <span className="text-xs sm:text-sm font-semibold text-[#F7F5FA] tracking-wide mt-0.5">
                     {stat.label}
                   </span>
-                  <span className="text-[11px] text-[#85818E] tracking-normal font-normal">
+                  <span className="text-xs text-[#85818E] tracking-normal font-normal">
                     {stat.subtext}
                   </span>
                 </div>
