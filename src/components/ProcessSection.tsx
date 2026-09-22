@@ -74,7 +74,7 @@ export const ProcessSection: React.FC = () => {
                     {step.step}
                   </motion.div>
 
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-[#8B3DFF] mb-1">
+                  <span className="text-xs font-mono tracking-wider text-[#8B3DFF] mb-1">
                     {step.phase}
                   </span>
                   <h3 className="font-['Space_Grotesk'] text-base font-bold text-white group-hover:text-[#D7BFFF] transition-colors mb-2">
@@ -142,10 +142,10 @@ export const ProcessSection: React.FC = () => {
               </div>
 
               <div className="lg:col-span-5 p-6 rounded-2xl bg-[#07070B] border border-[#8B3DFF]/20">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-[#8B3DFF] mb-4 flex items-center gap-2">
+                <h3 className="text-sm font-bold tracking-wider text-[#8B3DFF] mb-4 flex items-center gap-2">
                   <Layers className="w-4 h-4" />
                   Key Phase Deliverables
-                </h4>
+                </h3>
                 <div className="space-y-3">
                   {PROCESS_STEPS[activeStep].deliverables.map((item, idx) => (
                     <motion.div 
