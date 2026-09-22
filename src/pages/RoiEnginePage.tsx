@@ -173,7 +173,7 @@ export const RoiEnginePage: React.FC<RoiEnginePageProps> = ({ onOpenInquiry, onN
                   step="25000"
                   value={monthlySpend}
                   onChange={(e) => setMonthlySpend(Number(e.target.value))}
-                  className="w-full h-2 bg-[#140E23] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF]"
+                  className="w-full h-3 bg-[#1E1435] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF] border border-[#8B3DFF]/20 shadow-inner"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-[#85818E] mt-1">
                   <span>₹50K</span>
@@ -199,7 +199,7 @@ export const RoiEnginePage: React.FC<RoiEnginePageProps> = ({ onOpenInquiry, onN
                   step="1000"
                   value={currentTraffic}
                   onChange={(e) => setCurrentTraffic(Number(e.target.value))}
-                  className="w-full h-2 bg-[#140E23] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF]"
+                  className="w-full h-3 bg-[#1E1435] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF] border border-[#8B3DFF]/20 shadow-inner"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-[#85818E] mt-1">
                   <span>1,000</span>
@@ -225,7 +225,7 @@ export const RoiEnginePage: React.FC<RoiEnginePageProps> = ({ onOpenInquiry, onN
                   step="0.1"
                   value={conversionRate}
                   onChange={(e) => setConversionRate(Number(e.target.value))}
-                  className="w-full h-2 bg-[#140E23] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF]"
+                  className="w-full h-3 bg-[#1E1435] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF] border border-[#8B3DFF]/20 shadow-inner"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-[#85818E] mt-1">
                   <span>0.5% (Baseline)</span>
@@ -251,7 +251,7 @@ export const RoiEnginePage: React.FC<RoiEnginePageProps> = ({ onOpenInquiry, onN
                   step="10000"
                   value={avgDealValue}
                   onChange={(e) => setAvgDealValue(Number(e.target.value))}
-                  className="w-full h-2 bg-[#140E23] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF]"
+                  className="w-full h-3 bg-[#1E1435] rounded-lg appearance-none cursor-pointer accent-[#8B3DFF] border border-[#8B3DFF]/20 shadow-inner"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-[#85818E] mt-1">
                   <span>₹2K (D2C)</span>
