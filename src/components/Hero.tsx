@@ -42,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
             >
               Grow Your Business with{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-                SEO, Google Ads &amp; Meta Ads
+                Digital Marketing, Google Ads & Meta Ads
               </span>{' '}
               in Jaipur
             </h1>
@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
-              From organic search to high-performance advertising, we help businesses increase visibility, generate qualified leads, and achieve measurable growth.
+              We help Jaipur businesses generate leads and grow through performance marketing, Google Ads, Meta Ads, and social media campaigns.
             </motion.p>
 
             <motion.div
