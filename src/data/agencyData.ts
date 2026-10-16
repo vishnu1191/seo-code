@@ -33,70 +33,70 @@ export const HERO_STATS: StatItem[] = [
 
 export const AGENCY_SERVICES: ServiceItem[] = [
   {
-    id: 'brand-strategy',
+    id: 'google-ads',
     number: '01',
-    title: 'Brand Strategy & Positioning',
-    category: 'Foundation',
-    description: 'We carve distinct, defensible market positioning that commands authority, increases perceived value, and turns passive audiences into passionate brand advocates.',
-    deliverables: ['Category Definition', 'Audience Archetypes', 'Verbal & Visual Identity', 'Go-To-Market Roadmap'],
-    iconName: 'Compass',
-    gradient: 'from-[#8B3DFF]/20 to-[#35105C]/20',
-    metrics: '+45% Brand Recall'
-  },
-  {
-    id: 'social-performance',
-    number: '02',
-    title: 'Social & Cultural Momentum',
-    category: 'Distribution',
-    description: 'Crafting viral narrative engines and high-production organic social systems that build cultural relevance and organic customer acquisition at global scale.',
-    deliverables: ['High-Velocity Content Engine', 'Creator Ecosystems', 'Short-Form Video Production', 'Community Growth'],
-    iconName: 'Sparkles',
-    gradient: 'from-[#B15CFF]/20 to-[#4B147F]/20',
-    metrics: '12M+ Monthly Views'
-  },
-  {
-    id: 'paid-acquisition',
-    number: '03',
-    title: 'Paid Media & Performance Marketing',
-    category: 'Acquisition',
-    description: 'Algorithmic performance marketing across Meta, Google, TikTok, and programmatic networks optimized for customer lifetime value (LTV) and sustainable ROAS.',
-    deliverables: ['Multi-Channel Ad Architecture', 'Creative Dynamic Testing', 'First-Party Data Attribution', 'Predictive LTV Modeling'],
+    title: 'Google Ads Management',
+    category: 'Paid Advertising',
+    description: 'Reach people searching for your products or services. We help plan, set up, and optimise Google Ads campaigns around your business goals and advertising budget.',
+    deliverables: ['Campaign Setup', 'Keyword Research', 'Ad Copywriting', 'Conversion Tracking Review'],
     iconName: 'Target',
-    gradient: 'from-[#8B3DFF]/20 to-[#140E23]/30',
-    metrics: '3.8x Avg First-Order ROAS'
-  },
-  {
-    id: 'content-creative',
-    number: '04',
-    title: 'Content & Creative Production',
-    category: 'Conversion',
-    description: 'Cinematic 3D visuals, motion graphics, editorial design, and conversion-focused storytelling designed to arrest attention and trigger immediate consumer action.',
-    deliverables: ['3D Product Renders', 'High-Concept Video Ads', 'Motion Identity Systems', 'Conversion Copywriting'],
-    iconName: 'Clapperboard',
-    gradient: 'from-[#9B4DFF]/20 to-[#4B147F]/20',
-    metrics: '2.4x Higher CTR'
-  },
-  {
-    id: 'organic-seo',
-    number: '05',
-    title: 'SEO & Search Intelligence',
-    category: 'Longevity',
-    description: 'Future-proof search dominance utilizing semantic entity optimization, AI search readiness (Perplexity, ChatGPT, SGE), and technical architectural authority.',
-    deliverables: ['Generative Engine Optimization (GEO)', 'Entity Semantic Architecture', 'Programmatic Content Hubs', 'High-Impact Authority PR'],
-    iconName: 'Search',
     gradient: 'from-[#8B3DFF]/20 to-[#35105C]/20',
-    metrics: '+310% High-Intent Traffic'
+    metrics: 'Focused on Relevant Enquiries'
   },
   {
-    id: 'web-experiences',
+    id: 'meta-ads',
+    number: '02',
+    title: 'Facebook & Instagram Ads',
+    category: 'Paid Advertising',
+    description: 'Promote your business on Facebook and Instagram with campaigns designed to encourage enquiries, calls, messages, or website visits.',
+    deliverables: ['Campaign Strategy', 'Audience Targeting', 'Ad Creative Planning', 'Campaign Monitoring'],
+    iconName: 'TrendingUp',
+    gradient: 'from-[#B15CFF]/20 to-[#4B147F]/20',
+    metrics: 'Campaigns Matched to Your Goal'
+  },
+  {
+    id: 'performance-marketing',
+    number: '03',
+    title: 'Performance Marketing',
+    category: 'Growth Strategy',
+    description: 'Bring campaign planning, paid advertising, and measurement together so you can track performance and make informed decisions about your marketing budget.',
+    deliverables: ['Campaign Planning', 'Budget Recommendations', 'Performance Reporting', 'Optimisation Recommendations'],
+    iconName: 'ChartNoAxesCombined',
+    gradient: 'from-[#8B3DFF]/20 to-[#140E23]/30',
+    metrics: 'Focused on Measurable Goals'
+  },
+  {
+    id: 'social-media',
+    number: '04',
+    title: 'Social Media Marketing',
+    category: 'Content & Community',
+    description: 'Plan consistent content for platforms such as Instagram and Facebook to communicate your brand, showcase your services, and stay connected with your audience.',
+    deliverables: ['Content Calendar', 'Post & Reel Planning', 'Caption Writing', 'Content Review'],
+    iconName: 'Sparkles',
+    gradient: 'from-[#9B4DFF]/20 to-[#4B147F]/20',
+    metrics: 'Clear, Consistent Communication'
+  },
+  {
+    id: 'lead-generation',
+    number: '05',
+    title: 'Lead Generation',
+    category: 'Customer Acquisition',
+    description: 'Make it easier for potential customers to enquire using suitable ad campaigns, lead forms, landing pages, and call or WhatsApp contact options.',
+    deliverables: ['Lead Funnel Planning', 'Lead Form Recommendations', 'Call & WhatsApp CTA Planning', 'Lead Tracking Review'],
+    iconName: 'Users',
+    gradient: 'from-[#8B3DFF]/20 to-[#35105C]/20',
+    metrics: 'Designed to Encourage Enquiries'
+  },
+  {
+    id: 'website-design',
     number: '06',
-    title: 'Digital Experiences & Web Platforms',
-    category: 'Infrastructure',
-    description: 'Ultra-fast, high-converting digital flagships and interactive web applications engineered with fluid micro-interactions, dark luxury aesthetics, and headless architecture.',
-    deliverables: ['Headless Shopify / Next.js', 'Interactive 3D Canvases', 'Conversion Rate Optimization (CRO)', 'Global Edge Delivery'],
-    iconName: 'Cpu',
+    title: 'Website Design',
+    category: 'Digital Experience',
+    description: 'Present your business clearly with a mobile-friendly website that explains your services, builds trust, and helps visitors contact you easily.',
+    deliverables: ['Page Structure', 'Mobile-Friendly Layout', 'Service Page Content', 'Contact & WhatsApp CTA Planning'],
+    iconName: 'Monitor',
     gradient: 'from-[#B15CFF]/20 to-[#231938]/30',
-    metrics: '4.8% Average Conversion'
+    metrics: 'Built Around Visitor Experience'
   }
 ];
 
