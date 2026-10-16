@@ -4,7 +4,7 @@ import { MessageCircle, X, ArrowUpRight, Sparkles } from 'lucide-react';
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const phoneNumber = '917014799233';
-  const defaultMessage = encodeURIComponent('Hi, I visited your website and I'm interested in your digital marketing services. Could you please share the details.');
+  const defaultMessage = encodeURIComponent("Hi, I visited your website and I'm interested in your digital marketing services. Could you please share the details.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
   return (
