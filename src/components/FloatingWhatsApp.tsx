@@ -4,7 +4,7 @@ import { MessageCircle, X, ArrowUpRight, Sparkles } from 'lucide-react';
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const phoneNumber = '917014799233';
-  const defaultMessage = encodeURIComponent('Hi SEO Jaipur Team, I would like to discuss a project growth strategy for my business.');
+  const defaultMessage = encodeURIComponent('Hi, I’m interested in Google Ads, Meta Ads, or lead generation for my business. Please share your process and pricing.');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
   return (
@@ -23,9 +23,6 @@ export const FloatingWhatsApp: React.FC = () => {
               <div>
                 <span className="text-xs font-bold text-white block font-['Space_Grotesk']">
                   SEO in Jaipur Desk
-                </span>
-                <span className="text-[11px] font-semibold text-[#25D366] block font-mono">
-                  +91 70147 99233
                 </span>
               </div>
             </div>
