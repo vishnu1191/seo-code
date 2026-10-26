@@ -1005,8 +1005,8 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     id: 'difference',
-    question: 'What sets KINETIC MATRIX apart from traditional agencies?',
+    question: 'Why Choose SEO in Jaipur for Digital Marketing Services?',
     category: 'Philosophy',
-    answer: 'Traditional agencies outsource execution to junior staff or rely on outdated vanity metrics. We combine veteran mathematical growth engineers, world-class 3D artists, and senior brand strategists into dedicated multi-disciplinary strike teams tailored directly to your business objective.'
+    answer: 'SEO in Jaipur helps local businesses improve online visibility and attract relevant enquiries through SEO, Local SEO, Google Ads, Meta Ads, and practical digital marketing strategies tailored to their goals and budget.'
   }
 ];
