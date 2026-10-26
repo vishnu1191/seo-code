@@ -15,6 +15,8 @@ import { PerformancePage } from './pages/PerformancePage';
 import { WorkPage } from './pages/WorkPage';
 import { ProcessPage } from './pages/ProcessPage';
 import { RoiEnginePage } from './pages/RoiEnginePage';
+import { BlogPage } from './pages/BlogPage';
+import { BlogPostPage } from './pages/BlogPostPage';
 import { ProjectInquiryModal } from './components/ProjectInquiryModal';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ShowreelModal } from './components/ShowreelModal';
@@ -47,9 +49,12 @@ export default function App() {
 
       // Parse clean pathname (e.g., '/', '/about/', '/services/')
       const normalizedPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
-      const validPages = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator'];
+      const validPages = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator', 'blog'];
       if (validPages.includes(normalizedPath)) {
         setCurrentPage(normalizedPath);
+      } else if (normalizedPath.startsWith('blog/')) {
+        const slug = normalizedPath.slice('blog/'.length).replace(/\/$/, '');
+        setCurrentPage(slug ? `blogpost:${slug}` : 'blog');
       } else {
         setCurrentPage('home');
       }
@@ -149,6 +154,12 @@ export default function App() {
                 onOpenInquiry={handleOpenInquiry}
                 onNavigate={navigateTo}
               />
+            )}
+
+            {currentPage === 'blog' && <BlogPage />}
+
+            {currentPage.startsWith('blogpost:') && (
+              <BlogPostPage slug={currentPage.slice('blogpost:'.length)} />
             )}
           </motion.div>
         </AnimatePresence>

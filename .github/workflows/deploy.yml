@@ -36,7 +36,7 @@ jobs:
 
       - name: Create static route pages for SEO
         run: |
-          for route in about services performance work process calculator; do
+          for route in about services performance work process calculator blog blog/best-seo-services-in-jaipur; do
             mkdir -p "dist/$route"
             cp dist/index.html "dist/$route/index.html"
           done
