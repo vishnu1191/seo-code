@@ -3,7 +3,7 @@ import { ArrowRight, BookOpen, Clock3, MessageCircle, Search } from 'lucide-reac
 import { blogPosts } from '../data/blogPosts';
 
 const setMeta = (name: string, content: string) => {
-  let element = document.querySelector<HTMLMetaElement>(\`meta[name="\${name}"]\`);
+  let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
   if (!element) {
     element = document.createElement('meta');
     element.name = name;
@@ -70,11 +70,11 @@ export const BlogPage: React.FC = () => {
                   <span className="text-xs text-[#85818E] flex items-center gap-1.5"><Clock3 className="w-3.5 h-3.5" />{post.readTime}</span>
                 </div>
                 <h2 className="font-['Space_Grotesk'] text-xl sm:text-2xl font-bold leading-snug text-white group-hover:text-[#D7BFFF] transition-colors">
-                  <a href={\`/blog/\${post.slug}/\`}>{post.title}</a>
+                  <a href={`/blog/${post.slug}/`}>{post.title}</a>
                 </h2>
                 <p className="text-xs text-[#85818E] mt-3">{new Date(post.publishedDate + 'T12:00:00').toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                 <p className="text-sm text-[#A7A3B1] leading-relaxed mt-4 flex-1">{post.excerpt}</p>
-                <a href={\`/blog/\${post.slug}/\`} className="inline-flex items-center gap-2 text-sm text-[#D7BFFF] font-bold mt-6 hover:text-white transition-colors">
+                <a href={`/blog/${post.slug}/`} className="inline-flex items-center gap-2 text-sm text-[#D7BFFF] font-bold mt-6 hover:text-white transition-colors">
                   Read the guide <ArrowRight className="w-4 h-4" />
                 </a>
               </article>
