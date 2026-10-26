@@ -22,6 +22,7 @@ import { CaseStudyModal } from './components/CaseStudyModal';
 import { ShowreelModal } from './components/ShowreelModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CaseStudy } from './types';
+import { initGlobalAnalytics } from './utils/analytics';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -29,6 +30,14 @@ export default function App() {
   const [inquiryInitialService, setInquiryInitialService] = useState<string>('');
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [showreelOpen, setShowreelOpen] = useState(false);
+
+  // Initialize GA4 link tracker for WhatsApp (wa.me) and Phone (tel:) links
+  useEffect(() => {
+    const cleanupAnalytics = initGlobalAnalytics();
+    return () => {
+      cleanupAnalytics();
+    };
+  }, []);
 
   // Clean HTML5 History API path-based navigation (removes '#/' and uses clean URLs like /about/, /services/)
   useEffect(() => {

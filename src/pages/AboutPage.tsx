@@ -262,7 +262,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                 <div className="p-4 rounded-xl bg-[#120B20] border border-white/5 flex items-center justify-between">
                   <div>
                     <div className="text-[10px] uppercase font-mono text-[#85818E]">Direct Line</div>
-                    <div className="text-sm font-bold text-white">+91 63674 20500</div>
+                    <a
+                      href="tel:+916367420500"
+                      className="text-sm font-bold text-white hover:text-[#8B3DFF] transition-colors inline-block"
+                      aria-label="Call Direct Line +91 63674 20500"
+                    >
+                      +91 63674 20500
+                    </a>
                   </div>
                   <button
                     onClick={() => onOpenInquiry('Enterprise Retainer')}
