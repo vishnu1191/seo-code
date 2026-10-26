@@ -18,7 +18,8 @@ import {
   Phone,
   MessageCircle,
   FileCheck,
-  Mail
+  Mail,
+  BookOpen
 } from 'lucide-react';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { BrandLogo } from '../components/BrandLogo';
@@ -746,6 +747,30 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
               </table>
             </div>
           </div>
+
+          {/* Blog & Insights: accessible from About only, not the main navigation */}
+          <section className="mb-20 rounded-3xl border border-[#8B3DFF]/30 bg-gradient-to-br from-[#10091B] via-[#080612] to-[#0A0810] p-7 sm:p-10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-56 h-56 bg-[#8B3DFF]/10 rounded-full blur-[80px] pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 text-[#D7BFFF] text-xs font-bold uppercase tracking-[0.18em] mb-3">
+                  <BookOpen className="w-4 h-4" /> Blog &amp; Insights
+                </div>
+                <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-white mb-3">
+                  Practical ideas for smarter digital growth
+                </h2>
+                <p className="text-sm text-[#A7A3B1] leading-relaxed">
+                  Explore clear guides on SEO, local search, Google Ads, Meta Ads, and marketing tools—so you can make better-informed decisions for your business.
+                </p>
+              </div>
+              <a
+                href="/blog/"
+                className="inline-flex shrink-0 items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-xs uppercase tracking-widest font-bold transition-all shadow-[0_0_20px_rgba(139,61,255,0.25)]"
+              >
+                Explore Blogs <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </section>
 
           {/* Bottom Action Card */}
           <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#140E23] via-[#0A0810] to-[#140E23] border border-[#8B3DFF]/30 text-center flex flex-col items-center shadow-[0_0_50px_rgba(139,61,255,0.2)]">
