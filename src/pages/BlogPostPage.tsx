@@ -7,7 +7,7 @@ interface BlogPostPageProps {
 }
 
 const setMeta = (name: string, content: string) => {
-  let element = document.querySelector<HTMLMetaElement>(\`meta[name="\${name}"]\`);
+  let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
   if (!element) {
     element = document.createElement('meta');
     element.name = name;
@@ -36,7 +36,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
       canonical.rel = 'canonical';
       document.head.appendChild(canonical);
     }
-    canonical.href = \`https://seoinjaipur.in/blog/\${post.slug}/\`;
+    canonical.href = `https://seoinjaipur.in/blog/${post.slug}/`;
 
     let jsonLd = document.getElementById('blog-post-jsonld') as HTMLScriptElement | null;
     if (!jsonLd) {
@@ -52,7 +52,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
       description: post.metaDescription,
       datePublished: post.publishedDate,
       dateModified: post.publishedDate,
-      mainEntityOfPage: \`https://seoinjaipur.in/blog/\${post.slug}/\`,
+      mainEntityOfPage: `https://seoinjaipur.in/blog/${post.slug}/`,
       author: { '@type': 'Organization', name: 'SEO in Jaipur', url: 'https://seoinjaipur.in/about/' },
       publisher: { '@type': 'Organization', name: 'SEO in Jaipur', url: 'https://seoinjaipur.in/' },
       keywords: post.keywords.join(', ')
@@ -100,7 +100,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
         <div className="min-w-0">
           <div className="space-y-10">
             {post.sections.map((section, index) => (
-              <section key={section.heading} id={\`section-\${index + 1}\`} className="scroll-mt-24">
+              <section key={section.heading} id={`section-${index + 1}`} className="scroll-mt-24">
                 <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-white leading-snug mb-4">{section.heading}</h2>
                 <div className="space-y-4 text-sm sm:text-base text-[#C5C2CE] leading-7">
                   {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -128,7 +128,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
           <div className="rounded-2xl border border-white/10 bg-[#0A0810] p-5">
             <h2 className="font-['Space_Grotesk'] text-lg font-bold text-white">In this guide</h2>
             <ol className="mt-4 space-y-3">
-              {post.sections.map((section, index) => <li key={section.heading}><a href={\`#section-\${index + 1}\`} className="text-sm text-[#A7A3B1] hover:text-[#D7BFFF] transition-colors">{index + 1}. {section.heading}</a></li>)}
+              {post.sections.map((section, index) => <li key={section.heading}><a href={`#section-${index + 1}`} className="text-sm text-[#A7A3B1] hover:text-[#D7BFFF] transition-colors">{index + 1}. {section.heading}</a></li>)}
             </ol>
           </div>
           <div className="rounded-2xl border border-[#25D366]/25 bg-[#0A0810] p-5">
