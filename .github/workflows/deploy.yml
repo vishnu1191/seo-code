@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - 'fix/**'
   workflow_dispatch:
 
 permissions:
@@ -34,12 +35,56 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Create static route pages for SEO
+      - name: Create SEO-friendly static route documents
         run: |
-          for route in about services performance work process calculator blog blog/best-seo-services-in-jaipur; do
-            mkdir -p "dist/$route"
-            cp dist/index.html "dist/$route/index.html"
-          done
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const pages = [
+            { route: '', title: 'SEO in Jaipur | SEO, Google Ads & Meta Ads Agency', description: 'SEO in Jaipur helps businesses grow with SEO, Local SEO, Google Ads, Meta Ads, social media marketing, link building and website design.', h1: 'SEO Services in Jaipur for Sustainable Business Growth', body: 'Grow your business with practical SEO, local SEO, Google Ads, Meta Ads and website design services in Jaipur. Explore our services, process, work and contact options.' },
+            { route: 'about', title: 'About SEO in Jaipur | Digital Marketing & SEO Team', description: 'Learn about SEO in Jaipur, our approach to search engine optimization, performance marketing and measurable business growth.', h1: 'About SEO in Jaipur', body: 'Learn about our approach to SEO, local search visibility and performance marketing for businesses in Jaipur and across India.' },
+            { route: 'services', title: 'SEO Services in Jaipur | Local SEO, Google Ads & Meta Ads', description: 'Explore SEO services in Jaipur including technical SEO, local SEO, Google Ads, Meta Ads, social media marketing and website design.', h1: 'SEO and Digital Marketing Services in Jaipur', body: 'Explore our search engine optimization, local SEO, Google Ads, Meta Ads, social media marketing, link building and website design services.' },
+            { route: 'performance', title: 'Performance Marketing in Jaipur | Google & Meta Ads', description: 'Performance marketing services in Jaipur focused on Google Ads, Meta Ads, lead generation, campaign optimization and tracking.', h1: 'Performance Marketing in Jaipur', body: 'Learn how Google Ads, Meta Ads, conversion tracking and campaign optimization can support measurable lead generation.' },
+            { route: 'work', title: 'Our Work | SEO & Performance Marketing in Jaipur', description: 'Explore selected work and case studies related to SEO, digital marketing and performance campaigns.', h1: 'SEO and Performance Marketing Work', body: 'Review our work and campaign approach. Contact us to discuss the goals, audience and requirements of your project.' },
+            { route: 'process', title: 'Our SEO Process | SEO in Jaipur', description: 'Understand our SEO process, from technical audits and keyword research to content improvements and performance reviews.', h1: 'Our SEO Process', body: 'Explore the steps involved in technical SEO audits, keyword research, on-page improvements, internal linking and ongoing performance measurement.' },
+            { route: 'calculator', title: 'Marketing ROI Calculator | SEO in Jaipur', description: 'Estimate potential marketing returns with our ROI planning tool and discuss campaign goals with SEO in Jaipur.', h1: 'Marketing ROI Calculator', body: 'Use the marketing ROI planning tool to explore assumptions for leads, conversion rates and campaign returns. Estimates are indicative, not guaranteed results.' },
+            { route: 'blog', title: 'SEO Blog | SEO Tips for Jaipur Businesses', description: 'Read practical SEO and digital marketing insights for local businesses, including SEO services and local search visibility.', h1: 'SEO and Digital Marketing Blog', body: 'Explore articles on SEO, local search, website visibility and digital marketing for businesses in Jaipur.' },
+            { route: 'blog/best-seo-services-in-jaipur', title: 'Best SEO Services in Jaipur: How to Choose an Agency', description: 'Learn what to compare when choosing SEO services in Jaipur, including technical SEO, local SEO, reporting and business goals.', h1: 'How to Choose the Best SEO Services in Jaipur', body: 'Compare SEO service providers by reviewing technical audits, local SEO experience, transparent reporting, realistic goals and the quality of their strategy.' }
+          ];
+
+          const escapeHtml = (value) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+          const nav = pages.map((page) => {
+            const href = page.route ? '/' + page.route + '/' : '/';
+            const label = page.route ? page.route.split('/').pop().replace(/-/g, ' ') : 'Home';
+            return '<li><a href="' + href + '">' + escapeHtml(label.replace(/\b\w/g, c => c.toUpperCase())) + '</a></li>';
+          }).join('\n');
+
+          for (const page of pages) {
+            const file = path.join('dist', page.route, 'index.html');
+            if (!fs.existsSync(file)) {
+              fs.mkdirSync(path.dirname(file), { recursive: true });
+              fs.copyFileSync('dist/index.html', file);
+            }
+
+            let html = fs.readFileSync(file, 'utf8');
+            const canonical = 'https://seoinjaipur.in/' + (page.route ? page.route + '/' : '');
+            html = html.replace(/<title>[\s\S]*?<\/title>/i, '<title>' + escapeHtml(page.title) + '</title>');
+            html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?\s*>/i, '<meta name="description" content="' + escapeHtml(page.description) + '" />');
+            if (/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?\s*>/i.test(html)) {
+              html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?\s*>/i, '<link rel="canonical" href="' + canonical + '" />');
+            } else {
+              html = html.replace('</head>', '<link rel="canonical" href="' + canonical + '" />\n</head>');
+            }
+            html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?\s*>/i, '<meta property="og:url" content="' + canonical + '" />');
+            html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?\s*>/i, '<meta property="og:title" content="' + escapeHtml(page.title) + '" />');
+            html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?\s*>/i, '<meta property="og:description" content="' + escapeHtml(page.description) + '" />');
+
+            const fallback = '<div id="seo-static-content"><main><h1>' + escapeHtml(page.h1) + '</h1><p>' + escapeHtml(page.body) + '</p><nav aria-label="Site pages"><ul>' + nav + '</ul></nav></main></div>';
+            html = html.replace('<div id="root"></div>', '<div id="root">' + fallback + '</div>');
+            fs.writeFileSync(file, html);
+          }
+          NODE
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
