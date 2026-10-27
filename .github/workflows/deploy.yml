@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -78,6 +81,7 @@ jobs:
             html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?\s*>/i, '<meta property="og:url" content="' + canonical + '" />');
             html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?\s*>/i, '<meta property="og:title" content="' + escapeHtml(page.title) + '" />');
             html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?\s*>/i, '<meta property="og:description" content="' + escapeHtml(page.description) + '" />');
+            html = html.replace('</head>', '<meta name="twitter:card" content="summary_large_image" />\\n<meta name="twitter:title" content="' + escapeHtml(page.title) + '" />\\n<meta name="twitter:description" content="' + escapeHtml(page.description) + '" />\\n</head>');
 
             const fallback = '<div id="seo-static-content"><main><h1>' + escapeHtml(page.h1) + '</h1><p>' + escapeHtml(page.body) + '</p><nav aria-label="Site pages"><ul>' + nav + '</ul></nav></main></div>';
             html = html.replace('<div id="root"></div>', '<div id="root">' + fallback + '</div>');
@@ -94,6 +98,7 @@ jobs:
           path: ./dist
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
