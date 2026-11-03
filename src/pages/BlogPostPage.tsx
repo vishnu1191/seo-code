@@ -106,14 +106,15 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
                   {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 </div>
                 {section.bullets && <ul className="mt-5 space-y-3">{section.bullets.map((bullet) => <li key={bullet} className="flex items-start gap-3 text-sm sm:text-base text-[#C5C2CE] leading-6"><CheckCircle2 className="w-4 h-4 text-[#B15CFF] shrink-0 mt-1" /><span>{bullet}</span></li>)}</ul>}
+                {section.links && <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">{section.links.map((link) => <a key={link.url} href={link.url} target={link.url.startsWith('http') ? '_blank' : undefined} rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined} className="text-sm font-semibold text-[#D7BFFF] underline underline-offset-4 hover:text-white">{link.label}</a>)}</div>}
               </section>
             ))}
           </div>
 
           <section className="mt-12 rounded-2xl border border-[#8B3DFF]/30 bg-[#0A0810] p-6 sm:p-8">
-            <h2 className="font-['Space_Grotesk'] text-2xl font-bold text-white">Discuss your SEO goals</h2>
-            <p className="text-sm text-[#A7A3B1] leading-relaxed mt-3">Share your website, target services, and the locations you serve. We can discuss practical next steps for improving relevant search visibility and enquiry tracking—without unrealistic ranking promises.</p>
-            <a href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20read%20your%20SEO%20guide%20and%20want%20to%20discuss%20SEO%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 px-5 py-3 rounded-full bg-[#25D366] text-black font-bold text-sm hover:bg-[#20bd5a] transition-colors"><MessageCircle className="w-4 h-4" /> Discuss on WhatsApp <ArrowRight className="w-4 h-4" /></a>
+            <h2 className="font-['Space_Grotesk'] text-2xl font-bold text-white">{post.ctaTitle || 'Discuss your SEO goals'}</h2>
+            <p className="text-sm text-[#A7A3B1] leading-relaxed mt-3">{post.ctaDescription || 'Share your website, target services, and the locations you serve. We can discuss practical next steps for improving relevant search visibility and enquiry tracking—without unrealistic ranking promises.'}</p>
+            <a href={post.ctaUrl || 'https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20read%20your%20SEO%20guide%20and%20want%20to%20discuss%20SEO%20for%20my%20business.'} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 px-5 py-3 rounded-full bg-[#25D366] text-black font-bold text-sm hover:bg-[#20bd5a] transition-colors"><MessageCircle className="w-4 h-4" /> {post.ctaText || 'Discuss on WhatsApp'} <ArrowRight className="w-4 h-4" /></a>
           </section>
 
           <section className="mt-12">
