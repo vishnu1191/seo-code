@@ -182,6 +182,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                 <li><button onClick={() => handleLinkClick('work')} className="hover:text-white transition-colors cursor-pointer text-left">Selected Case Studies</button></li>
                 <li><button onClick={() => handleLinkClick('process')} className="hover:text-white transition-colors cursor-pointer text-left">4-Phase Methodology</button></li>
                 <li><button onClick={() => handleLinkClick('calculator')} className="hover:text-white transition-colors cursor-pointer text-left">Interactive ROI Engine</button></li>
+                <li><a href="/contact-us/" className="hover:text-white transition-colors">Contact Us</a></li>
               </ul>
             </div>
 
