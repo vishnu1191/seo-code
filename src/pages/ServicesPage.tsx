@@ -491,6 +491,22 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
             </div>
           </div>
 
+          {/* Individual Service Pages */}
+          <section aria-labelledby="individual-service-pages" className="mb-12 rounded-2xl border border-white/10 bg-[#0A0810] p-6 sm:p-8">
+            <h2 id="individual-service-pages" className="font-['Space_Grotesk'] text-xl font-bold text-white mb-2">Explore Individual Services</h2>
+            <p className="text-sm text-[#A7A3B1] mb-5">Choose a service to view its scope, approach and contact options.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <a href="/seo-service/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">SEO Services <span aria-hidden="true">→</span></a>
+              <a href="/google-ads-service/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">Google Ads <span aria-hidden="true">→</span></a>
+              <a href="/link-building-service/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">Link Building <span aria-hidden="true">→</span></a>
+              <a href="/performance-marketing/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">Performance Marketing <span aria-hidden="true">→</span></a>
+              <a href="/local-seo-service/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">Local SEO <span aria-hidden="true">→</span></a>
+              <a href="/content-marketing-service/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">Content Marketing <span aria-hidden="true">→</span></a>
+              <a href="/seo-package-service/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">SEO Packages <span aria-hidden="true">→</span></a>
+              <a href="/influencer-marketing/" className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#D7BFFF] hover:border-[#8B3DFF]/60 hover:text-white transition-colors">Influencer Marketing <span aria-hidden="true">→</span></a>
+            </div>
+          </section>
+
           {/* Detailed Service Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
             {filtered.map((service) => (
