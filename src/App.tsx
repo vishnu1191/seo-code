@@ -3,20 +3,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { PerformancePage } from './pages/PerformancePage';
-import { WorkPage } from './pages/WorkPage';
-import { ProcessPage } from './pages/ProcessPage';
-import { RoiEnginePage } from './pages/RoiEnginePage';
-import { BlogPage } from './pages/BlogPage';
-import { BlogPostPage } from './pages/BlogPostPage';
+// Load secondary routes only when visitors open them. Keep the homepage eager for fast first paint.
+const AboutPage = lazy(() => import('./pages/AboutPage').then((module) => ({ default: module.AboutPage })));
+const ServicesPage = lazy(() => import('./pages/ServicesPage').then((module) => ({ default: module.ServicesPage })));
+const PerformancePage = lazy(() => import('./pages/PerformancePage').then((module) => ({ default: module.PerformancePage })));
+const WorkPage = lazy(() => import('./pages/WorkPage').then((module) => ({ default: module.WorkPage })));
+const ProcessPage = lazy(() => import('./pages/ProcessPage').then((module) => ({ default: module.ProcessPage })));
+const RoiEnginePage = lazy(() => import('./pages/RoiEnginePage').then((module) => ({ default: module.RoiEnginePage })));
+const BlogPage = lazy(() => import('./pages/BlogPage').then((module) => ({ default: module.BlogPage })));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage').then((module) => ({ default: module.BlogPostPage })));
 import { ProjectInquiryModal } from './components/ProjectInquiryModal';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ShowreelModal } from './components/ShowreelModal';
@@ -192,6 +193,7 @@ export default function App() {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
+            <Suspense fallback={<div className="min-h-[50vh]" aria-label="Loading page" />}>
             {currentPage === 'home' && (
               <HomePage
                 onOpenInquiry={handleOpenInquiry}
@@ -249,6 +251,7 @@ export default function App() {
             {currentPage.startsWith('blogpost:') && (
               <BlogPostPage slug={currentPage.slice('blogpost:'.length)} />
             )}
+            </Suspense>
           </motion.div>
         </AnimatePresence>
       </main>
