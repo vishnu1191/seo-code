@@ -4,7 +4,7 @@
  */
 
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { LazyMotion, domAnimation } from 'motion/react';
+import { LazyMotion, domMax } from 'motion/react';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -173,7 +173,7 @@ export default function App() {
   };
 
   return (
-    <LazyMotion features={domAnimation}>
+    <LazyMotion features={domMax}>
       <div className="relative min-h-screen bg-[#050508] text-[#F7F5FA] selection:bg-[#8B3DFF]/30 selection:text-[#F7F5FA] flex flex-col justify-between">
       {/* Layered Background Canvas & Ambient Atmospheric Lighting */}
       <BackgroundEffects />
