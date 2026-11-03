@@ -182,22 +182,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                 <li><button onClick={() => handleLinkClick('work')} className="hover:text-white transition-colors cursor-pointer text-left">Selected Case Studies</button></li>
                 <li><button onClick={() => handleLinkClick('process')} className="hover:text-white transition-colors cursor-pointer text-left">4-Phase Methodology</button></li>
                 <li><button onClick={() => handleLinkClick('calculator')} className="hover:text-white transition-colors cursor-pointer text-left">Interactive ROI Engine</button></li>
-                <li><a href="/contact-us/" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20want%20to%20discuss%20your%20digital%20marketing%20services." target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Contact Us on WhatsApp</a></li>
               </ul>
             </div>
 
-            {/* Column 2: Individual Service Pages */}
+            {/* Column 2: Service Navigation */}
             <div>
               <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">Service Pages</h3>
               <ul className="space-y-2.5 text-xs text-[#A7A3B1]">
-                <li><a href="/seo-service/" className="hover:text-white transition-colors">SEO Services</a></li>
-                <li><a href="/google-ads-service/" className="hover:text-white transition-colors">Google Ads</a></li>
-                <li><a href="/link-building-service/" className="hover:text-white transition-colors">Link Building</a></li>
-                <li><a href="/performance-marketing/" className="hover:text-white transition-colors">Performance Marketing</a></li>
-                <li><a href="/local-seo-service/" className="hover:text-white transition-colors">Local SEO</a></li>
-                <li><a href="/content-marketing-service/" className="hover:text-white transition-colors">Content Marketing</a></li>
-                <li><a href="/seo-package-service/" className="hover:text-white transition-colors">SEO Packages</a></li>
-                <li><a href="/influencer-marketing/" className="hover:text-white transition-colors">Influencer Marketing</a></li>
+                <li><a href="/services/#service-detail-organic-seo" className="hover:text-white transition-colors">SEO Services</a></li>
+                <li><a href="/services/#service-detail-google-ads" className="hover:text-white transition-colors">Google Ads</a></li>
+                <li><a href="/services/#service-detail-link-building-pr" className="hover:text-white transition-colors">Link Building</a></li>
+                <li><a href="/services/#service-detail-google-ads" className="hover:text-white transition-colors">Performance Marketing</a></li>
+                <li><a href="/services/#service-detail-local-seo" className="hover:text-white transition-colors">Local SEO</a></li>
+                <li><a href="/services/#service-detail-content-copywriting" className="hover:text-white transition-colors">Content Marketing</a></li>
+                <li><a href="/services/#service-detail-organic-seo" className="hover:text-white transition-colors">SEO Packages</a></li>
+                <li><a href="/services/#service-detail-influencer-marketing" className="hover:text-white transition-colors">Influencer Marketing</a></li>
               </ul>
             </div>
 
