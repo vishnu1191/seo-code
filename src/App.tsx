@@ -4,7 +4,6 @@
  */
 
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -185,14 +184,7 @@ export default function App() {
 
       {/* Main Multi-Page Routed View Container */}
       <main className="relative z-10 flex-1">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentPage}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-          >
+        <div key={currentPage}>
             <Suspense fallback={<div className="min-h-[50vh]" aria-label="Loading page" />}>
             {currentPage === 'home' && (
               <HomePage
@@ -252,8 +244,7 @@ export default function App() {
               <BlogPostPage slug={currentPage.slice('blogpost:'.length)} />
             )}
             </Suspense>
-          </motion.div>
-        </AnimatePresence>
+        </div>
       </main>
 
       {/* Multi-Column Professional Footer */}
