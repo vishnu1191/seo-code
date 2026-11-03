@@ -60,6 +60,54 @@ const CTASection = React.lazy(() =>
 
 import { CaseStudy } from '../types';
 
+
+/**
+ * Defer below-the-fold homepage sections until they approach the viewport.
+ * The reserved space keeps the page layout stable while each section chunk loads.
+ */
+const DeferredSection: React.FC<{
+  children: React.ReactNode;
+  minHeight: string;
+}> = ({ children, minHeight }) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [isNearViewport, setIsNearViewport] = React.useState(false);
+
+  React.useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+
+    if (!('IntersectionObserver' in window)) {
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setIsNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '800px 0px' }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef}>
+      {isNearViewport ? (
+        <React.Suspense fallback={<div className={minHeight} aria-hidden="true" />}>
+          {children}
+        </React.Suspense>
+      ) : (
+        <div className={minHeight} aria-hidden="true" />
+      )}
+    </div>
+  );
+};
+
 interface HomePageProps {
   onOpenInquiry: (initialService?: string) => void;
   onOpenShowreel: () => void;
@@ -95,7 +143,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       >
 
         {/* About Section */}
-        <section>
+        <DeferredSection minHeight="min-h-[650px]">
           <div className="relative">
             <AboutSection
               onOpenInquiry={() =>
@@ -123,10 +171,10 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
           </div>
-        </section>
+        </DeferredSection>
 
         {/* Services Section */}
-        <section>
+        <DeferredSection minHeight="min-h-[850px]">
           <div className="relative">
             <ServicesSection
               onSelectService={(serviceTitle) =>
@@ -153,10 +201,10 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
           </div>
-        </section>
+        </DeferredSection>
 
         {/* Performance Section */}
-        <section>
+        <DeferredSection minHeight="min-h-[650px]">
           <div className="relative">
             <PerformanceSection
               onOpenCaseStudies={() => {
@@ -187,10 +235,10 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
           </div>
-        </section>
+        </DeferredSection>
 
         {/* Case Studies Section */}
-        <section>
+        <DeferredSection minHeight="min-h-[650px]">
           <div className="relative">
             <CaseStudiesSection
               onSelectCaseStudy={onSelectCaseStudy}
@@ -198,10 +246,10 @@ export const HomePage: React.FC<HomePageProps> = ({
 
 
           </div>
-        </section>
+        </DeferredSection>
 
         {/* Process Section */}
-        <section>
+        <DeferredSection minHeight="min-h-[600px]">
           <div className="relative">
             <ProcessSection />
 
@@ -224,10 +272,10 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
           </div>
-        </section>
+        </DeferredSection>
 
         {/* Growth Calculator */}
-        <section>
+        <DeferredSection minHeight="min-h-[700px]">
           <div className="relative">
             <GrowthCalculator
               onOpenInquiry={(planDetails) =>
@@ -254,26 +302,26 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
           </div>
-        </section>
+        </DeferredSection>
 
         {/* Testimonials */}
-        <section>
+        <DeferredSection minHeight="min-h-[450px]">
           <TestimonialsSection />
-        </section>
+        </DeferredSection>
 
         {/* FAQ */}
-        <section>
+        <DeferredSection minHeight="min-h-[500px]">
           <FAQSection />
-        </section>
+        </DeferredSection>
 
         {/* Final CTA */}
-        <section>
+        <DeferredSection minHeight="min-h-[350px]">
           <CTASection
             onOpenInquiry={(intent) =>
               onOpenInquiry(intent)
             }
           />
-        </section>
+        </DeferredSection>
 
       </React.Suspense>
     </div>
