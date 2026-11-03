@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Menu, X, Sparkles, Compass, MessageCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { m, AnimatePresence } from 'motion/react';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
 
   return (
     <>
-      <motion.header
+      <m.header
         id="main-header"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="flex items-center justify-between">
             {/* Brand Logo / Wordmark */}
-            <motion.button
+            <m.button
               id="brand-logo"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
               className="group flex items-center focus:outline-none rounded-lg text-left cursor-pointer"
             >
               <BrandLogo size="md" variant="horizontal" />
-            </motion.button>
+            </m.button>
 
             {/* Desktop Navigation Links */}
             <nav
@@ -87,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                   >
                     <span>{link.label}</span>
                     {isActive && (
-                      <motion.span 
+                      <m.span 
                         layoutId="activeNavIndicator"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF] rounded-full shadow-[0_0_8px_#8B3DFF]" 
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
 
             {/* Primary Action CTA */}
             <div className="hidden sm:flex items-center gap-2.5">
-              <motion.a
+              <m.a
                 id="header-whatsapp-btn"
                 href="https://wa.me/917014799233?text=Hi%20SEO%20Jaipur%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project%20growth%20strategy."
                 target="_blank"
@@ -112,9 +112,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
               >
                 <MessageCircle className="w-3.5 h-3.5 fill-current" />
                 <span>WhatsApp</span>
-              </motion.a>
+              </m.a>
 
-              <motion.button
+              <m.button
                 id="header-cta-button"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
@@ -122,12 +122,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                 className="px-5 py-2 bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-[11px] uppercase tracking-widest font-bold rounded-full transition-all shadow-[0_0_20px_rgba(139,61,255,0.3)] cursor-pointer"
               >
                 <span>Start Project</span>
-              </motion.button>
+              </m.button>
             </div>
 
             {/* Mobile Hamburger Toggle Button */}
             <div className="flex lg:hidden items-center gap-2">
-              <motion.button
+              <m.button
                 id="mobile-menu-toggle"
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -136,16 +136,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                 className="p-2 rounded-lg bg-[#0A0810] border border-[#8B3DFF]/25 text-[#F7F5FA] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#8B3DFF] cursor-pointer"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </motion.button>
+              </m.button>
             </div>
           </div>
         </div>
-      </motion.header>
+      </m.header>
 
       {/* Mobile Navigation Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
+          <m.div
             id="mobile-drawer-overlay"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
               {navLinks.map((link) => {
                 const isActive = currentPage === link.id;
                 return (
-                  <motion.button
+                  <m.button
                     key={link.id}
                     id={`mobile-nav-${link.id}`}
                     whileTap={{ scale: 0.98 }}
@@ -173,12 +173,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                   >
                     <span className="font-semibold">{link.label}</span>
                     <ArrowRight className={`w-4 h-4 ${isActive ? 'text-[#8B3DFF]' : 'opacity-40'}`} />
-                  </motion.button>
+                  </m.button>
                 );
               })}
 
               <div className="mt-6 pt-6 border-t border-[#8B3DFF]/20 flex flex-col gap-3">
-                <motion.a
+                <m.a
                   id="mobile-drawer-whatsapp"
                   href="https://wa.me/917014799233?text=Hi%20SEO%20Jaipur%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project%20growth%20strategy."
                   target="_blank"
@@ -189,9 +189,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
                   <span className="font-bold">WhatsApp (+91 70147 99233)</span>
-                </motion.a>
+                </m.a>
 
-                <motion.button
+                <m.button
                   id="mobile-drawer-cta"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
@@ -202,7 +202,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                 >
                   <span>Start a Project</span>
                   <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                </m.button>
 
                 <div className="flex items-center justify-center gap-2 text-xs text-[#85818E] pt-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -210,7 +210,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

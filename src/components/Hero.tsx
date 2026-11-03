@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Play, TrendingUp, CheckCircle2 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 
 interface HeroProps {
   onOpenInquiry: () => void;
@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
   return (
     <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 lg:py-24 overflow-hidden">
-      <motion.div
+      <m.div
         animate={{
           opacity: [0.15, 0.25, 0.15]
         }}
@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
-            <motion.div
+            <m.div
               id="hero-eyebrow-badge"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
               <span>Next-Gen Growth Agency</span>
-            </motion.div>
+            </m.div>
 
             <h1
               id="hero-headline"
@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               in Jaipur
             </h1>
 
-            <motion.p
+            <m.p
               id="hero-supporting-copy"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -55,16 +55,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
               We help Jaipur businesses generate leads and grow through performance marketing, Google Ads, Meta Ads, and social media campaigns.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               id="hero-actions"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
               className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10"
             >
-              <motion.button
+              <m.button
                 id="hero-primary-cta"
                 onClick={onOpenInquiry}
                 whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.4)" }}
@@ -73,9 +73,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               >
                 <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </m.button>
 
-              <motion.button
+              <m.button
                 id="hero-secondary-cta"
                 onClick={onOpenShowreel}
                 whileHover={{ scale: 1.03, borderColor: "rgba(139,61,255,0.6)" }}
@@ -84,10 +84,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               >
                 <Play className="w-3.5 h-3.5 text-[#D7BFFF] fill-[#D7BFFF]" />
                 <span>Explore Our Work</span>
-              </motion.button>
-            </motion.div>
+              </m.button>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -107,11 +107,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">Guaranteed SLA Execution</span>
               </div>
-            </motion.div>
+            </m.div>
 
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
@@ -135,22 +135,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <div className="absolute w-[290px] h-[290px] rounded-full border border-dashed border-[#B15CFF]/25 animate-orbit-reverse pointer-events-none" />
                 <div className="absolute w-[210px] h-[210px] rounded-full border border-[#D7BFFF]/15 animate-pulse-slow pointer-events-none" />
 
-                <motion.div
+                <m.div
                   animate={{ y: [0, -4, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2.5 py-1 rounded-md border border-[#8B3DFF]/20"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
                   <span>Synapse Core // Active</span>
-                </motion.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                   animate={{ y: [0, 4, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   className="absolute top-4 right-4 z-20 font-mono text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-2 py-1 rounded-md border border-white/5"
                 >
                   LAT: 4.8x ROAS
-                </motion.div>
+                </m.div>
 
                 <div className="relative w-full h-full flex items-center justify-center">
 
@@ -233,7 +233,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07070B] via-[#07070B]/80 to-transparent z-20 pointer-events-none" />
 
-                <motion.div
+                <m.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute bottom-4 inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-xl shadow-lg"
@@ -261,12 +261,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                       Verified Lift
                     </span>
                   </div>
-                </motion.div>
+                </m.div>
 
               </div>
             </div>
 
-          </motion.div>
+          </m.div>
 
         </div>
       </div>
