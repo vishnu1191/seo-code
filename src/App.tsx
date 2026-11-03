@@ -17,9 +17,10 @@ const ProcessPage = lazy(() => import('./pages/ProcessPage').then((module) => ({
 const RoiEnginePage = lazy(() => import('./pages/RoiEnginePage').then((module) => ({ default: module.RoiEnginePage })));
 const BlogPage = lazy(() => import('./pages/BlogPage').then((module) => ({ default: module.BlogPage })));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage').then((module) => ({ default: module.BlogPostPage })));
-import { ProjectInquiryModal } from './components/ProjectInquiryModal';
-import { CaseStudyModal } from './components/CaseStudyModal';
-import { ShowreelModal } from './components/ShowreelModal';
+// Interactive modals are loaded only when a visitor opens them, keeping their code out of the initial page bundle.
+const ProjectInquiryModal = lazy(() => import('./components/ProjectInquiryModal').then((module) => ({ default: module.ProjectInquiryModal })));
+const CaseStudyModal = lazy(() => import('./components/CaseStudyModal').then((module) => ({ default: module.CaseStudyModal })));
+const ShowreelModal = lazy(() => import('./components/ShowreelModal').then((module) => ({ default: module.ShowreelModal })));
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CaseStudy } from './types';
 import { initGlobalAnalytics } from './utils/analytics';
@@ -254,23 +255,31 @@ export default function App() {
       />
 
       {/* Interactive Modals */}
-      <ProjectInquiryModal
-        isOpen={inquiryModalOpen}
-        onClose={() => setInquiryModalOpen(false)}
-        initialService={inquiryInitialService}
-      />
+      <Suspense fallback={null}>
+        {inquiryModalOpen && (
+          <ProjectInquiryModal
+            isOpen={inquiryModalOpen}
+            onClose={() => setInquiryModalOpen(false)}
+            initialService={inquiryInitialService}
+          />
+        )}
 
-      <CaseStudyModal
-        study={selectedCaseStudy}
-        onClose={() => setSelectedCaseStudy(null)}
-        onOpenInquiry={(service) => handleOpenInquiry(service)}
-      />
+        {selectedCaseStudy && (
+          <CaseStudyModal
+            study={selectedCaseStudy}
+            onClose={() => setSelectedCaseStudy(null)}
+            onOpenInquiry={(service) => handleOpenInquiry(service)}
+          />
+        )}
 
-      <ShowreelModal
-        isOpen={showreelOpen}
-        onClose={() => setShowreelOpen(false)}
-        onOpenInquiry={() => handleOpenInquiry('Brand Showreel Inquiry')}
-      />
+        {showreelOpen && (
+          <ShowreelModal
+            isOpen={showreelOpen}
+            onClose={() => setShowreelOpen(false)}
+            onOpenInquiry={() => handleOpenInquiry('Brand Showreel Inquiry')}
+          />
+        )}
+      </Suspense>
 
       {/* Direct WhatsApp Quick-Chat Desk */}
       <FloatingWhatsApp />
