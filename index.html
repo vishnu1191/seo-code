@@ -1,14 +1,37 @@
 <!doctype html>
 <html lang="en" class="dark scroll-smooth">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT14447QNV"></script>
+    <!-- Queue GA4 immediately, then load its larger script after the first page render. -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+  window.gtag('js', new Date());
+  window.gtag('config', 'G-HT14447QNV');
 
-  gtag('config', 'G-HT14447QNV');
+  (function () {
+    var loadGoogleTag = function () {
+      if (document.querySelector('script[data-ga4-loader="true"]')) return;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HT14447QNV';
+      script.setAttribute('data-ga4-loader', 'true');
+      document.head.appendChild(script);
+    };
+
+    var scheduleGoogleTag = function () {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadGoogleTag, { timeout: 2500 });
+      } else {
+        window.setTimeout(loadGoogleTag, 1500);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      scheduleGoogleTag();
+    } else {
+      window.addEventListener('load', scheduleGoogleTag, { once: true });
+    }
+  })();
 </script>
     <meta name="google-site-verification" content="iRoj8y1n8dkuiWqYyNhxokYDLJ5I29E88lbfkLiI5R0" />
     <meta charset="UTF-8" />
