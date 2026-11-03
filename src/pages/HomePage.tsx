@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  ArrowRight,
-  TrendingUp,
-  Compass,
-  Target,
-  BarChart3,
-  Layers,
-  ShieldCheck,
-  Zap,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import { Hero } from '../components/Hero';
 import { StatsStrip } from '../components/StatsStrip';
