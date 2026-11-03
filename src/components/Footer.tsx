@@ -185,18 +185,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
               </ul>
             </div>
 
-            {/* Column 2: Specific Service Inquiries */}
+            {/* Column 2: Individual Service Pages */}
             <div>
-              <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">
-                Core Practices
-              </h3>
+              <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">Service Pages</h3>
               <ul className="space-y-2.5 text-xs text-[#A7A3B1]">
-                <li><button onClick={() => onOpenInquiry('Enterprise Organic SEO & Entity Architecture')} className="hover:text-white transition-colors cursor-pointer text-left">Organic Search &amp; GEO</button></li>
-                <li><button onClick={() => onOpenInquiry('High-Performance Google & Meta Ads Management')} className="hover:text-white transition-colors cursor-pointer text-left">Google &amp; Meta Ads</button></li>
-                <li><button onClick={() => onOpenInquiry('Hyper-Local SEO & Google Maps 3-Pack Supremacy')} className="hover:text-white transition-colors cursor-pointer text-left">Google Maps 3-Pack</button></li>
-                <li><button onClick={() => onOpenInquiry('Generative Engine Optimization (GEO) & AI Search')} className="hover:text-white transition-colors cursor-pointer text-left">ChatGPT &amp; Perplexity AI</button></li>
-                <li><button onClick={() => onOpenInquiry('E-Commerce Organic Scaling & Shopify/Woo Growth')} className="hover:text-white transition-colors cursor-pointer text-left">E-Commerce &amp; DTC</button></li>
-                <li><button onClick={() => onOpenInquiry('Conversion Rate Optimization (CRO) & Digital Flagships')} className="hover:text-white transition-colors cursor-pointer text-left">CRO &amp; Web Flagships</button></li>
+                <li><a href="/seo-service/" className="hover:text-white transition-colors">SEO Services</a></li>
+                <li><a href="/google-ads-service/" className="hover:text-white transition-colors">Google Ads</a></li>
+                <li><a href="/link-building-service/" className="hover:text-white transition-colors">Link Building</a></li>
+                <li><a href="/performance-marketing/" className="hover:text-white transition-colors">Performance Marketing</a></li>
+                <li><a href="/local-seo-service/" className="hover:text-white transition-colors">Local SEO</a></li>
+                <li><a href="/content-marketing-service/" className="hover:text-white transition-colors">Content Marketing</a></li>
+                <li><a href="/seo-package-service/" className="hover:text-white transition-colors">SEO Packages</a></li>
+                <li><a href="/influencer-marketing/" className="hover:text-white transition-colors">Influencer Marketing</a></li>
               </ul>
             </div>
 
