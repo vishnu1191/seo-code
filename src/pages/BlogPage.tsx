@@ -14,8 +14,8 @@ const setMeta = (name: string, content: string) => {
 
 export const BlogPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Digital Marketing Blog | SEO in Jaipur';
-    setMeta('description', 'Practical guides on SEO services in Jaipur, local SEO, Google Ads, Meta Ads, AI marketing tools, and digital growth for businesses.');
+    document.title = 'SEO & Digital Marketing Blog in Jaipur | SEO in Jaipur';
+    setMeta('description', 'Read practical guides on SEO services in Jaipur, Local SEO, Google Ads, Meta Ads and digital marketing for business owners.');
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
