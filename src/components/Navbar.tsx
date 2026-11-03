@@ -26,6 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
     { label: 'Services', id: 'services' },
+    { label: 'Blog', id: 'blog' },
     { label: 'Performance', id: 'performance' },
     { label: 'Work', id: 'work' },
     { label: 'Process', id: 'process' },
@@ -72,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenI
               className="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] uppercase tracking-[0.2em] font-medium"
             >
               {navLinks.map((link) => {
-                const isActive = currentPage === link.id;
+                const isActive = currentPage === link.id || (link.id === 'blog' && currentPage.startsWith('blogpost:'));
                 return (
                   <button
                     key={link.id}
