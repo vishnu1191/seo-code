@@ -1,7 +1,10 @@
+import { websiteLeadsBlogPost } from './websiteLeadsBlogPost';
+
 export interface BlogSection {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  links?: { label: string; url: string }[];
 }
 
 export interface BlogPost {
@@ -16,6 +19,10 @@ export interface BlogPost {
   keywords: string[];
   sections: BlogSection[];
   faqs: { question: string; answer: string }[];
+  ctaTitle?: string;
+  ctaDescription?: string;
+  ctaText?: string;
+  ctaUrl?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -297,6 +304,7 @@ export const blogPosts: BlogPost[] = [
       }
     ]
   }
+  websiteLeadsBlogPost
 ];
 
 export const getBlogPost = (slug: string) => blogPosts.find((post) => post.slug === slug);
