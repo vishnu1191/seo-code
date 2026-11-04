@@ -40,9 +40,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               id="hero-headline"
               className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
             >
-              SEO Agency in Jaipur for{' '}
+              SEO, Google Ads & Meta Ads Agency in Jaipur{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-                More Leads & Better Google Visibility
+                for More Leads & Business Growth
               </span>
             </h1>
 
@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
-              We help Jaipur businesses improve Google visibility and generate qualified leads through SEO, Local SEO, Google Ads, Meta Ads and social media marketing.
+              Grow your business with SEO, Google Ads & Meta Ads. We help Jaipur businesses get more visibility, quality leads and customers through organic and paid marketing.
             </m.p>
 
             <m.div
