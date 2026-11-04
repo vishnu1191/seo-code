@@ -42,9 +42,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
             >
               SEO Agency in Jaipur for{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-                SEO, Local SEO, Google Ads & Meta Ads
-              </span>{' '}
-              in Jaipur
+                More Leads & Better Google Visibility
+              </span>
             </h1>
 
             <m.p
