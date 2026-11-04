@@ -33,18 +33,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-xs uppercase tracking-[0.15em] font-bold mb-6 w-fit shadow-[0_0_15px_rgba(139,61,255,0.2)]"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
-              <span>Next-Gen Growth Agency</span>
+              <span>SEO & Digital Growth Agency in Jaipur</span>
             </m.div>
 
             <h1
               id="hero-headline"
               className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
             >
-              Grow Your Business with{' '}
+              SEO Agency in Jaipur for{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-                Digital Marketing, Google Ads & Meta Ads
-              </span>{' '}
-              in Jaipur
+                More Leads & Better Google Visibility
+              </span>
             </h1>
 
             <m.p
@@ -54,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
-              We help Jaipur businesses generate leads and grow through performance marketing, Google Ads, Meta Ads, and social media campaigns.
+              We help Jaipur businesses improve Google visibility and generate qualified leads through SEO, Local SEO, Google Ads, Meta Ads and social media marketing.
             </m.p>
 
             <m.div
