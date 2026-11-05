@@ -46,11 +46,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
     {
       id: 'organic-seo',
       number: '01',
-      title: 'Enterprise Organic SEO & Entity Architecture',
+      title: 'SEO Services in Jaipur',
       category: 'seo',
       categoryLabel: 'SEO Suite',
-      tagline: 'Defensible search supremacy engineered to capture #1 SERP real estate.',
-      desc: 'We construct deep semantic topic clusters, programmatic entity relationships, and technical page architecture that turn Google into your most profitable, compounding customer acquisition channel.',
+      tagline: 'Build a stronger foundation for relevant organic search visibility.',
+      desc: 'We review your website, research relevant keywords, improve important pages, fix technical issues and build a practical SEO plan around your business goals.',
       deliverables: [
         'Semantic Knowledge Graph & Entity Optimization',
         'Deep Competitor SERP & Keyword Vulnerability Gap Audits',
@@ -60,29 +60,29 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
         'Continuous Algorithm Update Armor & Rank Defensibility'
       ],
       techStack: ['Ahrefs', 'Semrush', 'Google Search Console', 'Screaming Frog', 'Looker Studio'],
-      roiBenchmark: '+310% High-Intent Organic Pipeline',
+      roiBenchmark: 'SEO plan based on your website and market',
       timeline: '3 to 6 Months Compounding',
       bestFor: 'Real Estate Developers, Luxury Brands, Hospitals, B2B SaaS'
     },
     {
       id: 'local-seo',
       number: '02',
-      title: 'Hyper-Local SEO & Google Maps 3-Pack Supremacy',
+      title: 'Local SEO Services in Jaipur',
       category: 'seo',
       categoryLabel: 'SEO Suite',
-      tagline: 'Capture 80%+ of local high-intent footfall and direct phone inquiries.',
-      desc: 'Dominate Google Local 3-Pack and Google Maps across Jaipur and target regional territories. We turn nearby searches into immediate clinic visits, haveli bookings, and property site tours.',
+      tagline: 'Help nearby customers find accurate information about your business.',
+      desc: 'Improve your local search presence through business information consistency, relevant local pages, Google Business Profile guidance where eligible, and review response best practices.',
       deliverables: [
-        'Google Business Profile (GBP) 100% Algorithmic Optimization',
+        'Google Business Profile setup and optimization guidance, where eligible',
         'Geo-Fenced Local Citation Networks & NAP Consistency Audits',
-        'Review Velocity & Automated Reputation Management Engine',
+        'Review request and response best practices',
         'Hyper-Local Suburb & Area-Specific Landing Pages',
         'Local Schema Geocoding & Coordinate Entity Mapping',
         'Call Tracking & WhatsApp Direct Inbound Conversion Analytics'
       ],
       techStack: ['Google Business Profile', 'BrightLocal', 'Whitespark', 'Google Maps API'],
-      roiBenchmark: '+480% Local Direct Call & Direction Inquiries',
-      timeline: '30 to 45 Days to Top 3 Rank',
+      roiBenchmark: 'Local visibility plan based on your service area',
+      timeline: 'Timing depends on competition and current website health',
       bestFor: 'Gyms, Cafes, Havelis, Local Clinics, Jewelers, Showrooms'
     },
     {
@@ -146,8 +146,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
         'Competitor Search Interception & Brand Defense Campaigns'
       ],
       techStack: ['Google Ads Editor', 'Google Merchant Center', 'Looker Studio', 'GA4', 'Postman API'],
-      roiBenchmark: '4.2x to 5.8x Verified Google Ads ROAS',
-      timeline: 'Instant Inbound Traffic (7-14 Days)',
+      roiBenchmark: 'Campaign goals and budget agreed before launch',
+      timeline: 'Launch timing depends on account and tracking readiness',
       bestFor: 'B2B Services, Healthcare Clinics, Education, E-Commerce Brands'
     },
     {
@@ -167,8 +167,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
         'VIP WhatsApp Inbound Lead Generation Click-to-Chat Funnels'
       ],
       techStack: ['Meta Business Suite', 'Meta Conversions API', 'Triple Whale', 'Figma', 'CapCut Pro'],
-      roiBenchmark: '3.8x to 5.4x Blended Meta ROAS',
-      timeline: '14-Day Baseline to Profitable Scale',
+      roiBenchmark: 'Campaign goals and budget agreed before launch',
+      timeline: 'Testing and optimization depend on campaign data',
       bestFor: 'DTC E-Commerce, Real Estate Launches, Fashion & Lifestyle, Events'
     },
     {
@@ -529,7 +529,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
                       </span>
                     </div>
                     <span className="text-[10px] uppercase font-mono font-bold tracking-widest px-3 py-1 rounded-full bg-[#140E23] text-[#D7BFFF] border border-[#8B3DFF]/30">
-                      {service.roiBenchmark}
+                      {service.categoryLabel}
                     </span>
                   </div>
 
@@ -589,7 +589,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
                 <div className="pt-4 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-1.5 text-[11px] text-[#85818E] font-mono">
                     <Clock className="w-3.5 h-3.5 text-[#8B3DFF]" />
-                    <span>{service.timeline}</span>
+                    <span>Timeline confirmed after the initial review</span>
                   </div>
 
                   <div className="flex items-center gap-2">
@@ -615,104 +615,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenInquiry, onNav
             ))}
           </div>
 
-          {/* Engagement Tiers & SLA Guarantees */}
-          <div className="mb-24 rounded-3xl bg-[#080612] border border-white/5 p-8 sm:p-12">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <div className="text-xs font-mono font-bold text-[#8B3DFF] uppercase tracking-widest mb-2">
-                Predictable Growth Retainers
-              </div>
-              <h2 className="font-['Space_Grotesk'] text-3xl font-bold text-white mb-3">
-                Engagement Frameworks Built For Scale
-              </h2>
-              <p className="text-xs sm:text-sm text-[#A7A3B1]">
-                Choose the growth tier suited for your current business trajectory and market goals.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  name: 'Local Market Dominance',
-                  badge: 'For Jaipur & Regional Hubs',
-                  desc: 'Designed for high-traffic local businesses, clinics, cafes, fitness centers, and single-territory leaders.',
-                  features: [
-                    'Google Maps 3-Pack Supremacy',
-                    'Local Schema & Citation Network',
-                    'High-Intent Area Search Keywords',
-                    'Automated WhatsApp Lead Routing',
-                    'Bi-Weekly Sprint Updates'
-                  ],
-                  highlight: false
-                },
-                {
-                  name: 'National Category Leader',
-                  badge: 'Most Popular for Scaling Brands',
-                  desc: 'Full-spectrum organic search, Google Ads & Meta Ads architecture for multi-crore national brands.',
-                  features: [
-                    'Full Technical & Entity SEO Engine',
-                    'High-Converting Meta & Google Ads',
-                    'Digital PR & High-Authority Links',
-                    'Conversion Rate Optimization (CRO)',
-                    'Direct Senior Architect Access'
-                  ],
-                  highlight: true
-                },
-                {
-                  name: 'Global Enterprise Matrix',
-                  badge: 'For Ultra-HNW & Multi-National',
-                  desc: 'Bespoke international search engineering for luxury havelis, mega real estate townships, and global DTC.',
-                  features: [
-                    'Generative Engine Optimization (GEO)',
-                    'Multi-Country / Currency SERP Architecture',
-                    'High-Level Private Concierge Integrations',
-                    'Custom Looker Studio Telemetry Live',
-                    '24/7 Dedicated Executive Desk'
-                  ],
-                  highlight: false
-                }
-              ].map((tier, tIdx) => (
-                <div
-                  key={tIdx}
-                  className={`p-6 sm:p-8 rounded-2xl flex flex-col justify-between transition-all ${
-                    tier.highlight
-                      ? 'bg-[#140E23] border-2 border-[#8B3DFF] shadow-[0_0_40px_rgba(139,61,255,0.3)]'
-                      : 'bg-[#0A0810] border border-white/5 hover:border-white/10'
-                  }`}
-                >
-                  <div>
-                    <div className="inline-block text-[9px] uppercase font-mono font-bold tracking-widest px-2.5 py-1 rounded-full bg-[#8B3DFF]/20 text-[#D7BFFF] mb-3">
-                      {tier.badge}
-                    </div>
-                    <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white mb-2">
-                      {tier.name}
-                    </h3>
-                    <p className="text-xs text-[#A7A3B1] leading-relaxed mb-6">
-                      {tier.desc}
-                    </p>
-
-                    <div className="space-y-2.5 mb-8">
-                      {tier.features.map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-center gap-2 text-xs text-[#C5C2CE]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => onOpenInquiry(tier.name)}
-                    className={`w-full py-3 rounded-full text-xs uppercase tracking-widest font-bold transition-all cursor-pointer ${
-                      tier.highlight
-                        ? 'bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white shadow-[0_0_20px_rgba(139,61,255,0.4)]'
-                        : 'bg-[#140E23] hover:bg-[#1f1538] text-[#D7BFFF] border border-[#8B3DFF]/30'
-                    }`}
-                  >
-                    Select {tier.name.split(' ')[0]}
-                  </button>
-                </div>
-              ))}
-            </div>
+          {/* Clear expectations instead of unverified performance promises */}
+          <div className="mb-16 rounded-3xl bg-[#080612] border border-white/5 p-8 sm:p-12 text-center">
+            <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-white mb-3">A clear plan, built around your business</h2>
+            <p className="text-sm text-[#A7A3B1] max-w-3xl mx-auto leading-relaxed">
+              Every business has a different market, budget and starting point. We begin by reviewing your goals and current online presence, then agree on the work, timeline, budget and reporting before a campaign or SEO project starts. Search rankings, leads and advertising returns depend on many factors and are never guaranteed.
+            </p>
           </div>
 
           {/* Bottom Consultation CTA */}
