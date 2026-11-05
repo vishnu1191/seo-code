@@ -94,17 +94,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
-                <span className="text-[#A7A3B1]">Zero Outsourcing</span>
+                <span className="text-[#A7A3B1]">Jaipur-focused strategy</span>
               </div>
 
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
-                <span className="text-[#A7A3B1]">First-Party Attribution</span>
+                <span className="text-[#A7A3B1]">Clear reporting</span>
               </div>
 
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
-                <span className="text-[#A7A3B1]">Guaranteed SLA Execution</span>
+                <span className="text-[#A7A3B1]">No ranking guarantees</span>
               </div>
             </m.div>
 
@@ -140,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                   className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2.5 py-1 rounded-md border border-[#8B3DFF]/20"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
-                  <span>Synapse Core // Active</span>
+                  <span>SEO & Ads // Jaipur</span>
                 </m.div>
 
                 <m.div
@@ -148,7 +148,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                   transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   className="absolute top-4 right-4 z-20 font-mono text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-2 py-1 rounded-md border border-white/5"
                 >
-                  LAT: 4.8x ROAS
+                  Campaign planning
                 </m.div>
 
                 <div className="relative w-full h-full flex items-center justify-center">
@@ -244,20 +244,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
                     <div className="flex flex-col">
                       <span className="text-[10px] text-[#85818E] uppercase tracking-wider font-semibold">
-                        Currently Scaling
+                        Example dashboard
                       </span>
                       <span className="text-xs text-white font-bold tracking-tight">
-                        Vanta Cloud Systems
+                        Campaign measurement
                       </span>
                     </div>
                   </div>
 
                   <div className="text-right">
                     <span className="text-xs font-mono font-bold text-emerald-400">
-                      +380.4%
+                      GA4
                     </span>
                     <span className="block text-[9px] text-[#85818E]">
-                      Verified Lift
+                      Tracking
                     </span>
                   </div>
                 </m.div>
