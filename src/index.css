@@ -99,6 +99,15 @@
 /* Keep the decorative hero artwork inexpensive on phones.
    The text and primary CTA remain unchanged; only non-essential effects are reduced. */
 @media (max-width: 767px) {
+  /* Paint the LCP heading immediately with a local system font instead of waiting
+     for the optional remote Space Grotesk web font. */
+  #hero-headline {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    font-synthesis: none;
+    text-rendering: optimizeSpeed;
+    letter-spacing: -0.035em;
+  }
+
   #hero-cinematic-stage {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
