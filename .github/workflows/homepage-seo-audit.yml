@@ -1,0 +1,35 @@
+name: Homepage SEO audit (approval-first)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 3 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: homepage-seo-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run read-only homepage audit
+        run: node scripts/homepage-seo-audit.mjs
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-seo-audit
+          path: reports/
+          if-no-files-found: error
+          retention-days: 30
