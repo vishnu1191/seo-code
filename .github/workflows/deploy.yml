@@ -39,10 +39,25 @@ jobs:
 
       - name: Create static route pages for SEO
         run: |
-          for route in about services performance work process calculator blog blog/best-seo-services-in-jaipur blog/local-seo-services-jaipur-google-maps-guide; do
-            mkdir -p "dist/$route"
-            cp dist/index.html "dist/$route/index.html"
-          done
+          node --input-type=module <<'NODE'
+          import { readFile, mkdir, copyFile } from 'node:fs/promises';
+
+          const source = await readFile('src/data/blogPosts.ts', 'utf8');
+          const slugs = [...source.matchAll(/slug:\s*'([^']+)'/g)].map((match) => match[1]);
+          const routes = [
+            'about', 'services', 'performance', 'work', 'process',
+            'calculator', 'blog',
+            ...slugs.map((slug) => `blog/${slug}`)
+          ];
+
+          for (const route of routes) {
+            const destination = `dist/${route}`;
+            await mkdir(destination, { recursive: true });
+            await copyFile('dist/index.html', `${destination}/index.html`);
+          }
+
+          console.log(`Generated ${routes.length} static routes, including ${slugs.length} blog posts.`);
+          NODE
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
