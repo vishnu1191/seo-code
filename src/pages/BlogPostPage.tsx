@@ -110,11 +110,33 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
             ))}
           </div>
 
+          {post.relatedLinks && post.relatedLinks.length > 0 && (
+            <section className="mt-12 rounded-2xl border border-white/10 bg-[#0A0810] p-6 sm:p-8">
+              <h2 className="font-['Space_Grotesk'] text-xl font-bold text-white">Explore related services</h2>
+              <ul className="mt-4 space-y-3">
+                {post.relatedLinks.map((link) => (
+                  <li key={link.url}><a href={link.url} className="text-sm text-[#D7BFFF] hover:text-white underline underline-offset-4">{link.label} <ArrowRight className="inline w-3.5 h-3.5" /></a></li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <section className="mt-12 rounded-2xl border border-[#8B3DFF]/30 bg-[#0A0810] p-6 sm:p-8">
             <h2 className="font-['Space_Grotesk'] text-2xl font-bold text-white">Discuss your SEO goals</h2>
             <p className="text-sm text-[#A7A3B1] leading-relaxed mt-3">Share your website, target services, and the locations you serve. We can discuss practical next steps for improving relevant search visibility and enquiry tracking—without unrealistic ranking promises.</p>
             <a href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20read%20your%20SEO%20guide%20and%20want%20to%20discuss%20SEO%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 px-5 py-3 rounded-full bg-[#25D366] text-black font-bold text-sm hover:bg-[#20bd5a] transition-colors"><MessageCircle className="w-4 h-4" /> Discuss on WhatsApp <ArrowRight className="w-4 h-4" /></a>
           </section>
+
+          {post.resources && post.resources.length > 0 && (
+            <section className="mt-12 rounded-2xl border border-white/10 bg-[#0A0810] p-6">
+              <h2 className="font-['Space_Grotesk'] text-xl font-bold text-white">Official resources and further reading</h2>
+              <ul className="mt-4 space-y-3">
+                {post.resources.map((resource) => (
+                  <li key={resource.url}><a href={resource.url} target="_blank" rel="noopener noreferrer" className="text-sm text-[#D7BFFF] hover:text-white underline underline-offset-4">{resource.label} <ArrowRight className="inline w-3.5 h-3.5" /></a></li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <section className="mt-12">
             <h2 className="font-['Space_Grotesk'] text-2xl font-bold text-white mb-5">Frequently asked questions</h2>
