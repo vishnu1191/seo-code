@@ -8,12 +8,10 @@
     <meta name="description" content="Grow your business with a performance marketing agency in Jaipur offering Google Ads, Meta Ads, social media marketing, lead generation and website design." />
     <meta property="og:title" content="Digital Marketing Agency in Jaipur | Google Ads &amp; Meta Ads" />
     <meta name="keywords" content="Digital Marketing Agency in Jaipur, Performance Marketing Agency Jaipur, Google Ads Jaipur, Meta Ads Jaipur, Facebook Ads Jaipur, Instagram Ads Jaipur, Social Media Marketing Jaipur, Lead Generation Jaipur, Website Design Jaipur" />
-
-<meta name="author" content="Vishnu Kumawat" />
-
-<meta name="publisher" content="Vishnu Kumawat" />
+    <meta name="author" content="Vishnu Kumawat" />
+    <meta name="publisher" content="Vishnu Kumawat" />
     <link rel="canonical" href="https://seoinjaipur.in/">
-<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
     <meta property="og:description" content="Grow your business with a performance marketing agency in Jaipur offering Google Ads, Meta Ads, social media marketing, lead generation and website design." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://seoinjaipur.in/" />
@@ -99,30 +97,30 @@
       "priceRange": "$$"
     }
     </script>
-    <script>
-      // Defensive guard for environments/extensions attempting to wrap window.fetch
-      try {
-        if (typeof window !== 'undefined') {
-          const origFetch = window.fetch ? window.fetch.bind(window) : undefined;
-          let activeFetch = origFetch;
-          Object.defineProperty(window, 'fetch', {
-            get: function() { return activeFetch; },
-            set: function(val) { activeFetch = val; },
-            configurable: true,
-            enumerable: true
-          });
-        }
-      } catch (e) {
-        // Ignore descriptor configuration errors if already locked
-      }
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HT14447QNV"></script>
+
+    <!-- Initialize the GA4 queue immediately, but load its external script after the page load. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-HT14447QNV');
+
+      window.addEventListener('load', function () {
+        var loadAnalytics = function () {
+          if (document.querySelector('script[data-ga4-loader]')) return;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HT14447QNV';
+          script.setAttribute('data-ga4-loader', 'true');
+          document.head.appendChild(script);
+        };
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 3000 });
+        } else {
+          window.setTimeout(loadAnalytics, 1500);
+        }
+      }, { once: true });
     </script>
   </head>
   <body class="bg-[#050508] text-[#F7F5FA] antialiased selection:bg-[#8B3DFF]/30 selection:text-[#F7F5FA] overflow-x-hidden font-['Plus_Jakarta_Sans',sans-serif]">
@@ -130,4 +128,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
