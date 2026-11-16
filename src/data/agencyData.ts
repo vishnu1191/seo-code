@@ -986,27 +986,114 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const FAQ_ITEMS: FAQItem[] = [
   {
-    id: 'engagement',
-    question: 'How do you structure client engagements?',
-    category: 'Partnership',
-    answer: 'We partner with a strictly limited cohort of 12-15 ambitious brands at any given time to maintain obsessive craft and executive oversight. Engagements typically operate on a monthly growth retainer with performance incentive tiers, or dedicated fixed-scope digital architecture sprints.'
+    id: 'seo-timeline',
+    question: 'How long does it realistically take to rank #1 on Google for competitive keywords in Jaipur & India?',
+    category: 'SEO & Organic Growth',
+    answer: 'For competitive commercial keywords, sustainable page 1 Google rankings typically mature within 90 to 120 days. However, local search queries (Google Maps 3-Pack and localized buyer intent in Jaipur) consistently show significant visibility gains within the first 30 to 45 days. Manish Chaudhary (our SEO Specialist) executes technical Core Web Vitals optimization, entity-rich schema architecture, and high-authority topical clusters that safeguard your rankings from Google algorithm updates.',
+    highlights: [
+      '30-45 Days: Google Maps Local 3-Pack traction & phone calls',
+      '90-120 Days: High-volume commercial organic rankings across India',
+      '100% White-Hat & Google Helpful Content algorithm resilient'
+    ]
   },
   {
-    id: 'timeframe',
-    question: 'What is the expected timeframe to see measurable results?',
-    category: 'Timeline',
-    answer: 'Initial architectural sprints and foundational creative rollouts take 2 to 4 weeks. Algorithmic paid acquisition campaigns and rapid CRO testing typically begin generating verified conversion velocity and customer acquisition efficiency within the first 14-21 days of live deployment.'
+    id: 'paid-ads-approach',
+    question: 'What is your strategy for Meta Ads (Facebook & Instagram) and Google Ads?',
+    category: 'Performance Marketing & Paid Ads',
+    answer: 'Vishnu Sharma (Founder & Performance Marketing Expert) builds synchronized full-funnel architectures. On Google Ads (Search, Shopping, and Performance Max), we capture high-intent buyers actively searching for your service with precision match types and negative keyword moats. On Meta Ads (Facebook & Instagram), we deploy Dynamic Creative Testing (DCT) with high-converting short-form video hooks, Advantage+ audience segmentation, and Conversion API (CAPI) server-side tracking to manufacture profitable blended ROAS.',
+    highlights: [
+      'Google Search & PMax for high-intent capture',
+      'Meta DCT & Reels funnels for scalable demand generation',
+      'Blended ROAS target: 4.5x - 7.5x+ across scaling campaigns'
+    ]
   },
   {
-    id: 'guarantee',
-    question: 'How do you measure and report performance?',
-    category: 'Accountability',
-    answer: 'We provide real-time bespoke telemetry dashboards connected directly to your first-party analytics (Mixpanel, GA4, Triple Whale, Snowflake) so you have unadulterated visibility into true profit margins, customer acquisition cost (CAC), and blended ROAS 24/7.'
+    id: 'ad-spend-budget',
+    question: 'What minimum ad spend budget is recommended to scale profitably?',
+    category: 'Performance Marketing & Paid Ads',
+    answer: 'To achieve statistical significance and allow Google & Meta machine learning bidding algorithms (tCPA / tROAS) to exit the learning phase within 7 days, we recommend a minimum media spend of ₹30,000 to ₹75,000/month for localized businesses, and ₹1.5 Lakh to ₹5 Lakh+/month for national scaling. Every rupee of ad spend is backed by strict negative bid rules and daily budget guardrails.',
+    highlights: [
+      'Localized campaigns: ₹30,000 - ₹75,000 / month',
+      'National & E-commerce scale: ₹1.5L - ₹5L+ / month',
+      'Zero ad budget waste with algorithmic bid caps & CAPI sync'
+    ]
   },
   {
-    id: 'difference',
-    question: 'Why Choose SEO in Jaipur for Digital Marketing Services?',
-    category: 'Philosophy',
-    answer: 'SEO in Jaipur helps local businesses improve online visibility and attract relevant enquiries through SEO, Local SEO, Google Ads, Meta Ads, and practical digital marketing strategies tailored to their goals and budget.'
+    id: 'local-vs-national-seo',
+    question: 'How does Local SEO (Google Maps 3-Pack) differ from National & E-commerce SEO?',
+    category: 'SEO & Organic Growth',
+    answer: 'Local SEO focuses on dominating the Google 3-Pack map results in specific geographic radii (e.g., Jaipur, Vaishali Nagar, Mansarovar, Pink City, Malviya Nagar) through Google Business Profile optimization, localized geo-tagged citations, review acceleration systems, and localized schema. National & E-commerce SEO focuses on ranking product categories, informational hubs, and transactional entity terms across India and global NRI markets.',
+    highlights: [
+      'Google Maps #1 ranking for localized "near me" searches',
+      'Review velocity and local citation consistency',
+      'Scalable taxonomy and programmatic architecture for e-commerce'
+    ]
+  },
+  {
+    id: 'ai-funnels-whatsapp',
+    question: 'How do your AI-powered marketing funnels and WhatsApp automation work?',
+    category: 'AI Funnels & Tracking',
+    answer: 'Standard websites lose up to 85% of ad traffic due to slow forms and generic copy. Our proprietary AI funnels dynamically match the landing page headline and hook to the specific ad creative the user clicked. Furthermore, we integrate instant WhatsApp qualification bridges—firing automated, conversational qualifying messages within 45 seconds of form submission when lead intent is at its highest peak.',
+    highlights: [
+      'Dynamic landing pages personalized to ad hooks in real-time',
+      'Sub-60s automated WhatsApp lead qualification bridge',
+      'Higher lead-to-consultation conversion (+45% average lift)'
+    ]
+  },
+  {
+    id: 'tracking-ios-ga4',
+    question: 'How do you solve iOS 14+ tracking issues and Google Analytics 4 (GA4) attribution?',
+    category: 'AI Funnels & Tracking',
+    answer: 'We implement robust first-party server-side tracking using Meta Conversions API (CAPI), Google Enhanced Conversions, and Google Analytics 4 (Measurement ID: G-HT14447QNV). We track vital micro-conversions including WhatsApp link clicks (whatsapp_click), phone call clicks (phone_click), and qualified lead submissions so ad algorithms receive 100% clean data signals even with ad blockers and cookie depreciation.',
+    highlights: [
+      'Meta Server-to-Server Conversions API (CAPI)',
+      'Enhanced Conversions for Google Ads & GA4 precision',
+      'Event-level telemetry for WhatsApp and phone interactions'
+    ]
+  },
+  {
+    id: 'technical-seo-audit',
+    question: 'What happens during a Technical SEO Audit by Vishnu Sharma & Manish Chaudhary?',
+    category: 'SEO & Organic Growth',
+    answer: 'We dissect every layer of your digital infrastructure: crawl budget allocation, JavaScript rendering performance, Mobile-First Indexing compliance, Core Web Vitals (LCP, INP, CLS), Schema.org JSON-LD structured data, duplicate content issues, internal linking topology, and toxic backlink profiling. You receive an executive-ready action roadmap prioritized by revenue impact within 48 hours.',
+    highlights: [
+      'In-depth Core Web Vitals, speed, and indexation audit',
+      'Schema.org structured data validation & rich snippet roadmap',
+      'Prioritized revenue-impact action items within 48 hours'
+    ]
+  },
+  {
+    id: 'pricing-and-contracts',
+    question: 'How are your agency fees and contracts structured?',
+    category: 'Pricing & Engagement',
+    answer: 'We offer two transparent models: (1) Fixed-scope Architecture & Audit Sprints (for website overhauls, technical SEO turnarounds, and funnel builds), and (2) Monthly Growth Retainers with performance incentives tied directly to qualified pipeline or blended ROAS. We operate with complete contract transparency—no lock-ins, no hidden markups, and you own 100% of your ad accounts and creative assets.',
+    highlights: [
+      'Sprint or Monthly Growth Retainer options',
+      'Zero long-term lock-in trap; performance-based milestones',
+      'Full client ownership of ad accounts, code, and creative assets'
+    ]
+  },
+  {
+    id: 'seo-pause-paid-ads',
+    question: 'Will our SEO rankings drop if we pause or lower our Google and Meta ad spend?',
+    category: 'SEO & Organic Growth',
+    answer: 'No. Organic SEO rankings and paid search campaigns are completely separate Google algorithms. Organic rankings built by our white-hat entity strategies are permanent digital real estate assets that continue generating free organic traffic, phone calls, and inquiries month after month even when ad spend is completely paused.',
+    highlights: [
+      'Organic search is an equity asset you own forever',
+      'Continuous inbound lead flow with ₹0 Cost Per Click',
+      'Immune to ad budget fluctuations or ad network outages'
+    ]
+  },
+  {
+    id: 'how-to-get-started',
+    question: 'How do we get started and how quickly can our campaigns go live?',
+    category: 'Pricing & Engagement',
+    answer: 'Getting started takes 3 simple steps: First, book a 30-minute discovery session or WhatsApp consultation with Vishnu Sharma & Manish Chaudhary. Second, we complete a complimentary audit of your existing site and ad accounts within 48 hours. Third, once approved, your foundational campaigns or SEO roadmap go live in as little as 7 to 10 business days.',
+    highlights: [
+      'Complimentary 48-hour SEO & Ad account audit',
+      'Direct access to Vishnu & Manish, not junior account reps',
+      'Rapid deployment in 7-10 business days'
+    ]
   }
 ];
+

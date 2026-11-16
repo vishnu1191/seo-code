@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Globe, Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Github, ArrowUp, MessageCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe, Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Facebook, Github, ArrowUp, MessageCircle, ExternalLink } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface FooterProps {
@@ -123,6 +123,52 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                   </div>
                 </div>
               </div>
+
+              {/* Official Social Channels */}
+              <div className="mb-6">
+                <div className="text-[10px] font-mono text-[#8B3DFF] uppercase tracking-wider mb-2 font-bold">
+                  Social Channels
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  <a
+                    href="https://www.instagram.com/seoinjaipur/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow SEO in Jaipur on Instagram"
+                    className="group p-2.5 rounded-xl bg-[#0A0810] border border-white/5 hover:border-[#E4405F]/50 hover:bg-[#140B18] transition-all flex items-center justify-between gap-2"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#F58529]/20 via-[#DD2A7B]/20 to-[#8134AF]/20 border border-[#DD2A7B]/30 flex items-center justify-center text-[#F472B6] shrink-0 group-hover:scale-105 transition-transform">
+                        <Instagram className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-white font-bold text-xs truncate">Instagram</div>
+                        <div className="text-[10px] text-[#85818E] font-mono truncate">@seoinjaipur</div>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-3 h-3 text-[#85818E] group-hover:text-[#F472B6] shrink-0 transition-colors" />
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/seoinjaipur1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow SEO in Jaipur on Facebook"
+                    className="group p-2.5 rounded-xl bg-[#0A0810] border border-white/5 hover:border-[#1877F2]/50 hover:bg-[#0B111E] transition-all flex items-center justify-between gap-2"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-[#1877F2]/15 border border-[#1877F2]/30 flex items-center justify-center text-[#60A5FA] shrink-0 group-hover:scale-105 transition-transform">
+                        <Facebook className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-white font-bold text-xs truncate">Facebook</div>
+                        <div className="text-[10px] text-[#85818E] font-mono truncate">/seoinjaipur1</div>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-3 h-3 text-[#85818E] group-hover:text-[#60A5FA] shrink-0 transition-colors" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Newsletter Input Box */}
@@ -182,22 +228,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
                 <li><button onClick={() => handleLinkClick('work')} className="hover:text-white transition-colors cursor-pointer text-left">Selected Case Studies</button></li>
                 <li><button onClick={() => handleLinkClick('process')} className="hover:text-white transition-colors cursor-pointer text-left">4-Phase Methodology</button></li>
                 <li><button onClick={() => handleLinkClick('calculator')} className="hover:text-white transition-colors cursor-pointer text-left">Interactive ROI Engine</button></li>
-                <li><a href="/contact-us/" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><button onClick={() => {
+                  if (onNavigate) onNavigate('home');
+                  setTimeout(() => {
+                    const el = document.getElementById('faq');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 150);
+                }} className="hover:text-white transition-colors cursor-pointer text-left flex items-center gap-1.5"><span className="text-[#8B3DFF] font-mono text-[10px]">FAQ</span> Client Knowledge Base</button></li>
               </ul>
             </div>
 
-            {/* Column 2: Individual Service Pages */}
+            {/* Column 2: Specific Service Inquiries */}
             <div>
-              <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">Service Pages</h3>
+              <h3 className="font-['Space_Grotesk'] text-sm font-bold tracking-wider text-[#D7BFFF] mb-4">
+                Core Practices
+              </h3>
               <ul className="space-y-2.5 text-xs text-[#A7A3B1]">
-                <li><a href="/seo-service/" className="hover:text-white transition-colors">SEO Services</a></li>
-                <li><a href="/google-ads-service/" className="hover:text-white transition-colors">Google Ads</a></li>
-                <li><a href="/link-building-service/" className="hover:text-white transition-colors">Link Building</a></li>
-                <li><a href="/performance-marketing/" className="hover:text-white transition-colors">Performance Marketing</a></li>
-                <li><a href="/local-seo-service/" className="hover:text-white transition-colors">Local SEO</a></li>
-                <li><a href="/content-marketing-service/" className="hover:text-white transition-colors">Content Marketing</a></li>
-                <li><a href="/seo-package-service/" className="hover:text-white transition-colors">SEO Packages</a></li>
-                <li><a href="/influencer-marketing/" className="hover:text-white transition-colors">Influencer Marketing</a></li>
+                <li><button onClick={() => onOpenInquiry('Enterprise Organic SEO & Entity Architecture')} className="hover:text-white transition-colors cursor-pointer text-left">Organic Search &amp; GEO</button></li>
+                <li><button onClick={() => onOpenInquiry('High-Performance Google & Meta Ads Management')} className="hover:text-white transition-colors cursor-pointer text-left">Google &amp; Meta Ads</button></li>
+                <li><button onClick={() => onOpenInquiry('Hyper-Local SEO & Google Maps 3-Pack Supremacy')} className="hover:text-white transition-colors cursor-pointer text-left">Google Maps 3-Pack</button></li>
+                <li><button onClick={() => onOpenInquiry('Generative Engine Optimization (GEO) & AI Search')} className="hover:text-white transition-colors cursor-pointer text-left">ChatGPT &amp; Perplexity AI</button></li>
+                <li><button onClick={() => onOpenInquiry('E-Commerce Organic Scaling & Shopify/Woo Growth')} className="hover:text-white transition-colors cursor-pointer text-left">E-Commerce &amp; DTC</button></li>
+                <li><button onClick={() => onOpenInquiry('Conversion Rate Optimization (CRO) & Digital Flagships')} className="hover:text-white transition-colors cursor-pointer text-left">CRO &amp; Web Flagships</button></li>
               </ul>
             </div>
 
@@ -257,7 +309,29 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInquiry }) => 
             <span className="hidden sm:inline">Crafted for Search Supremacy</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5 sm:gap-6">
+            <div className="flex items-center gap-2.5">
+              <a
+                href="https://www.instagram.com/seoinjaipur/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram (@seoinjaipur)"
+                className="w-7 h-7 rounded-lg bg-[#0A0810] border border-white/10 hover:border-[#E4405F]/60 flex items-center justify-center text-[#A7A3B1] hover:text-[#F472B6] transition-all"
+              >
+                <Instagram className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://www.facebook.com/seoinjaipur1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook (/seoinjaipur1)"
+                className="w-7 h-7 rounded-lg bg-[#0A0810] border border-white/10 hover:border-[#1877F2]/60 flex items-center justify-center text-[#A7A3B1] hover:text-[#60A5FA] transition-all"
+              >
+                <Facebook className="w-3.5 h-3.5" />
+              </a>
+            </div>
             <button
               onClick={() => handleLinkClick('about')}
               className="hover:text-white transition-colors cursor-pointer"

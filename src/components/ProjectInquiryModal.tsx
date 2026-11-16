@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Send, Building2, User, Mail, DollarSign, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Send, Building2, User, Mail, DollarSign, MessageCircle, Globe2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ProjectInquiryData } from '../types';
 import { BrandLogo } from './BrandLogo';
@@ -8,22 +8,51 @@ interface ProjectInquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialService?: string;
+  initialRegion?: 'india' | 'international';
 }
+
+const INDIA_BUDGET_TIERS = [
+  '₹25K - ₹50K',
+  '₹50K - ₹1 Lakh',
+  '₹1 Lakh - ₹3 Lakh',
+  '₹3 Lakh+'
+];
+
+const INTERNATIONAL_BUDGET_TIERS = [
+  '$1,500 - $3,000',
+  '$3,000 - $7,500',
+  '$7,500 - $15,000',
+  '$15,000+'
+];
 
 export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
   isOpen,
   onClose,
-  initialService = ''
+  initialService = '',
+  initialRegion = 'india'
 }) => {
+  const [clientRegion, setClientRegion] = useState<'india' | 'international'>(initialRegion);
   const [formData, setFormData] = useState<ProjectInquiryData>({
     name: '',
     email: '',
     company: '',
-    budget: '$50K - $100K',
+    budget: initialRegion === 'international' ? INTERNATIONAL_BUDGET_TIERS[1] : INDIA_BUDGET_TIERS[1],
     services: initialService ? [initialService] : ['Brand Strategy & Positioning', 'Paid Media & Performance'],
     timeline: 'Within 30 Days',
     message: ''
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      setClientRegion(initialRegion);
+      const tiers = initialRegion === 'international' ? INTERNATIONAL_BUDGET_TIERS : INDIA_BUDGET_TIERS;
+      setFormData((prev) => ({
+        ...prev,
+        budget: tiers[1],
+        services: initialService ? [initialService] : prev.services,
+      }));
+    }
+  }, [isOpen, initialRegion, initialService]);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,12 +69,16 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
     'Full-Stack Growth Architecture'
   ];
 
-  const budgetTiers = [
-    '$25K - $50K',
-    '$50K - $100K',
-    '$100K - $250K',
-    '$250K+'
-  ];
+  const budgetTiers = clientRegion === 'international' ? INTERNATIONAL_BUDGET_TIERS : INDIA_BUDGET_TIERS;
+
+  const handleRegionChange = (region: 'india' | 'international') => {
+    setClientRegion(region);
+    const nextTiers = region === 'international' ? INTERNATIONAL_BUDGET_TIERS : INDIA_BUDGET_TIERS;
+    setFormData((prev) => ({
+      ...prev,
+      budget: nextTiers[1],
+    }));
+  };
 
   const timelineOptions = [
     'Immediate (Next 14 Days)',
@@ -313,18 +346,46 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 </div>
               </div>
 
-              {/* Budget Tiers */}
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#A7A3B1] mb-2">
-                  Estimated Quarterly Growth Investment
-                </label>
+              {/* Client Market & Budget Tiers */}
+              <div className="space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#A7A3B1]">
+                    Client Region &amp; Estimated Investment
+                  </label>
+                  <div className="inline-flex rounded-lg bg-[#140E23] p-1 border border-white/10 self-start">
+                    <button
+                      type="button"
+                      onClick={() => handleRegionChange('india')}
+                      className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                        clientRegion === 'india'
+                          ? 'bg-[#8B3DFF] text-white shadow-sm'
+                          : 'text-[#A7A3B1] hover:text-white'
+                      }`}
+                    >
+                      🇮🇳 India (₹ INR)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleRegionChange('international')}
+                      className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer flex items-center gap-1 ${
+                        clientRegion === 'international'
+                          ? 'bg-[#8B3DFF] text-white shadow-sm'
+                          : 'text-[#A7A3B1] hover:text-white'
+                      }`}
+                    >
+                      <Globe2 className="w-3 h-3" />
+                      <span>International ($ USD)</span>
+                    </button>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {budgetTiers.map((tier) => (
                     <button
                       key={tier}
                       type="button"
                       onClick={() => setFormData({ ...formData, budget: tier })}
-                      className={`px-3 py-2 rounded-xl text-xs font-mono font-semibold transition-all ${
+                      className={`px-3 py-2 rounded-xl text-xs font-mono font-semibold transition-all cursor-pointer ${
                         formData.budget === tier
                           ? 'bg-[#8B3DFF] text-white border border-[#B15CFF]/60 shadow-sm'
                           : 'bg-[#140E23] text-[#85818E] border border-white/5 hover:text-white'
@@ -377,7 +438,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 </div>
 
                 <a
-                  href={`https://wa.me/917014799233?text=${encodeURIComponent(`Hi SEO Jaipur Team, I am interested in ${formData.services.join(', ')} with budget ${formData.budget}.`)}`}
+                  href={`https://wa.me/917014799233?text=${encodeURIComponent(`Hi SEO Jaipur Team, I am a${clientRegion === 'international' ? 'n International ($ USD)' : 'n Indian (₹ INR)'} client interested in ${formData.services.join(', ')} with budget ${formData.budget}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide text-black bg-[#25D366] hover:bg-[#20bd5a] shadow-[0_0_20px_rgba(37,211,102,0.3)] flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"

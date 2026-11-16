@@ -118,8 +118,10 @@ export function handleGlobalAnalyticsClick(e: MouseEvent): void {
 
   const isWhatsApp = /wa\.me|api\.whatsapp\.com/i.test(href);
   const isPhone = /^tel:/i.test(href);
+  const isInstagram = /instagram\.com/i.test(href);
+  const isFacebook = /facebook\.com/i.test(href);
 
-  if (!isWhatsApp && !isPhone) return;
+  if (!isWhatsApp && !isPhone && !isInstagram && !isFacebook) return;
 
   // Deduplication guard: ignore duplicate events fired within 350ms on the exact same href
   const now = Date.now();
@@ -134,10 +136,15 @@ export function handleGlobalAnalyticsClick(e: MouseEvent): void {
     anchor.getAttribute('aria-label') ||
     anchor.innerText?.trim() ||
     anchor.title ||
-    (isWhatsApp ? 'WhatsApp Click' : 'Phone Call Click');
+    (isWhatsApp
+      ? 'WhatsApp Click'
+      : isPhone
+        ? 'Phone Call Click'
+        : isInstagram
+          ? 'Instagram Click'
+          : 'Facebook Click');
 
   const linkId = anchor.id || undefined;
-  const phoneNumber = extractPhoneNumber(href);
 
   if (isWhatsApp) {
     trackGA4Event('whatsapp_click', {
@@ -146,7 +153,7 @@ export function handleGlobalAnalyticsClick(e: MouseEvent): void {
       link_url: href,
       link_id: linkId,
       link_text: linkText,
-      phone_number: phoneNumber,
+      phone_number: extractPhoneNumber(href),
     });
   } else if (isPhone) {
     trackGA4Event('phone_click', {
@@ -155,7 +162,16 @@ export function handleGlobalAnalyticsClick(e: MouseEvent): void {
       link_url: href,
       link_id: linkId,
       link_text: linkText,
-      phone_number: phoneNumber,
+      phone_number: extractPhoneNumber(href),
+    });
+  } else if (isInstagram || isFacebook) {
+    trackGA4Event('social_click', {
+      event_category: 'social',
+      event_label: isInstagram ? 'Instagram' : 'Facebook',
+      social_platform: isInstagram ? 'instagram' : 'facebook',
+      link_url: href,
+      link_id: linkId,
+      link_text: linkText,
     });
   }
 }
