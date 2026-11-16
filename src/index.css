@@ -96,3 +96,31 @@
   box-shadow: 0 12px 40px -10px rgba(139, 61, 255, 0.3);
 }
 
+/* Keep the decorative hero artwork inexpensive on phones.
+   The text and primary CTA remain unchanged; only non-essential effects are reduced. */
+@media (max-width: 767px) {
+  #hero-cinematic-stage {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    transition: none;
+  }
+
+  #hero-cinematic-stage .animate-orbit,
+  #hero-cinematic-stage .animate-orbit-reverse,
+  #hero-cinematic-stage .animate-pulse-slow,
+  #hero-cinematic-stage .animate-float-slow,
+  #hero-cinematic-stage .animate-ping,
+  #hero-cinematic-stage .animate-pulse {
+    animation: none !important;
+  }
+
+  #hero-cinematic-stage [class*="blur-"] {
+    filter: none !important;
+  }
+
+  #hero-cinematic-stage .backdrop-blur-md {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
