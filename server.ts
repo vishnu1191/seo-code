@@ -35,16 +35,11 @@ function getGenAIClient(): GoogleGenAI | null {
   });
 }
 
-/**
- * Resolves a single exclusive client region ('india' OR 'international').
- * Ensures the assistant ONLY quotes ONE currency/pricing tier per client.
- */
 function resolveExclusiveRegion(
   requestedRegion: RequestedRegion,
   messages: ChatMessageInput[],
   timezone?: string
 ): ResolvedRegion {
-  // Check latest user messages for explicit region/currency intent
   const recentUserText = messages
     .filter((m) => m.role === 'user')
     .slice(-2)
@@ -60,7 +55,6 @@ function resolveExclusiveRegion(
       recentUserText
     );
 
-  // If user explicitly switched region manually in UI, respect it unless their latest message clearly asks for the other market
   if (requestedRegion === 'india') {
     if (hasIntlIntent && !hasIndiaIntent) return 'international';
     return 'india';
@@ -70,7 +64,6 @@ function resolveExclusiveRegion(
     return 'international';
   }
 
-  // Auto mode: detect from message keywords first, then browser timezone
   if (hasIntlIntent && !hasIndiaIntent) return 'international';
   if (hasIndiaIntent && !hasIntlIntent) return 'india';
 
@@ -81,7 +74,6 @@ function resolveExclusiveRegion(
     return 'international';
   }
 
-  // Fallback to India for local agency default
   return 'india';
 }
 
@@ -187,14 +179,12 @@ async function startServer() {
         parts: [{ text: m.text.trim() }],
       }));
 
-      // Use ThinkingLevel.LOW for lowest latency and SSE streaming for instant first-token display
       if (body.stream !== false) {
         res.setHeader('Content-Type', 'text/event-stream; charset=utf-8');
         res.setHeader('Cache-Control', 'no-cache, no-transform');
         res.setHeader('Connection', 'keep-alive');
         res.flushHeaders?.();
 
-        // Send detected/active region metadata first
         res.write(`data: ${JSON.stringify({ resolvedRegion })}\n\n`);
 
         const streamResponse = await ai.models.generateContentStream({
@@ -303,8 +293,17 @@ async function startServer() {
     );
     app.use(
       express.static(distPath, {
-        maxAge: '1h',
+        maxAge: '7d',
         index: false,
+        setHeaders(res, filePath) {
+          if (/\.(html)$/i.test(filePath)) {
+            res.setHeader('Cache-Control', 'no-cache');
+            return;
+          }
+          if (/\.(svg|png|jpe?g|webp|avif|gif|ico|woff2?|ttf|otf)$/i.test(filePath)) {
+            res.setHeader('Cache-Control', 'public, max-age=2592000, stale-while-revalidate=604800');
+          }
+        },
       })
     );
     app.use('/api/*', (_req: Request, res: Response) => {
