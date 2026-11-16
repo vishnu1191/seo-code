@@ -10,7 +10,7 @@ async function get(url) {
 }
 function meta(html, key, attribute = 'name') {
   const tags = html.match(/<meta\b[^>]*>/gi) || [];
-  const tag = tags.find((item) => new RegExp("\\\\b" + attribute + "=[\"']" + key + "[\"']", 'i').test(item));
+  const tag = tags.find((item) => new RegExp("\\b" + attribute + "=[\"']" + key + "[\"']", 'i').test(item));
   return tag?.match(/\bcontent=["']([^"']*)["']/i)?.[1]?.trim() || '';
 }
 function title(html) {
