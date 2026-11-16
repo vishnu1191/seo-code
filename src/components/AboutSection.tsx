@@ -47,9 +47,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-3xl overflow-hidden glass-panel-glow border border-[#8B3DFF]/25 p-1 group shadow-[0_20px_50px_-10px_rgba(75,20,127,0.35)]">
+            <div className="relative w-full max-w-[270px] sm:max-w-[330px] lg:max-w-none mx-auto aspect-[16/10] sm:aspect-[16/10] lg:aspect-[16/11] rounded-2xl lg:rounded-3xl overflow-hidden glass-panel-glow border border-[#8B3DFF]/25 p-1 group shadow-[0_20px_50px_-10px_rgba(75,20,127,0.35)]">
               
-              <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#07070B] flex items-center justify-center">
+              <div className="relative w-full h-full rounded-[18px] lg:rounded-[22px] overflow-hidden bg-[#07070B] flex items-center justify-center">
                 
                 {/* Deep cosmic gradient background */}
                 <div className="absolute inset-0 bg-radial from-[#180B2B] via-[#080512] to-[#040307]" />
@@ -58,29 +58,29 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                 <div className="absolute inset-0 bg-grid-pattern opacity-30" />
 
                 {/* Distant Glowing Cosmic Moons & Nebulas */}
-                <div className="absolute top-8 right-12 w-20 h-20 rounded-full bg-gradient-to-br from-[#8B3DFF]/40 to-transparent blur-[8px] pointer-events-none" />
-                <div className="absolute top-12 right-16 w-14 h-14 rounded-full bg-[#1A0F2E] border border-[#B15CFF]/30 shadow-[0_0_20px_rgba(139,61,255,0.4)] pointer-events-none" />
-                <div className="absolute top-20 right-32 w-6 h-6 rounded-full bg-[#0F0A1C] border border-[#8B3DFF]/20" />
+                <div className="absolute top-4 right-6 lg:top-8 lg:right-12 w-12 h-12 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-[#8B3DFF]/40 to-transparent blur-[6px] lg:blur-[8px] pointer-events-none" />
+                <div className="absolute top-6 right-8 lg:top-12 lg:right-16 w-8 h-8 lg:w-14 lg:h-14 rounded-full bg-[#1A0F2E] border border-[#B15CFF]/30 shadow-[0_0_20px_rgba(139,61,255,0.4)] pointer-events-none" />
+                <div className="absolute top-10 right-16 lg:top-20 lg:right-32 w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-[#0F0A1C] border border-[#8B3DFF]/20" />
 
                 {/* Giant Luminous Violet Portal Ring */}
-                <div className="relative flex items-center justify-center w-64 h-64 sm:w-72 sm:h-72">
+                <div className="relative flex items-center justify-center w-32 h-32 sm:w-40 sm:h-40 lg:w-72 lg:h-72">
                   
                   {/* Outer Portal Glow Rings */}
-                  <div className="absolute inset-0 rounded-full border-2 border-[#8B3DFF]/40 shadow-[0_0_60px_#8B3DFF] animate-pulse-slow" />
-                  <div className="absolute -inset-4 rounded-full border border-dashed border-[#B15CFF]/30 animate-orbit" />
+                  <div className="absolute inset-0 rounded-full border-2 border-[#8B3DFF]/40 shadow-[0_0_40px_#8B3DFF] lg:shadow-[0_0_60px_#8B3DFF] animate-pulse-slow" />
+                  <div className="absolute -inset-2.5 lg:-inset-4 rounded-full border border-dashed border-[#B15CFF]/30 animate-orbit" />
                   
                   {/* Portal Inner Swirl */}
-                  <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-radial from-[#B15CFF]/60 via-[#4B147F]/40 to-transparent flex items-center justify-center blur-[1px]">
-                    <div className="w-32 h-32 rounded-full bg-[#8B3DFF]/30 blur-[20px] animate-pulse" />
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-56 lg:h-56 rounded-full bg-radial from-[#B15CFF]/60 via-[#4B147F]/40 to-transparent flex items-center justify-center blur-[1px]">
+                    <div className="w-16 h-16 lg:w-32 lg:h-32 rounded-full bg-[#8B3DFF]/30 blur-[14px] lg:blur-[20px] animate-pulse" />
                   </div>
 
                   {/* Astronaut Explorer Silhouette Standing in Front of Portal */}
                   <motion.div 
                     animate={{ y: [0, -4, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -bottom-4 z-20 flex flex-col items-center"
+                    className="absolute -bottom-2 lg:-bottom-4 z-20 flex flex-col items-center"
                   >
-                    <svg viewBox="0 0 100 140" className="w-16 h-24 text-[#06040A] drop-shadow-[0_0_15px_rgba(139,61,255,0.6)]">
+                    <svg viewBox="0 0 100 140" className="w-10 h-14 sm:w-12 sm:h-16 lg:w-16 lg:h-24 text-[#06040A] drop-shadow-[0_0_15px_rgba(139,61,255,0.6)]">
                       {/* Helmet visor reflection */}
                       <circle cx="50" cy="28" r="14" fill="#0C0816" stroke="#8B3DFF" strokeWidth="1.5" />
                       <ellipse cx="50" cy="27" rx="7" ry="5" fill="#B15CFF" opacity="0.8" />
@@ -96,7 +96,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                 </div>
 
                 {/* Rocky Alien Landscape Surface Bottom */}
-                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#07070B] via-[#0C0816] to-transparent z-10">
+                <div className="absolute inset-x-0 bottom-0 h-10 lg:h-16 bg-gradient-to-t from-[#07070B] via-[#0C0816] to-transparent z-10">
                   {/* Geometric terrain ridges */}
                   <svg viewBox="0 0 400 60" className="w-full h-full text-[#0A0713]" preserveAspectRatio="none" fill="currentColor">
                     <path d="M 0 60 L 0 30 Q 80 15, 160 35 T 320 20 Q 360 40, 400 30 L 400 60 Z" />
@@ -107,9 +107,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                 <motion.div 
                   animate={{ y: [0, -3, 0] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#D7BFFF] bg-[#0A0810]/85 px-3 py-1 rounded-full border border-[#8B3DFF]/25 shadow-md flex items-center gap-1.5"
+                  className="absolute top-2.5 left-2.5 lg:top-4 lg:left-4 z-20 font-mono text-[8px] lg:text-[10px] text-[#D7BFFF] bg-[#0A0810]/85 px-2 py-0.5 lg:px-3 lg:py-1 rounded-full border border-[#8B3DFF]/25 shadow-md flex items-center gap-1 lg:gap-1.5"
                 >
-                  <Compass className="w-3 h-3 text-[#8B3DFF]" />
+                  <Compass className="w-2.5 h-2.5 lg:w-3 lg:h-3 text-[#8B3DFF]" />
                   <span>EXPEDITION_ZERO // FRONTIER</span>
                 </motion.div>
 

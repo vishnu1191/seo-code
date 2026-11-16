@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Play, TrendingUp, CheckCircle2 } from 'lucide-react';
-import { m } from 'motion/react';
+import { motion } from 'motion/react';
 
 interface HeroProps {
   onOpenInquiry: () => void;
@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
   return (
     <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 lg:py-24 overflow-hidden">
-      <m.div
+      <motion.div
         animate={{
           opacity: [0.15, 0.25, 0.15]
         }}
@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
-            <m.div
+            <motion.div
               id="hero-eyebrow-badge"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
               <span>SEO & Digital Growth Agency in Jaipur</span>
-            </m.div>
+            </motion.div>
 
             <h1
               id="hero-headline"
@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               </span>
             </h1>
 
-            <m.p
+            <motion.p
               id="hero-supporting-copy"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -54,16 +54,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
               Grow your business with SEO, Google Ads & Meta Ads. We help Jaipur businesses get more visibility, quality leads and customers through organic and paid marketing.
-            </m.p>
+            </motion.p>
 
-            <m.div
+            <motion.div
               id="hero-actions"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
               className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10"
             >
-              <m.button
+              <motion.button
                 id="hero-primary-cta"
                 onClick={onOpenInquiry}
                 whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.4)" }}
@@ -72,9 +72,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               >
                 <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4" />
-              </m.button>
+              </motion.button>
 
-              <m.button
+              <motion.button
                 id="hero-secondary-cta"
                 onClick={onOpenShowreel}
                 whileHover={{ scale: 1.03, borderColor: "rgba(139,61,255,0.6)" }}
@@ -83,10 +83,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               >
                 <Play className="w-3.5 h-3.5 text-[#D7BFFF] fill-[#D7BFFF]" />
                 <span>Explore Our Work</span>
-              </m.button>
-            </m.div>
+              </motion.button>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -106,11 +106,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">No ranking guarantees</span>
               </div>
-            </m.div>
+            </motion.div>
 
           </div>
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
@@ -123,59 +123,59 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
               id="hero-cinematic-stage"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="relative w-full max-w-[480px] lg:max-w-none aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] rounded-3xl overflow-hidden glass-panel-glow border border-[#8B3DFF]/30 p-1 group transition-all duration-500 shadow-[0_20px_60px_-15px_rgba(75,20,127,0.4)]"
+              className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-none mx-auto aspect-square sm:aspect-[5/4] lg:aspect-[4/5] rounded-2xl lg:rounded-3xl overflow-hidden glass-panel-glow border border-[#8B3DFF]/30 p-1 group transition-all duration-500 shadow-[0_20px_60px_-15px_rgba(75,20,127,0.4)]"
             >
 
-              <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#07070B] flex items-center justify-center">
+              <div className="relative w-full h-full rounded-[18px] lg:rounded-[22px] overflow-hidden bg-[#07070B] flex items-center justify-center">
 
                 <div className="absolute inset-0 bg-radial from-[#1A0B2E] via-[#090611] to-[#040308] opacity-95" />
 
-                <div className="absolute w-[360px] h-[360px] rounded-full border border-[#8B3DFF]/20 animate-orbit pointer-events-none" />
-                <div className="absolute w-[290px] h-[290px] rounded-full border border-dashed border-[#B15CFF]/25 animate-orbit-reverse pointer-events-none" />
-                <div className="absolute w-[210px] h-[210px] rounded-full border border-[#D7BFFF]/15 animate-pulse-slow pointer-events-none" />
+                <div className="absolute w-[220px] h-[220px] sm:w-[250px] sm:h-[250px] lg:w-[360px] lg:h-[360px] rounded-full border border-[#8B3DFF]/20 animate-orbit pointer-events-none" />
+                <div className="absolute w-[175px] h-[175px] sm:w-[200px] sm:h-[200px] lg:w-[290px] lg:h-[290px] rounded-full border border-dashed border-[#B15CFF]/25 animate-orbit-reverse pointer-events-none" />
+                <div className="absolute w-[130px] h-[130px] sm:w-[145px] sm:h-[145px] lg:w-[210px] lg:h-[210px] rounded-full border border-[#D7BFFF]/15 animate-pulse-slow pointer-events-none" />
 
-                <m.div
+                <motion.div
                   animate={{ y: [0, -4, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2.5 py-1 rounded-md border border-[#8B3DFF]/20"
+                  className="absolute top-2.5 left-2.5 lg:top-4 lg:left-4 z-20 font-mono text-[9px] lg:text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2 py-0.5 lg:px-2.5 lg:py-1 rounded-md border border-[#8B3DFF]/20"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
                   <span>SEO & Ads // Jaipur</span>
-                </m.div>
+                </motion.div>
 
-                <m.div
+                <motion.div
                   animate={{ y: [0, 4, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute top-4 right-4 z-20 font-mono text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-2 py-1 rounded-md border border-white/5"
+                  className="absolute top-2.5 right-2.5 lg:top-4 lg:right-4 z-20 font-mono text-[9px] lg:text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-md border border-white/5"
                 >
                   Campaign planning
-                </m.div>
+                </motion.div>
 
                 <div className="relative w-full h-full flex items-center justify-center">
 
-                  <div className="absolute w-64 h-64 bg-[#8B3DFF]/30 rounded-full blur-[70px] animate-pulse-slow" />
+                  <div className="absolute w-40 h-40 lg:w-64 lg:h-64 bg-[#8B3DFF]/30 rounded-full blur-[50px] lg:blur-[70px] animate-pulse-slow" />
 
-                  <div className="relative z-10 w-full h-full flex flex-col items-center justify-end pb-4">
+                  <div className="relative z-10 w-full h-full flex flex-col items-center justify-end pb-2 lg:pb-4">
 
-                    <div className="relative mb-6 flex items-center justify-center">
+                    <div className="relative mb-2 sm:mb-3 lg:mb-6 flex items-center justify-center">
 
-                      <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-[#6b21a8] via-[#B15CFF] to-[#FFFFFF] p-[2px] shadow-[0_0_60px_#8B3DFF] animate-float-slow">
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-28 lg:h-28 rounded-full bg-gradient-to-tr from-[#6b21a8] via-[#B15CFF] to-[#FFFFFF] p-[2px] shadow-[0_0_40px_#8B3DFF] lg:shadow-[0_0_60px_#8B3DFF] animate-float-slow">
                         <div className="w-full h-full rounded-full bg-radial from-[#ffffff] via-[#B15CFF] to-[#35105C] flex items-center justify-center overflow-hidden relative">
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.9),transparent_60%)]" />
-                          <div className="w-8 h-8 rounded-full bg-white/70 blur-[4px] animate-pulse" />
+                          <div className="w-5 h-5 lg:w-8 lg:h-8 rounded-full bg-white/70 blur-[3px] lg:blur-[4px] animate-pulse" />
                         </div>
                       </div>
 
-                      <div className="absolute -inset-4 border border-[#B15CFF]/30 rounded-full animate-orbit" />
-                      <div className="absolute -inset-8 border border-dashed border-[#8B3DFF]/20 rounded-full animate-orbit-reverse" />
+                      <div className="absolute -inset-2.5 lg:-inset-4 border border-[#B15CFF]/30 rounded-full animate-orbit" />
+                      <div className="absolute -inset-5 lg:-inset-8 border border-dashed border-[#8B3DFF]/20 rounded-full animate-orbit-reverse" />
 
-                      <div className="absolute -left-8 top-1/2 w-8 h-[1px] bg-gradient-to-r from-transparent to-[#B15CFF] opacity-75" />
-                      <div className="absolute -right-8 top-1/2 w-8 h-[1px] bg-gradient-to-l from-transparent to-[#B15CFF] opacity-75" />
+                      <div className="absolute -left-5 lg:-left-8 top-1/2 w-5 lg:w-8 h-[1px] bg-gradient-to-r from-transparent to-[#B15CFF] opacity-75" />
+                      <div className="absolute -right-5 lg:-right-8 top-1/2 w-5 lg:w-8 h-[1px] bg-gradient-to-l from-transparent to-[#B15CFF] opacity-75" />
                     </div>
 
                     <svg
                       viewBox="0 0 400 320"
-                      className="w-[90%] max-w-[340px] text-[#0A0812] drop-shadow-[0_0_30px_rgba(75,20,127,0.8)] filter transition-transform duration-700 group-hover:scale-105"
+                      className="w-[66%] max-w-[165px] sm:max-w-[185px] lg:w-[90%] lg:max-w-[340px] text-[#0A0812] drop-shadow-[0_0_20px_rgba(75,20,127,0.8)] lg:drop-shadow-[0_0_30px_rgba(75,20,127,0.8)] filter transition-transform duration-700 group-hover:scale-105"
                       fill="currentColor"
                     >
                       <defs>
@@ -230,42 +230,42 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                   </div>
                 </div>
 
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07070B] via-[#07070B]/80 to-transparent z-20 pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-20 lg:h-28 bg-gradient-to-t from-[#07070B] via-[#07070B]/80 to-transparent z-20 pointer-events-none" />
 
-                <m.div
+                <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-4 inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-xl shadow-lg"
+                  className="absolute bottom-2.5 inset-x-2.5 lg:bottom-4 lg:inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-3 py-2 lg:px-4 lg:py-2.5 rounded-xl shadow-lg"
                 >
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-[#8B3DFF]/20 flex items-center justify-center text-[#D7BFFF]">
-                      <TrendingUp className="w-4 h-4" />
+                  <div className="flex items-center gap-2 lg:gap-2.5">
+                    <div className="w-6 h-6 lg:w-7 lg:h-7 rounded-lg bg-[#8B3DFF]/20 flex items-center justify-center text-[#D7BFFF]">
+                      <TrendingUp className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                     </div>
 
                     <div className="flex flex-col">
-                      <span className="text-[10px] text-[#85818E] uppercase tracking-wider font-semibold">
+                      <span className="text-[9px] lg:text-[10px] text-[#85818E] uppercase tracking-wider font-semibold">
                         Example dashboard
                       </span>
-                      <span className="text-xs text-white font-bold tracking-tight">
+                      <span className="text-[11px] lg:text-xs text-white font-bold tracking-tight">
                         Campaign measurement
                       </span>
                     </div>
                   </div>
 
                   <div className="text-right">
-                    <span className="text-xs font-mono font-bold text-emerald-400">
+                    <span className="text-[11px] lg:text-xs font-mono font-bold text-emerald-400">
                       GA4
                     </span>
-                    <span className="block text-[9px] text-[#85818E]">
+                    <span className="block text-[8px] lg:text-[9px] text-[#85818E]">
                       Tracking
                     </span>
                   </div>
-                </m.div>
+                </motion.div>
 
               </div>
             </div>
 
-          </m.div>
+          </motion.div>
 
         </div>
       </div>
