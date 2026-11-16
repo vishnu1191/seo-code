@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layers, ShieldCheck, TrendingUp, Zap } from 'lucide-react';
-import { HERO_STATS } from '../data/agencyData';
+import { HERO_STATS } from '../data/heroStats';
 
 const iconMap: Record<string, React.ReactNode> = {
   Layers: <Layers className="w-5 h-5" />,

@@ -180,6 +180,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                     <img
                       src="/vishnu-sivota.webp"
                       alt="Vishnu Sivota"
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
@@ -210,6 +214,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenInquiry, onExp
                     <img
                       src="/manish-chaudhary.webp"
                       alt="Manish Chaudhary - Director & SEO Specialist"
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';

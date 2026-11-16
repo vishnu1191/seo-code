@@ -3,27 +3,60 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { PerformancePage } from './pages/PerformancePage';
-import { WorkPage } from './pages/WorkPage';
-import { ProcessPage } from './pages/ProcessPage';
-import { RoiEnginePage } from './pages/RoiEnginePage';
-import { BlogPage } from './pages/BlogPage';
-import { BlogPostPage } from './pages/BlogPostPage';
-import { ProjectInquiryModal } from './components/ProjectInquiryModal';
-import { CaseStudyModal } from './components/CaseStudyModal';
-import { ShowreelModal } from './components/ShowreelModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
-import { AIAssistant } from './components/AIAssistant';
 import { CaseStudy } from './types';
 import { initGlobalAnalytics } from './utils/analytics';
+
+const AboutPage = React.lazy(() =>
+  import('./pages/AboutPage').then((m) => ({ default: m.AboutPage }))
+);
+const ServicesPage = React.lazy(() =>
+  import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage }))
+);
+const PerformancePage = React.lazy(() =>
+  import('./pages/PerformancePage').then((m) => ({ default: m.PerformancePage }))
+);
+const WorkPage = React.lazy(() =>
+  import('./pages/WorkPage').then((m) => ({ default: m.WorkPage }))
+);
+const ProcessPage = React.lazy(() =>
+  import('./pages/ProcessPage').then((m) => ({ default: m.ProcessPage }))
+);
+const RoiEnginePage = React.lazy(() =>
+  import('./pages/RoiEnginePage').then((m) => ({ default: m.RoiEnginePage }))
+);
+const BlogPage = React.lazy(() =>
+  import('./pages/BlogPage').then((m) => ({ default: m.BlogPage }))
+);
+const BlogPostPage = React.lazy(() =>
+  import('./pages/BlogPostPage').then((m) => ({ default: m.BlogPostPage }))
+);
+
+const ProjectInquiryModal = React.lazy(() =>
+  import('./components/ProjectInquiryModal').then((m) => ({
+    default: m.ProjectInquiryModal,
+  }))
+);
+const CaseStudyModal = React.lazy(() =>
+  import('./components/CaseStudyModal').then((m) => ({
+    default: m.CaseStudyModal,
+  }))
+);
+const ShowreelModal = React.lazy(() =>
+  import('./components/ShowreelModal').then((m) => ({
+    default: m.ShowreelModal,
+  }))
+);
+const AIAssistant = React.lazy(() =>
+  import('./components/AIAssistant').then((m) => ({
+    default: m.AIAssistant,
+  }))
+);
 
 function detectVisitorRegion(): 'india' | 'international' {
   if (typeof window === 'undefined') return 'india';
@@ -47,7 +80,7 @@ export default function App() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [showreelOpen, setShowreelOpen] = useState(false);
 
-  // Initialize GA4 link tracker for WhatsApp (wa.me) and Phone (tel:) links
+  // Initialize GA4 link tracker for WhatsApp (wa.me), Phone (tel:), and Social links
   useEffect(() => {
     const cleanupAnalytics = initGlobalAnalytics();
     return () => {
@@ -58,7 +91,6 @@ export default function App() {
   // Clean HTML5 History API path-based navigation (removes '#/' and uses clean URLs like /about/, /services/)
   useEffect(() => {
     const handleLocationChange = () => {
-      // If legacy or stray hash exists (e.g. #/ or #/about), automatically clean it up
       if (window.location.hash) {
         const hashTarget = window.location.hash.replace('#/', '').replace('#', '').trim();
         const validPages = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator'];
@@ -72,7 +104,6 @@ export default function App() {
         }
       }
 
-      // Parse clean pathname (e.g., '/', '/about/', '/services/')
       const normalizedPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
       const validPages = ['home', 'about', 'services', 'performance', 'work', 'process', 'calculator', 'blog'];
       if (validPages.includes(normalizedPath)) {
@@ -85,10 +116,7 @@ export default function App() {
       }
     };
 
-    // Initial check on load
     handleLocationChange();
-
-    // Listen for browser forward/backward navigation
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
@@ -113,120 +141,117 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#050508] text-[#F7F5FA] selection:bg-[#8B3DFF]/30 selection:text-[#F7F5FA] flex flex-col justify-between">
-      {/* Layered Background Canvas & Ambient Atmospheric Lighting */}
       <BackgroundEffects />
 
-      {/* Sticky Top Navigation */}
       <Navbar
         currentPage={currentPage}
         onNavigate={navigateTo}
         onOpenInquiry={() => handleOpenInquiry()}
       />
 
-      {/* Main Multi-Page Routed View Container */}
       <main className="relative z-10 flex-1">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentPage}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {currentPage === 'home' && (
-              <HomePage
-                onOpenInquiry={handleOpenInquiry}
-                onOpenShowreel={() => setShowreelOpen(true)}
-                onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
-                onNavigate={navigateTo}
-              />
-            )}
+        <div key={currentPage}>
+          {currentPage === 'home' && (
+            <HomePage
+              onOpenInquiry={handleOpenInquiry}
+              onOpenShowreel={() => setShowreelOpen(true)}
+              onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
+              onNavigate={navigateTo}
+            />
+          )}
 
-            {currentPage === 'about' && (
-              <AboutPage
-                onOpenInquiry={handleOpenInquiry}
-                onNavigate={navigateTo}
-              />
-            )}
+          {currentPage !== 'home' && (
+            <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
+              {currentPage === 'about' && (
+                <AboutPage
+                  onOpenInquiry={handleOpenInquiry}
+                  onNavigate={navigateTo}
+                />
+              )}
 
-            {currentPage === 'services' && (
-              <ServicesPage
-                onOpenInquiry={handleOpenInquiry}
-                onNavigate={navigateTo}
-              />
-            )}
+              {currentPage === 'services' && (
+                <ServicesPage
+                  onOpenInquiry={handleOpenInquiry}
+                  onNavigate={navigateTo}
+                />
+              )}
 
-            {currentPage === 'performance' && (
-              <PerformancePage
-                onOpenInquiry={handleOpenInquiry}
-                onNavigate={navigateTo}
-              />
-            )}
+              {currentPage === 'performance' && (
+                <PerformancePage
+                  onOpenInquiry={handleOpenInquiry}
+                  onNavigate={navigateTo}
+                />
+              )}
 
-            {currentPage === 'work' && (
-              <WorkPage
-                onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
-                onOpenInquiry={handleOpenInquiry}
-                onNavigate={navigateTo}
-              />
-            )}
+              {currentPage === 'work' && (
+                <WorkPage
+                  onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
+                  onOpenInquiry={handleOpenInquiry}
+                  onNavigate={navigateTo}
+                />
+              )}
 
-            {currentPage === 'process' && (
-              <ProcessPage
-                onOpenInquiry={handleOpenInquiry}
-                onNavigate={navigateTo}
-              />
-            )}
+              {currentPage === 'process' && (
+                <ProcessPage
+                  onOpenInquiry={handleOpenInquiry}
+                  onNavigate={navigateTo}
+                />
+              )}
 
-            {currentPage === 'calculator' && (
-              <RoiEnginePage
-                onOpenInquiry={handleOpenInquiry}
-                onNavigate={navigateTo}
-              />
-            )}
+              {currentPage === 'calculator' && (
+                <RoiEnginePage
+                  onOpenInquiry={handleOpenInquiry}
+                  onNavigate={navigateTo}
+                />
+              )}
 
-            {currentPage === 'blog' && <BlogPage />}
+              {currentPage === 'blog' && <BlogPage />}
 
-            {currentPage.startsWith('blogpost:') && (
-              <BlogPostPage slug={currentPage.slice('blogpost:'.length)} />
-            )}
-          </motion.div>
-        </AnimatePresence>
+              {currentPage.startsWith('blogpost:') && (
+                <BlogPostPage slug={currentPage.slice('blogpost:'.length)} />
+              )}
+            </Suspense>
+          )}
+        </div>
       </main>
 
-      {/* Multi-Column Professional Footer */}
       <Footer
         onNavigate={navigateTo}
         onOpenInquiry={(service) => handleOpenInquiry(service)}
       />
 
-      {/* Interactive Modals */}
-      <ProjectInquiryModal
-        isOpen={inquiryModalOpen}
-        onClose={() => setInquiryModalOpen(false)}
-        initialService={inquiryInitialService}
-        initialRegion={inquiryInitialRegion}
-      />
+      <Suspense fallback={null}>
+        {inquiryModalOpen && (
+          <ProjectInquiryModal
+            isOpen={inquiryModalOpen}
+            onClose={() => setInquiryModalOpen(false)}
+            initialService={inquiryInitialService}
+            initialRegion={inquiryInitialRegion}
+          />
+        )}
 
-      <CaseStudyModal
-        study={selectedCaseStudy}
-        onClose={() => setSelectedCaseStudy(null)}
-        onOpenInquiry={(service) => handleOpenInquiry(service)}
-      />
+        {selectedCaseStudy && (
+          <CaseStudyModal
+            study={selectedCaseStudy}
+            onClose={() => setSelectedCaseStudy(null)}
+            onOpenInquiry={(service) => handleOpenInquiry(service)}
+          />
+        )}
 
-      <ShowreelModal
-        isOpen={showreelOpen}
-        onClose={() => setShowreelOpen(false)}
-        onOpenInquiry={() => handleOpenInquiry('Brand Showreel Inquiry')}
-      />
+        {showreelOpen && (
+          <ShowreelModal
+            isOpen={showreelOpen}
+            onClose={() => setShowreelOpen(false)}
+            onOpenInquiry={() => handleOpenInquiry('Brand Showreel Inquiry')}
+          />
+        )}
 
-      {/* AI Growth Assistant (Bottom-Left) */}
-      <AIAssistant
-        currentPage={currentPage}
-        onOpenInquiry={(service, region) => handleOpenInquiry(service, region)}
-      />
+        <AIAssistant
+          currentPage={currentPage}
+          onOpenInquiry={(service, region) => handleOpenInquiry(service, region)}
+        />
+      </Suspense>
 
-      {/* Direct WhatsApp Quick-Chat Desk (Bottom-Right) */}
       <FloatingWhatsApp />
     </div>
   );

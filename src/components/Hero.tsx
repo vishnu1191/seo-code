@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowRight, Play, TrendingUp, CheckCircle2 } from 'lucide-react';
-import { motion } from 'motion/react';
 
 interface HeroProps {
   onOpenInquiry: () => void;
@@ -8,16 +7,13 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [, setIsHovered] = useState(false);
 
   return (
     <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 lg:py-24 overflow-hidden">
-      <motion.div
-        animate={{
-          opacity: [0.15, 0.25, 0.15]
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#8B3DFF]/20 to-transparent rounded-full blur-[140px] pointer-events-none"
+      <div
+        aria-hidden="true"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(139,61,255,0.22)_0%,transparent_70%)] rounded-full pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -25,73 +21,55 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
-            <motion.div
+            <div
               id="hero-eyebrow-badge"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#B15CFF] text-xs uppercase tracking-[0.15em] font-bold mb-6 w-fit shadow-[0_0_15px_rgba(139,61,255,0.2)]"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
-              <span>SEO & Digital Growth Agency in Jaipur</span>
-            </motion.div>
+              <span>SEO &amp; Digital Growth Agency in Jaipur</span>
+            </div>
 
             <h1
               id="hero-headline"
               className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F7F5FA] leading-[1.08] mb-6"
             >
-              SEO, Google Ads & Meta Ads Agency in Jaipur{' '}
+              SEO, Google Ads &amp; Meta Ads Agency in Jaipur{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-                for More Leads & Business Growth
+                for More Leads &amp; Business Growth
               </span>
             </h1>
 
-            <motion.p
+            <p
               id="hero-supporting-copy"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-[#85818E] text-base sm:text-lg max-w-xl leading-relaxed mb-8"
             >
-              Grow your business with SEO, Google Ads & Meta Ads. We help Jaipur businesses get more visibility, quality leads and customers through organic and paid marketing.
-            </motion.p>
+              Grow your business with SEO, Google Ads &amp; Meta Ads. We help Jaipur businesses get more visibility, quality leads and customers through organic and paid marketing.
+            </p>
 
-            <motion.div
+            <div
               id="hero-actions"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
               className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10"
             >
-              <motion.button
+              <button
                 id="hero-primary-cta"
                 onClick={onOpenInquiry}
-                whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.4)" }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-[#D7BFFF] transition-colors cursor-pointer shadow-lg"
+                className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-[#D7BFFF] hover:scale-[1.03] active:scale-[0.97] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all cursor-pointer shadow-lg"
               >
                 <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </button>
 
-              <motion.button
+              <button
                 id="hero-secondary-cta"
                 onClick={onOpenShowreel}
-                whileHover={{ scale: 1.03, borderColor: "rgba(139,61,255,0.6)" }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full sm:w-auto px-8 py-4 border border-white/10 hover:bg-white/5 rounded-xl text-sm font-semibold transition-all text-white flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                className="w-full sm:w-auto px-8 py-4 border border-white/10 hover:border-[#8B3DFF]/60 hover:bg-white/5 hover:scale-[1.03] active:scale-[0.97] rounded-xl text-sm font-semibold transition-all text-white flex items-center justify-center gap-2 cursor-pointer shadow-sm"
               >
                 <Play className="w-3.5 h-3.5 text-[#D7BFFF] fill-[#D7BFFF]" />
                 <span>Explore Our Work</span>
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-6 pt-4 border-t border-[#8B3DFF]/15 text-xs text-[#85818E]"
-            >
+            <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-[#8B3DFF]/15 text-xs text-[#85818E]">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">Jaipur-focused strategy</span>
@@ -106,18 +84,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <CheckCircle2 className="w-4 h-4 text-[#8B3DFF]" />
                 <span className="text-[#A7A3B1]">No ranking guarantees</span>
               </div>
-            </motion.div>
+            </div>
 
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 relative flex items-center justify-center"
-          >
+          <div className="lg:col-span-5 relative flex items-center justify-center">
 
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#8B3DFF]/20 via-[#4B147F]/30 to-transparent rounded-3xl blur-[60px] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#8B3DFF]/20 via-[#4B147F]/30 to-transparent rounded-3xl blur-[48px] pointer-events-none" />
 
             <div
               id="hero-cinematic-stage"
@@ -134,22 +107,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                 <div className="absolute w-[175px] h-[175px] sm:w-[200px] sm:h-[200px] lg:w-[290px] lg:h-[290px] rounded-full border border-dashed border-[#B15CFF]/25 animate-orbit-reverse pointer-events-none" />
                 <div className="absolute w-[130px] h-[130px] sm:w-[145px] sm:h-[145px] lg:w-[210px] lg:h-[210px] rounded-full border border-[#D7BFFF]/15 animate-pulse-slow pointer-events-none" />
 
-                <motion.div
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-2.5 left-2.5 lg:top-4 lg:left-4 z-20 font-mono text-[9px] lg:text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2 py-0.5 lg:px-2.5 lg:py-1 rounded-md border border-[#8B3DFF]/20"
-                >
+                <div className="absolute top-2.5 left-2.5 lg:top-4 lg:left-4 z-20 font-mono text-[9px] lg:text-[10px] text-[#8B3DFF]/80 tracking-widest flex items-center gap-1.5 bg-[#050508]/80 px-2 py-0.5 lg:px-2.5 lg:py-1 rounded-md border border-[#8B3DFF]/20 animate-float-slow">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#B15CFF] animate-ping" />
-                  <span>SEO & Ads // Jaipur</span>
-                </motion.div>
+                  <span>SEO &amp; Ads // Jaipur</span>
+                </div>
 
-                <motion.div
-                  animate={{ y: [0, 4, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute top-2.5 right-2.5 lg:top-4 lg:right-4 z-20 font-mono text-[9px] lg:text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-md border border-white/5"
-                >
+                <div className="absolute top-2.5 right-2.5 lg:top-4 lg:right-4 z-20 font-mono text-[9px] lg:text-[10px] text-[#A7A3B1]/60 tracking-wider bg-[#050508]/80 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-md border border-white/5">
                   Campaign planning
-                </motion.div>
+                </div>
 
                 <div className="relative w-full h-full flex items-center justify-center">
 
@@ -232,11 +197,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
 
                 <div className="absolute inset-x-0 bottom-0 h-20 lg:h-28 bg-gradient-to-t from-[#07070B] via-[#07070B]/80 to-transparent z-20 pointer-events-none" />
 
-                <motion.div
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-2.5 inset-x-2.5 lg:bottom-4 lg:inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-3 py-2 lg:px-4 lg:py-2.5 rounded-xl shadow-lg"
-                >
+                <div className="absolute bottom-2.5 inset-x-2.5 lg:bottom-4 lg:inset-x-4 z-30 flex items-center justify-between bg-[#0A0810]/90 backdrop-blur-md border border-white/10 px-3 py-2 lg:px-4 lg:py-2.5 rounded-xl shadow-lg">
                   <div className="flex items-center gap-2 lg:gap-2.5">
                     <div className="w-6 h-6 lg:w-7 lg:h-7 rounded-lg bg-[#8B3DFF]/20 flex items-center justify-center text-[#D7BFFF]">
                       <TrendingUp className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
@@ -260,12 +221,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenShowreel }) => 
                       Tracking
                     </span>
                   </div>
-                </motion.div>
+                </div>
 
               </div>
             </div>
 
-          </motion.div>
+          </div>
 
         </div>
       </div>
