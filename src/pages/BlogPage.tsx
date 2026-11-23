@@ -15,7 +15,7 @@ const setMeta = (name: string, content: string) => {
 export const BlogPage: React.FC = () => {
   useEffect(() => {
     document.title = 'SEO & Digital Marketing Blog in Jaipur | SEO in Jaipur';
-    setMeta('description', 'Read practical guides on SEO services in Jaipur, Local SEO, Google Ads, Meta Ads and digital marketing for business owners.');
+    setMeta('description', 'Read practical SEO, Local SEO, Google Ads and Meta Ads guides for Jaipur businesses. Explore actionable tips, service explainers and ways to measure enquiries.');
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
@@ -38,7 +38,7 @@ export const BlogPage: React.FC = () => {
             Clear digital marketing advice. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] to-[#D7BFFF]">Better business decisions.</span>
           </h1>
           <p className="text-[#A7A3B1] text-base sm:text-lg leading-relaxed max-w-2xl mt-6">
-            Practical, jargon-free guides to SEO, local search, Google Ads, Meta Ads, and useful marketing tools—created to help businesses make informed decisions and attract relevant enquiries.
+            Explore practical guides on SEO services in Jaipur, Local SEO and Google Business Profile, Google Ads, Meta Ads, website performance and lead tracking. Each article is written to help business owners understand their options, ask better questions and choose useful next steps.
           </p>
           <a href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20want%20to%20discuss%20digital%20marketing%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-[#25D366] text-black font-bold text-sm hover:bg-[#20bd5a] transition-colors">
             <MessageCircle className="w-4 h-4" /> Discuss your business goals <ArrowRight className="w-4 h-4" />
@@ -81,6 +81,18 @@ export const BlogPage: React.FC = () => {
             ))}
           </div>
         )}
+        <div className="mt-10 rounded-2xl border border-white/10 bg-[#0A0810] p-6 sm:p-8">
+          <h2 className="font-['Space_Grotesk'] text-xl sm:text-2xl font-bold text-white">Explore our digital marketing services</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[#A7A3B1]">Use these service guides to find the information most relevant to your business. Each link opens a dedicated page with details about that service.</p>
+          <nav aria-label="Digital marketing services" className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+            <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/seo-service/">SEO services in Jaipur</a>
+            <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/local-seo-service/">Local SEO services</a>
+            <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/google-ads-service/">Google Ads services</a>
+            <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/performance-marketing/">Performance marketing &amp; Meta Ads</a>
+            <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/link-building-service/">Link building</a>
+            <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/contact-us/">Contact us</a>
+          </nav>
+        </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">

@@ -18,6 +18,13 @@ const setMeta = (name: string, content: string) => {
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
   const post = getBlogPost(slug);
+  const relatedLinks = post?.relatedLinks?.length
+    ? post.relatedLinks
+    : [
+        { label: 'Explore SEO, Google Ads and Meta Ads services', url: '/services/' },
+        { label: 'View SEO services in Jaipur', url: '/seo-service/' },
+        { label: 'Contact SEO in Jaipur', url: '/contact-us/' },
+      ];
 
   useEffect(() => {
     if (!post) {
@@ -110,11 +117,11 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug }) => {
             ))}
           </div>
 
-          {post.relatedLinks && post.relatedLinks.length > 0 && (
+          {relatedLinks.length > 0 && (
             <section className="mt-12 rounded-2xl border border-white/10 bg-[#0A0810] p-6 sm:p-8">
               <h2 className="font-['Space_Grotesk'] text-xl font-bold text-white">Explore related services</h2>
               <ul className="mt-4 space-y-3">
-                {post.relatedLinks.map((link) => (
+                {relatedLinks.map((link) => (
                   <li key={link.url}><a href={link.url} className="text-sm text-[#D7BFFF] hover:text-white underline underline-offset-4">{link.label} <ArrowRight className="inline w-3.5 h-3.5" /></a></li>
                 ))}
               </ul>

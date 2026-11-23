@@ -275,6 +275,29 @@ export const HomePage: React.FC<HomePageProps> = ({
           <FAQSection onOpenInquiry={onOpenInquiry} />
         </section>
 
+        {/* Crawlable service and learning links support navigation and topical relevance. */}
+        <section aria-labelledby="home-resource-links" className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+          <div className="rounded-2xl border border-white/10 bg-[#0A0810] p-6 sm:p-8">
+            <h2 id="home-resource-links" className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-white">
+              Explore SEO and Digital Marketing Services in Jaipur
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm sm:text-base leading-relaxed text-[#A7A3B1]">
+              Explore the service that matches your business goal, or read our practical guides before deciding on your next marketing step.
+            </p>
+            <nav aria-label="Related services and resources" className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/seo-service/">SEO services in Jaipur</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/local-seo-service/">Local SEO services</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/google-ads-service/">Google Ads services</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/performance-marketing/">Meta Ads &amp; performance marketing</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/link-building-service/">Link building</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/blog/">SEO &amp; digital marketing blog</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/contact-us/">Contact SEO in Jaipur</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="tel:+916367420500">Call our team</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="https://wa.me/917014799233" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+            </nav>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section>
           <CTASection
