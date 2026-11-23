@@ -133,3 +133,37 @@
     backdrop-filter: none;
   }
 }
+
+
+/* Accessibility and performance: respect visitors who disable motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Avoid expensive decorative effects on small screens while preserving content and controls. */
+@media (max-width: 767px) {
+  .glass-panel,
+  .glass-panel-glow {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .glass-panel-glow {
+    box-shadow: none;
+  }
+
+  .bg-grid-pattern {
+    background-image: none;
+  }
+
+  #cta-banner [class*="blur-"] {
+    filter: none;
+  }
+}
