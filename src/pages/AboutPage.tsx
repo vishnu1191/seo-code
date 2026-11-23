@@ -71,8 +71,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
 
   const milestones = [
     {
-      year: '2025',
-      period: 'Q1 2025',
+      year: '01',
+      period: 'Phase 1',
       tag: 'Discovery',
       title: 'Understanding your business',
       desc: 'SEO in Jaipur focuses on helping businesses improve their online visibility with clear SEO, local search and paid advertising support.',
@@ -80,8 +80,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
       highlight: false
     },
     {
-      year: '2025',
-      period: 'Q3 2025',
+      year: '01',
+      period: 'Phase 2',
       tag: 'Local search',
       title: 'Local SEO and digital marketing',
       desc: 'We are building a Jaipur-focused service for businesses that need clearer search visibility, useful website content and measurable marketing activity.',
@@ -89,8 +89,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
       highlight: false
     },
     {
-      year: '2026',
-      period: 'Q1 2026',
+      year: '03',
+      period: 'Phase 3',
       tag: 'AI Search Supremacy',
       title: 'Building useful search content',
       desc: 'We are developing content and technical practices that help search and answer engines interpret business information. No AI citation or ranking is guaranteed.',
@@ -98,8 +98,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
       highlight: true
     },
     {
-      year: '2026',
-      period: 'Present & Beyond',
+      year: '03',
+      period: 'Ongoing',
       tag: 'Measurement',
       title: 'Jaipur Business Growth Support',
       desc: 'Our current focus is to build a reliable, transparent SEO and paid-marketing service for Jaipur businesses.',
@@ -388,7 +388,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#C5C2CE] leading-relaxed mb-6">
-                    &ldquo;We engineered SEO IN JAIPUR to bridge the gap between creative marketing and hard commercial numbers. As a Performance Marketing specialist with comprehensive digital command across Google Ads, Meta Ads, and full-funnel CRO, I architect high-ROAS paid acquisition systems and deploy next-gen AI growth funnels that turn cold search and social demand into compounding, multi-crore revenue pipelines.&rdquo;
+                    SEO in Jaipur focuses on practical SEO and paid marketing support, with clear priorities, useful reporting and measurable enquiries.
                   </p>
 
                   {/* Core Skillsets & AI Funnels Matrix */}
@@ -478,7 +478,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
 
                   <a
-                    href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20would%20like%20to%20connect%20regarding%20an%20enterprise%20growth%20project."
+                    href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20would%20like%20to%20discuss%20SEO%20and%20digital%20marketing%20services."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 rounded-full bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-[0_0_15px_rgba(37,211,102,0.15)]"
