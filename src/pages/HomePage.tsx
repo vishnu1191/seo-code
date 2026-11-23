@@ -292,6 +292,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/link-building-service/">Link building</a>
               <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/blog/">SEO &amp; digital marketing blog</a>
               <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="/contact-us/">Contact SEO in Jaipur</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="tel:+916367420500">Call our team</a>
+              <a className="text-[#D7BFFF] hover:text-white underline underline-offset-4" href="https://wa.me/917014799233" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
             </nav>
           </div>
         </section>
