@@ -61,12 +61,23 @@ jobs:
             if (!meta) continue;
             const canonical = 'https://seoinjaipur.in/' + route + '/';
             let html = await readFile('dist/index.html', 'utf8');
-            html = html.replace(/<title>[^<]*<\\/title>/i, '<title>' + escapeAttr(meta.title) + '</title>');
-            html = html.replace(/<meta name="description" content="[^"]*"\\s*\\/>/i, '<meta name="description" content="' + escapeAttr(meta.description) + '" />');
-            html = html.replace(/<meta property="og:title" content="[^"]*"\\s*\\/>/i, '<meta property="og:title" content="' + escapeAttr(meta.title) + '" />');
-            html = html.replace(/<meta property="og:description" content="[^"]*"\\s*\\/>/i, '<meta property="og:description" content="' + escapeAttr(meta.description) + '" />');
-            html = html.replace(/<link rel="canonical" href="[^"]*"\\s*\\/>/i, '<link rel="canonical" href="' + canonical + '">');
-            html = html.replace(/<meta property="og:url" content="[^"]*"\\s*\\/>/i, '<meta property="og:url" content="' + canonical + '" />');
+            const replaceTag = (document, prefix, replacement) => {
+              const start = document.indexOf(prefix);
+              if (start < 0) return document;
+              const end = document.indexOf('>', start);
+              if (end < 0) return document;
+              return document.slice(0, start) + replacement + document.slice(end + 1);
+            };
+            const titleStart = html.indexOf('<title>');
+            const titleEnd = html.indexOf('</title>', titleStart);
+            if (titleStart >= 0 && titleEnd >= 0) {
+              html = html.slice(0, titleStart) + '<title>' + escapeAttr(meta.title) + '</title>' + html.slice(titleEnd + 8);
+            }
+            html = replaceTag(html, '<meta name="description"', '<meta name="description" content="' + escapeAttr(meta.description) + '" />');
+            html = replaceTag(html, '<meta property="og:title"', '<meta property="og:title" content="' + escapeAttr(meta.title) + '" />');
+            html = replaceTag(html, '<meta property="og:description"', '<meta property="og:description" content="' + escapeAttr(meta.description) + '" />');
+            html = replaceTag(html, '<link rel="canonical"', '<link rel="canonical" href="' + canonical + '">');
+            html = replaceTag(html, '<meta property="og:url"', '<meta property="og:url" content="' + canonical + '" />');
             const destination = 'dist/' + route;
             await mkdir(destination, { recursive: true });
             await writeFile(destination + '/index.html', html);
