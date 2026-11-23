@@ -35,75 +35,75 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
       num: '01',
       title: 'Semantic Entity Engineering',
       tag: 'Algorithmic Foundation',
-      desc: 'We map brand entities directly into Google Knowledge Graph and vector search indexes, establishing undeniable contextual authority over competitive categories.',
+      desc: 'We organize your business information, services, locations and related topics so search engines and visitors can understand what you offer.',
     },
     {
       num: '02',
       title: 'Revenue-First Accountability',
       tag: 'Commercial Reality',
-      desc: 'Vanity keywords do not pay dividends. We evaluate every optimization by blended ROAS, pipeline generation, and customer acquisition payback speed.',
+      desc: 'We focus on relevant search visibility, genuine enquiries and useful reporting rather than vanity rankings.',
     },
     {
       num: '03',
       title: 'Generative Engine Optimization (GEO)',
-      tag: 'AI Search Supremacy',
-      desc: 'Optimized not only for standard SERP blue links, but for direct citations in Google AI Overviews, Perplexity AI, ChatGPT, and Apple Intelligence.',
+      tag: 'Content quality',
+      desc: 'We structure helpful content clearly for traditional search and emerging AI-powered discovery, without promising citations or placements.',
     },
     {
       num: '04',
       title: 'Radical Senior Transparency',
       tag: 'Zero Junior Handoffs',
-      desc: 'Direct, unfiltered collaboration with senior search architects and real-time live telemetry dashboards. No opaque middle management.',
+      desc: 'You get clear communication about priorities, completed work, results and the next steps.',
     },
     {
       num: '05',
       title: 'High-Impact Digital PR & Authority',
       tag: 'Defensible Moats',
-      desc: 'We build permanent backlink moats through tier-1 editorial placements, proprietary industry research data, and high-trust institutional relationships.',
+      desc: 'We research relevant websites and pursue legitimate editorial opportunities. We avoid paid link schemes, bulk submissions and automated spam.',
     },
     {
       num: '06',
       title: 'Full-Funnel Conversion Architecture',
       tag: 'CRO & Speed',
-      desc: 'Search traffic is meaningless without conversion. We engineer sub-second page speeds, behavioral heatmaps, and psychological conversion funnels.',
+      desc: 'We review mobile usability, page speed, calls to action and enquiry paths so visitors can contact your business easily.',
     }
   ];
 
   const milestones = [
     {
-      year: '2025',
-      period: 'Q1 2025',
-      tag: 'AI-Native Genesis',
-      title: 'Disrupting Legacy Retainers',
-      desc: 'Founded in Jaipur by Vishnu Sivota & Manish Chaudhary to solve what outdated 2015-era agencies cannot: replacing vanity retainers with code-level semantic entity graphs and direct commercial revenue accountability.',
+      year: '01',
+      period: 'Phase 1',
+      tag: 'Discovery',
+      title: 'Understanding your business',
+      desc: 'SEO in Jaipur focuses on helping businesses improve their online visibility with clear SEO, local search and paid advertising support.',
       metric: 'Zero-Fluff Methodology',
       highlight: false
     },
     {
-      year: '2025',
-      period: 'Q3 2025',
-      tag: 'Pan-India Footprint',
-      title: 'Pan-India Category Dominance',
-      desc: 'Captured #1 SERP real estate across Jaipur, Delhi NCR, Mumbai, and Bangalore. Scaled high-intent organic funnels and Google/Meta performance ads for luxury real estate, healthcare chains, and fast-growing D2C brands.',
-      metric: '₹150 Cr+ Tracked Pipeline',
+      year: '01',
+      period: 'Phase 2',
+      tag: 'Local search',
+      title: 'Local SEO and digital marketing',
+      desc: 'We are building a Jaipur-focused service for businesses that need clearer search visibility, useful website content and measurable marketing activity.',
+      metric: 'Jaipur-focused SEO and marketing',
       highlight: false
     },
     {
-      year: '2026',
-      period: 'Q1 2026',
+      year: '03',
+      period: 'Phase 3',
       tag: 'AI Search Supremacy',
-      title: 'Pioneering GEO & AI Citations',
-      desc: 'First-mover in Generative Engine Optimization (GEO). Engineered proprietary frameworks to guarantee partner brand citations inside Google AI Overviews (SGE), Perplexity AI, ChatGPT Search, and Apple Intelligence.',
-      metric: 'Top AI SGE Citation Share',
+      title: 'Building useful search content',
+      desc: 'We are developing content and technical practices that help search and answer engines interpret business information. No AI citation or ranking is guaranteed.',
+      metric: 'Helpful, structured content',
       highlight: true
     },
     {
-      year: '2026',
-      period: 'Present & Beyond',
-      tag: 'Global Delivery',
-      title: 'Cross-Border Global Enterprise Scale',
-      desc: 'Deploying high-retention omni-channel growth across India, UAE (Dubai), UK, and North American markets. Delivering sub-second Core Web Vitals, enterprise CRO, and compounding customer acquisition velocity.',
-      metric: '96.8% Client Retention',
+      year: '03',
+      period: 'Ongoing',
+      tag: 'Measurement',
+      title: 'Jaipur Business Growth Support',
+      desc: 'Our current focus is to build a reliable, transparent SEO and paid-marketing service for Jaipur businesses.',
+      metric: 'Transparent progress updates',
       highlight: false
     }
   ];
@@ -120,19 +120,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#D7BFFF] text-xs uppercase tracking-[0.2em] font-bold mb-6 shadow-[0_0_15px_rgba(139,61,255,0.2)]">
               <Sparkles className="w-3.5 h-3.5 text-[#B15CFF]" />
-              <span>Agency Provenance & Philosophy</span>
+              <span>About SEO in Jaipur</span>
             </div>
 
             <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
               Architects of{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B3DFF] via-[#B15CFF] to-[#D7BFFF]">
-                Search Dominance
+                Search Visibility
               </span>{' '}
-              & Category Leadership
+              for Jaipur Businesses
             </h1>
 
             <p className="text-[#A7A3B1] text-base sm:text-lg leading-relaxed mb-8">
-              Born in the historic Pink City of Jaipur and operating globally, we fuse heritage precision, quantitative search architecture, and performance advertising to scale ambitious enterprise brands.
+              Based in Jaipur, SEO in Jaipur helps businesses improve search visibility and reach relevant customers through SEO, Local SEO, Google Ads and Meta Ads.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3">
@@ -159,10 +159,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
           {/* Key Agency Vital Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
             {[
-              { label: 'Total Tracked Pipeline', val: '₹450 Cr+', sub: 'Verified Client Revenue' },
-              { label: 'Client Retention Rate', val: '96.8%', sub: 'Multi-Year Retainers' },
-              { label: 'Global SERP Top 1-3', val: '2,400+', sub: 'High-Intent Keywords' },
-              { label: 'Average ROAS Lift', val: '4.2x', sub: 'Across Active Paid Spend' },
+              { label: 'Primary Market', val: 'Jaipur', sub: 'Local business focus' },
+              { label: 'Organic Growth', val: 'SEO', sub: 'Technical and content optimisation' },
+              { label: 'Paid Growth', val: 'Google + Meta', sub: 'Campaign planning and measurement' },
+              { label: 'Reporting', val: 'Clear', sub: 'Work updates and performance data' },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -189,17 +189,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                 The Heritage & Future
               </div>
               <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white leading-tight mb-6">
-                Why Traditional Marketing Fails — And How We Engineer Dominance
+                A practical approach to SEO and digital marketing
               </h2>
               <div className="space-y-4 text-sm text-[#A7A3B1] leading-relaxed">
                 <p>
-                  Most agencies treat SEO as an afterthought — tossing around superficial meta tags, churning generic AI content, and submitting monthly reports full of irrelevant vanity impressions.
+                  Good marketing starts with understanding your customers, services and the searches they make before choosing the right improvements.
                 </p>
                 <p>
-                  At <strong className="text-white">SEO IN JAIPUR</strong>, we approach digital search as a mathematical engineering discipline. We build semantic topic clusters that satisfy deep consumer search intent, reconstruct server architectures for sub-second page performance, and deploy authoritative PR that establishes permanent market dominance.
+                  At <strong className="text-white">SEO IN JAIPUR</strong>, we focus on clear website structure, useful content, technical SEO, local search visibility and practical campaign measurement.
                 </p>
                 <p>
-                  From historic havelis and luxury sky penthouses in Jaipur to international D2C beauty brands and high-end fitness facilities, our clients do not just rank — they control their categories.
+                  We work towards helping Jaipur businesses explain their services clearly, appear for relevant searches and make it easier for potential customers to enquire.
                 </p>
               </div>
 
@@ -248,8 +248,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   {[
                     'Proprietary Semantic Entity Mapping Framework',
                     'Zero-Waste High-Intent Paid Traffic Architecture',
-                    'Core Web Vitals & Sub-Second Page Speed Remediations',
-                    'AI Overviews (SGE) & Perplexity Citation Protocols',
+                    'Mobile usability and Core Web Vitals improvements',
+                    'Clear content structure for search and AI discovery',
                     'Direct Weekly Sprint Reviews with Chief Strategist'
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3 text-xs text-[#C5C2CE]">
@@ -271,7 +271,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                     </a>
                   </div>
                   <button
-                    onClick={() => onOpenInquiry('Enterprise Retainer')}
+                    onClick={() => onOpenInquiry('SEO and digital marketing support')}
                     className="px-4 py-2 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-[10px] uppercase tracking-wider font-bold transition-all cursor-pointer"
                   >
                     Request Audit
@@ -388,7 +388,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#C5C2CE] leading-relaxed mb-6">
-                    &ldquo;We engineered SEO IN JAIPUR to bridge the gap between creative marketing and hard commercial numbers. As a Performance Marketing specialist with comprehensive digital command across Google Ads, Meta Ads, and full-funnel CRO, I architect high-ROAS paid acquisition systems and deploy next-gen AI growth funnels that turn cold search and social demand into compounding, multi-crore revenue pipelines.&rdquo;
+                    SEO in Jaipur focuses on practical SEO and paid marketing support, with clear priorities, useful reporting and measurable enquiries.
                   </p>
 
                   {/* Core Skillsets & AI Funnels Matrix */}
@@ -426,9 +426,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       <div className="flex flex-wrap gap-1.5">
                         {[
                           'Generative Engine Optimization (GEO for ChatGPT & Perplexity)',
-                          'AI Dynamic Creative Testing (DCT) & Copy Synthesis',
+                          'Ad creative and message testing',
                           'Predictive Algorithmic Bidding & Audience Clustering',
-                          'Automated WhatsApp AI Bots & Instant CRM Nurturing'
+                          'WhatsApp enquiry journeys and follow-up planning'
                         ].map((spec, sIdx) => (
                           <span
                             key={sIdx}
@@ -448,9 +448,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {[
-                          'Enterprise Organic SEO & Semantic Entity Graphs',
-                          'Sub-Second Page Speed & Core Web Vitals Engineering',
-                          'Conversion Rate Optimization (CRO) & Heatmap Analytics',
+                          'Technical SEO and relevant content planning',
+                          'Website speed and mobile experience improvements',
+                          'Enquiry paths and conversion tracking review',
                           'Hyper-Local Google Business Profile (GBP) 3-Pack'
                         ].map((spec, sIdx) => (
                           <span
@@ -478,7 +478,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
 
                   <a
-                    href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20would%20like%20to%20connect%20regarding%20an%20enterprise%20growth%20project."
+                    href="https://wa.me/917014799233?text=Hi%20Vishnu%2C%20I%20would%20like%20to%20discuss%20SEO%20and%20digital%20marketing%20services."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 rounded-full bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-[0_0_15px_rgba(37,211,102,0.15)]"
@@ -489,7 +489,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                 </div>
               </div>
 
-              {/* Manish Chaudhary - Director & SEO Specialist */}
+              {/* SEO Strategy Team - Director & SEO Specialist */}
               <div className="rounded-3xl bg-[#0A0810]/95 border border-[#8B3DFF]/30 p-8 flex flex-col justify-between relative overflow-hidden shadow-[0_20px_50px_-10px_rgba(139,61,255,0.2)] group hover:border-[#8B3DFF]/60 transition-all duration-300">
                 <div className="absolute top-0 right-0 w-44 h-44 bg-[#8B3DFF]/15 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#8B3DFF]/25 transition-all" />
 
@@ -499,17 +499,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       {/* Director Photo with Fallback Monogram */}
                       <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#8B3DFF]/50 flex items-center justify-center bg-gradient-to-br from-[#1F1235] to-[#0A0810] shadow-[0_0_30px_rgba(139,61,255,0.35)] shrink-0 group/photo">
                         <img
-                          src="/manish-chaudhary.webp"
-                          alt="Manish Chaudhary - Director & SEO Specialist"
+                          src="/seo-team-placeholder.webp"
+                          alt="SEO Strategy Team - Director & SEO Specialist"
                           className="w-full h-full object-cover object-top"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
-                            const fallback = e.currentTarget.parentElement?.querySelector('.fallback-monogram-mc');
+                            const fallback = e.currentTarget.parentElement?.querySelector('.fallback-monogram-seo');
                             if (fallback) fallback.classList.remove('hidden');
                           }}
                         />
-                        <div className="fallback-monogram-mc hidden absolute inset-0 flex items-center justify-center text-white font-['Space_Grotesk'] text-2xl font-black bg-gradient-to-br from-[#1F1235] to-[#0A0810]">
-                          MC
+                        <div className="fallback-monogram-seo hidden absolute inset-0 flex items-center justify-center text-white font-['Space_Grotesk'] text-2xl font-black bg-gradient-to-br from-[#1F1235] to-[#0A0810]">
+                          SEO
                         </div>
                         <div className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-[#8B3DFF]/40 text-[8px] font-mono text-[#D7BFFF] font-bold">
                           Director
@@ -519,7 +519,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-white group-hover:text-[#D7BFFF] transition-colors">
-                            Manish Chaudhary
+                            SEO Strategy Team
                           </h3>
                         </div>
                         <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#8B3DFF]/20 border border-[#8B3DFF]/40 text-[#D7BFFF] text-[11px] font-mono font-semibold mb-1.5">
@@ -539,7 +539,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#C5C2CE] leading-relaxed mb-6">
-                    &ldquo;Real SEO isn&apos;t just keyword stuffing or cheap backlinks. It&apos;s an architectural engineering discipline of semantic topic clusters, flawless crawlability, Core Web Vitals perfection, and unshakeable first-page search authority.&rdquo;
+                    We focus on practical technical SEO, helpful content, relevant authority-building and clear progress reporting. We do not promise fixed rankings or guaranteed search results.
                   </p>
 
                   {/* Operational Core Pillars */}
@@ -548,14 +548,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                     <div>
                       <div className="text-[10px] font-mono uppercase tracking-wider text-[#8B3DFF] font-bold mb-1.5 flex items-center justify-between">
                         <span>Search Engine Architecture &amp; Core Vitals</span>
-                        <span className="text-emerald-400 text-[9px] font-normal">Page 1 Domination</span>
+                        <span className="text-emerald-400 text-[9px] font-normal">Search visibility improvement</span>
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {[
-                          'Enterprise Technical SEO & Crawl Budget Optimization',
+                          'Technical SEO and crawlability checks',
                           'Semantic Topic Clustering & Entity Graph Engineering',
-                          'Core Web Vitals & Sub-Second LCP Performance Audits',
-                          'AI Search Engine Readiness (Google SGE, Perplexity, Gemini)'
+                          'Core Web Vitals and mobile performance reviews',
+                          'Content structure for search and AI discovery'
                         ].map((spec, sIdx) => (
                           <span
                             key={sIdx}
@@ -576,10 +576,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {[
-                          'High-Domain Authority Digital PR & Editorial Links',
-                          'Hyper-Local Jaipur Map Pack (#1 Google Maps Pack)',
-                          'Google Algorithm Core Update Immune Architecture',
-                          'Zero-Click Search & Featured Snippet Takeovers'
+                          'Relevant editorial link opportunities',
+                          'Google Business Profile optimisation and local SEO',
+                          'Technical SEO aligned with Google Search Essentials',
+                          'Helpful answers for relevant search questions'
                         ].map((spec, sIdx) => (
                           <span
                             key={sIdx}
@@ -599,10 +599,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {[
-                          '100% White-Hat Google Search Essentials Compliant',
-                          'Transparent Weekly Live Keyword Ranking Dashboards',
-                          'Direct Director-Level Technical Code & Schema Reviews',
-                          'Fast SLA Turnaround on Algorithm Updates'
+                          'SEO work guided by Google Search Essentials',
+                          'Clear weekly progress and ranking updates',
+                          'Technical checks and clear progress updates',
+                          'Practical reviews when search changes affect the site'
                         ].map((spec, sIdx) => (
                           <span
                             key={sIdx}
@@ -629,7 +629,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                   </div>
 
                   <button
-                    onClick={() => onOpenInquiry('SEO Architecture Consultation - Manish Chaudhary')}
+                    onClick={() => onOpenInquiry('SEO consultation')}
                     className="px-4 py-2 rounded-full bg-[#8B3DFF] hover:bg-[#9B4DFF] text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-[0_0_15px_rgba(139,61,255,0.3)] hover:scale-105 cursor-pointer"
                   >
                     <span>Consult SEO Desk</span>
@@ -645,13 +645,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
             <div className="text-center max-w-3xl mx-auto mb-12">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8B3DFF]/30 bg-[#8B3DFF]/10 text-[#D7BFFF] text-[10px] uppercase tracking-[0.2em] font-bold mb-3 shadow-[0_0_15px_rgba(139,61,255,0.2)]">
                 <Sparkles className="w-3.5 h-3.5 text-[#B15CFF]" />
-                <span>Next-Gen Trajectory (2025 &ndash; 2026)</span>
+                <span>Our Working Process</span>
               </div>
               <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white mb-3">
-                Born for the Modern AI Search Revolution
+                A practical process built around your business
               </h2>
               <p className="text-xs sm:text-sm text-[#A7A3B1] leading-relaxed">
-                While legacy agencies struggle to unlearn decade-old vanity tactics, SEO IN JAIPUR was engineered from day one for Google&apos;s latest Core Updates, Generative AI answer engines, and rapid cross-border revenue scaling.
+                We begin with your services, customers and target locations, then prioritise the technical, content and measurement work that can make the biggest difference.
               </p>
             </div>
 
@@ -726,28 +726,28 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenInquiry, onNavigate 
                 <tbody className="divide-y divide-white/5 text-[#A7A3B1]">
                   <tr>
                     <td className="py-3.5 px-4 font-semibold text-white">Target Focus</td>
-                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">High-Intent Revenue & Pipeline</td>
-                    <td className="py-3.5 px-4 text-[#85818E]">Generic Vanity Impressions</td>
+                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Relevant traffic and genuine enquiries</td>
+                    <td className="py-3.5 px-4 text-[#85818E]">Unclear reporting</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-4 font-semibold text-white">Account Management</td>
-                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Direct Senior Architect Access</td>
-                    <td className="py-3.5 px-4 text-[#85818E]">Junior Account Coordinators</td>
+                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Direct communication about the work</td>
+                    <td className="py-3.5 px-4 text-[#85818E]">Unclear communication</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-4 font-semibold text-white">AI Search (GEO)</td>
-                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Active ChatGPT / Perplexity / SGE Engine</td>
-                    <td className="py-3.5 px-4 text-[#85818E]">Old-school 2018 keyword stuffing</td>
+                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Content structured for search and AI discovery</td>
+                    <td className="py-3.5 px-4 text-[#85818E]">Generic keyword-focused content</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-4 font-semibold text-white">Reporting Transparency</td>
-                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Real-Time Telemetry & GA4 Sync</td>
-                    <td className="py-3.5 px-4 text-[#85818E]">Opaque monthly static PDF decks</td>
+                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Measurement using available analytics data</td>
+                    <td className="py-3.5 px-4 text-[#85818E]">Limited reporting detail</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-4 font-semibold text-white">Client Retention</td>
-                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">96.8% Annual Contract Renewal</td>
-                    <td className="py-3.5 px-4 text-[#85818E]">40–50% typical industry churn</td>
+                    <td className="py-3.5 px-4 text-[#D7BFFF] font-bold bg-[#140E23]/40">Transparent progress reporting</td>
+                    <td className="py-3.5 px-4 text-[#85818E]">Unverified retention claims</td>
                   </tr>
                 </tbody>
               </table>
