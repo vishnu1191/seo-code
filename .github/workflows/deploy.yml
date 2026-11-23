@@ -37,26 +37,41 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Create static route pages for SEO
+      - name: Create static route pages with unique SEO metadata
         run: |
           node --input-type=module <<'NODE'
-          import { readFile, mkdir, copyFile } from 'node:fs/promises';
+          import { readFile, mkdir, writeFile } from 'node:fs/promises';
 
           const source = await readFile('src/data/blogPosts.ts', 'utf8');
-          const slugs = [...source.matchAll(/slug:\s*'([^']+)'/g)].map((match) => match[1]);
-          const routes = [
-            'about', 'services', 'performance', 'work', 'process',
-            'calculator', 'blog',
-            ...slugs.map((slug) => `blog/${slug}`)
-          ];
-
+          const postMeta = new Map([...source.matchAll(/slug:\s*'([^']+)'[\s\S]*?seoTitle:\s*'([^']+)'[\s\S]*?metaDescription:\s*'([^']+)'/g)].map((m) => [m[1], { title: m[2], description: m[3] }]));
+          const pages = {
+            about: ['About SEO in Jaipur | Our Approach', 'Meet SEO in Jaipur and learn how we approach SEO, Local SEO, Google Ads and Meta Ads for local businesses.'],
+            services: ['SEO & Digital Marketing Services in Jaipur', 'Explore SEO, Local SEO, Google Ads, Meta Ads, social media marketing, link building and website design services in Jaipur.'],
+            performance: ['Marketing Measurement & Reporting | SEO in Jaipur', 'See how we measure search visibility, website enquiries, calls, WhatsApp clicks and advertising performance.'],
+            work: ['Portfolio & Case Studies | SEO in Jaipur', 'Review the SEO in Jaipur portfolio. Client names and results are shared only when verified and approved.'],
+            process: ['Our SEO Process in Jaipur | SEO in Jaipur', 'Understand our practical process for website review, keyword planning, SEO improvements and performance reporting.'],
+            calculator: ['Digital Marketing Budget Calculator | SEO in Jaipur', 'Estimate a starting digital marketing budget for SEO, Google Ads and Meta Ads with this planning tool.'],
+            blog: ['SEO & Digital Marketing Blog | SEO in Jaipur', 'Practical guides about SEO, Local SEO, Google Ads, Meta Ads and digital marketing for Jaipur businesses.']
+          };
+          const routes = [...Object.keys(pages), ...[...postMeta.keys()].map((slug) => 'blog/' + slug)];
+          const escapeAttr = (value) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
           for (const route of routes) {
-            const destination = `dist/${route}`;
+            const slug = route.startsWith('blog/') ? route.slice(5) : route;
+            const meta = route.startsWith('blog/') ? postMeta.get(slug) : { title: pages[route][0], description: pages[route][1] };
+            if (!meta) continue;
+            const canonical = 'https://seoinjaipur.in/' + route + '/';
+            let html = await readFile('dist/index.html', 'utf8');
+            html = html.replace(/<title>[^<]*<\\/title>/i, '<title>' + escapeAttr(meta.title) + '</title>');
+            html = html.replace(/<meta name="description" content="[^"]*"\\s*\\/>/i, '<meta name="description" content="' + escapeAttr(meta.description) + '" />');
+            html = html.replace(/<meta property="og:title" content="[^"]*"\\s*\\/>/i, '<meta property="og:title" content="' + escapeAttr(meta.title) + '" />');
+            html = html.replace(/<meta property="og:description" content="[^"]*"\\s*\\/>/i, '<meta property="og:description" content="' + escapeAttr(meta.description) + '" />');
+            html = html.replace(/<link rel="canonical" href="[^"]*"\\s*\\/>/i, '<link rel="canonical" href="' + canonical + '">');
+            html = html.replace(/<meta property="og:url" content="[^"]*"\\s*\\/>/i, '<meta property="og:url" content="' + canonical + '" />');
+            const destination = 'dist/' + route;
             await mkdir(destination, { recursive: true });
-            await copyFile('dist/index.html', `${destination}/index.html`);
+            await writeFile(destination + '/index.html', html);
           }
-
-          console.log(`Generated ${routes.length} static routes, including ${slugs.length} blog posts.`);
+          console.log('Generated ' + routes.length + ' static routes with route-specific titles, descriptions and self-referencing canonicals.');
           NODE
 
       - name: Setup Pages
